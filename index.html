@@ -2204,6 +2204,450 @@
     }
   }
 
+
+  /* ===== TEAM COLLABORATION NETWORK SECTION ===== */
+
+  .team-collaboration-section {
+    position: relative;
+    padding: 6rem 0 8rem;
+    overflow: hidden;
+    min-height: 900px;
+  }
+
+  /* CREAM BACKGROUND - Matches hero section */
+  .team-gradient-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--cream);
+    z-index: 0;
+  }
+
+  .team-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  .team-title {
+    font-size: clamp(2.5rem, 5.5vw, 4rem);
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0 0 2rem 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .team-cta-btn {
+    padding: 0.875rem 2rem;
+    background: var(--ink);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 24px rgba(43, 43, 43, 0.25),
+                0 0 15px rgba(154, 205, 50, 0.15);
+  }
+
+  .team-cta-btn:hover {
+    background: var(--brand);
+    color: var(--ink);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(154, 205, 50, 0.4),
+                0 0 25px rgba(154, 205, 50, 0.3),
+                0 0 50px rgba(154, 205, 50, 0.15);
+  }
+
+  .team-network-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    margin: 0 auto;
+    z-index: 5;
+  }
+
+  /* Stadium Tracks - Rounded Rectangles */
+  .stadium-tracks {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .stadium-track {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(154, 205, 50, 0.4);
+    border-radius: 999px;
+    pointer-events: none;
+    filter: drop-shadow(0 0 20px rgba(154, 205, 50, 0.5)) drop-shadow(0 0 40px rgba(154, 205, 50, 0.25));
+  }
+
+  .track-outer {
+    width: 100%;
+    height: 380px;
+    border-color: rgba(154, 205, 50, 0.35);
+  }
+
+  .track-middle {
+    width: 75%;
+    height: 280px;
+    border-color: rgba(154, 205, 50, 0.45);
+  }
+
+  .track-inner {
+    width: 50%;
+    height: 180px;
+    border-color: rgba(154, 205, 50, 0.55);
+  }
+
+  /* Profile Pictures */
+  .team-profiles {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+  }
+
+  .team-profile {
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .profile-large {
+    width: 110px;
+    height: 110px;
+  }
+
+  .profile-medium {
+    width: 75px;
+    height: 75px;
+  }
+
+  .profile-small {
+    width: 60px;
+    height: 60px;
+  }
+
+  .profile-pos-1 {
+    top: 12%;
+    left: 24%;
+  }
+
+  .profile-pos-2 {
+    top: 14%;
+    right: 18%;
+  }
+
+  .profile-pos-3 {
+    top: 28%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .profile-pos-4 {
+    bottom: 5%;
+    left: 22%;
+  }
+
+  .profile-pos-5 {
+    bottom: 22%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .profile-pos-6 {
+    bottom: 5%;
+    right: 18%;
+  }
+
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid var(--brand);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25),
+                0 0 20px rgba(154, 205, 50, 0.3),
+                0 0 40px rgba(154, 205, 50, 0.15);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .team-profile:hover .profile-image {
+    transform: scale(1.15);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35),
+                0 0 30px rgba(154, 205, 50, 0.5),
+                0 0 60px rgba(154, 205, 50, 0.3);
+  }
+
+  /* Center CTA Button */
+  .team-center-cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+  }
+
+  .team-center-btn {
+    padding: 1rem 2rem;
+    background: var(--ink);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 12px 40px rgba(43, 43, 43, 0.4),
+                0 0 20px rgba(154, 205, 50, 0.2);
+    white-space: nowrap;
+  }
+
+  .team-center-btn:hover {
+    background: var(--brand);
+    color: var(--ink);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 50px rgba(154, 205, 50, 0.5),
+                0 0 30px rgba(154, 205, 50, 0.4),
+                0 0 60px rgba(154, 205, 50, 0.25);
+  }
+
+  .btn-cursor-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Feature Icons */
+  .team-icons {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+  }
+
+  .team-icon {
+    position: absolute;
+  }
+
+  .icon-lock {
+    top: 50%;
+    left: 4%;
+    transform: translateY(-50%);
+  }
+
+  .icon-cursor-right {
+    top: 50%;
+    right: 4%;
+    transform: translateY(-50%);
+  }
+
+  .icon-cursor-pointer {
+    top: 62%;
+    left: 58%;
+    z-index: 7;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 20px rgba(154, 205, 50, 0.4)) drop-shadow(0 0 40px rgba(154, 205, 50, 0.2));
+  }
+
+  .icon-thumbs {
+    bottom: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .icon-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--brand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 8px 24px rgba(154, 205, 50, 0.3),
+                0 0 20px rgba(154, 205, 50, 0.4),
+                0 0 40px rgba(154, 205, 50, 0.2),
+                inset 0 0 15px rgba(154, 205, 50, 0.1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    border: 3px solid var(--brand);
+  }
+
+  .team-icon:hover .icon-circle {
+    background: var(--brand-deep);
+    transform: scale(1.15) rotate(8deg);
+    box-shadow: 0 12px 32px rgba(154, 205, 50, 0.6),
+                0 0 30px rgba(154, 205, 50, 0.5),
+                0 0 60px rgba(154, 205, 50, 0.3),
+                inset 0 0 20px rgba(154, 205, 50, 0.15);
+    border-color: var(--brand-deep);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .team-network-wrapper {
+      max-width: 700px;
+      height: 450px;
+    }
+
+    .profile-large {
+      width: 90px;
+      height: 90px;
+    }
+
+    .profile-medium {
+      width: 65px;
+      height: 65px;
+    }
+
+    .profile-small {
+      width: 55px;
+      height: 55px;
+    }
+
+    .icon-circle {
+      width: 48px;
+      height: 48px;
+    }
+
+    .track-outer { height: 340px; }
+    .track-middle { height: 250px; }
+    .track-inner { height: 160px; }
+  }
+
+  @media (max-width: 768px) {
+    .team-collaboration-section {
+      padding: 4rem 0 5rem;
+      min-height: 700px;
+    }
+
+    .team-network-wrapper {
+      max-width: 500px;
+      height: 380px;
+    }
+
+    .profile-large {
+      width: 70px;
+      height: 70px;
+    }
+
+    .profile-medium {
+      width: 50px;
+      height: 50px;
+    }
+
+    .profile-small {
+      width: 42px;
+      height: 42px;
+    }
+
+    .icon-circle {
+      width: 42px;
+      height: 42px;
+      border-width: 2px;
+    }
+
+    .icon-circle svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .track-outer { height: 280px; }
+    .track-middle { height: 200px; }
+    .track-inner { height: 130px; }
+
+    .team-center-btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+    }
+
+    .icon-cursor-pointer svg {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .team-collaboration-section {
+      padding: 3rem 0 4rem;
+      min-height: 600px;
+    }
+
+    .team-title {
+      font-size: clamp(1.75rem, 5vw, 2.25rem);
+    }
+
+    .team-network-wrapper {
+      max-width: 360px;
+      height: 320px;
+    }
+
+    .profile-large {
+      width: 55px;
+      height: 55px;
+    }
+
+    .profile-medium {
+      width: 40px;
+      height: 40px;
+    }
+
+    .profile-small {
+      width: 35px;
+      height: 35px;
+    }
+
+    .profile-image {
+      border-width: 3px;
+    }
+
+    .icon-circle {
+      width: 36px;
+      height: 36px;
+    }
+
+    .icon-circle svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .track-outer { height: 230px; }
+    .track-middle { height: 165px; }
+    .track-inner { height: 105px; }
+
+    .team-center-btn {
+      padding: 0.625rem 1.25rem;
+      font-size: 0.75rem;
+      gap: 0.5rem;
+    }
+
+    .icon-cursor-pointer {
+      top: 60%;
+      left: 60%;
+    }
+
+    .icon-cursor-pointer svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+
   /* ===== TESTIMONIALS 3D SLIDER ===== */
   
   .testimonial-3d-slider {
@@ -3614,22 +4058,26 @@
     }
   }
 
-  /* Reveal on Scroll */
+  /* Reveal on Scroll - OLD SYSTEM (superseded by new unified system below) */
   .reveal {
-    animation: none;
+    opacity: 0;
+    transform: translateY(28px);
   }
 
   .reveal.active {
     animation: titleReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
   }
 
-  .reveal-stagger {
-    opacity: 0;
-    animation: none;
+  .reveal.in {
+    animation: fade-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards !important;
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .reveal-stagger.active {
+  .reveal-stagger {
+    opacity: 0;
     animation: cardReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: calc(var(--stagger, 0) * 0.15s);
   }
 
   .reveal-form {
@@ -3720,7 +4168,8 @@
   .reveal {
     opacity: 0;
     transform: translateY(28px);
-    transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+    animation: fade-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    transition: none;
   }
 
   .reveal.in {
@@ -3728,11 +4177,11 @@
     transform: none;
   }
 
-  .reveal.delay-1 { transition-delay: 0.08s; }
-  .reveal.delay-2 { transition-delay: 0.16s; }
-  .reveal.delay-3 { transition-delay: 0.24s; }
-  .reveal.delay-4 { transition-delay: 0.32s; }
-  .reveal.delay-5 { transition-delay: 0.4s; }
+  .reveal.delay-1 { animation-delay: 0.08s; }
+  .reveal.delay-2 { animation-delay: 0.16s; }
+  .reveal.delay-3 { animation-delay: 0.24s; }
+  .reveal.delay-4 { animation-delay: 0.32s; }
+  .reveal.delay-5 { animation-delay: 0.4s; }
 
   /* ===== RESPONSIVE ===== */
   @media (min-width: 640px) {
@@ -4348,6 +4797,123 @@
   </div>
 </section>
 
+
+<!-- ============== TEAM COLLABORATION NETWORK ============== -->
+<section id="team" class="team-collaboration-section">
+  <div class="team-gradient-bg"></div>
+  
+  <div class="container relative z-10">
+    <!-- Header - Two lines -->
+    <div class="team-header reveal">
+      <h2 class="team-title">
+        Team collaboration for<br>
+        new startups that scale
+      </h2>
+      <button class="team-cta-btn">Book a demo</button>
+    </div>
+
+    <!-- Network Visualization with Stadium Tracks -->
+    <div class="team-network-wrapper">
+      
+      <!-- Stadium Track Shapes -->
+      <div class="stadium-tracks">
+        <div class="stadium-track track-outer"></div>
+        <div class="stadium-track track-middle"></div>
+        <div class="stadium-track track-inner"></div>
+      </div>
+
+      <!-- Profile Pictures - Real photos -->
+      <div class="team-profiles">
+        <div class="team-profile profile-large profile-pos-1 reveal-stagger" style="--stagger: 0;">
+          <div class="profile-image">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=faces" alt="Team member" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="team-profile profile-large profile-pos-2 reveal-stagger" style="--stagger: 1;">
+          <div class="profile-image">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=faces" alt="Team member" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="team-profile profile-medium profile-pos-3 reveal-stagger" style="--stagger: 2;">
+          <div class="profile-image">
+            <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=200&h=200&fit=crop&crop=faces" alt="Team member" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="team-profile profile-large profile-pos-4 reveal-stagger" style="--stagger: 3;">
+          <div class="profile-image">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces" alt="Team member" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="team-profile profile-small profile-pos-5 reveal-stagger" style="--stagger: 4;">
+          <div class="profile-image">
+            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&h=200&fit=crop&crop=faces" alt="Team member" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="team-profile profile-large profile-pos-6 reveal-stagger" style="--stagger: 5;">
+          <div class="profile-image">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces" alt="Team member" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Icons -->
+      <div class="team-icons">
+        <!-- Lock Icon - Left -->
+        <div class="team-icon icon-lock reveal-stagger" style="--stagger: 0;">
+          <div class="icon-circle">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+              <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Cursor Icon - Right -->
+        <div class="team-icon icon-cursor-right reveal-stagger" style="--stagger: 1;">
+          <div class="icon-circle">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+              <path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86 2.86 6.94c.05.13.21.19.34.13l3.6-1.5c.13-.05.19-.21.13-.34l-2.86-6.94 6.65-1.45c.43-.09.45-.69.04-.81L5.95 2.81c-.36-.11-.45.15-.45.4z"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Cursor Pointer - Center bottom -->
+        <div class="team-icon icon-cursor-pointer reveal-stagger" style="--stagger: 2;">
+          <svg width="50" height="50" viewBox="0 0 24 24" fill="#9ACD32">
+            <path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86 2.86 6.94c.05.13.21.19.34.13l3.6-1.5c.13-.05.19-.21.13-.34l-2.86-6.94 6.65-1.45c.43-.09.45-.69.04-.81L5.95 2.81c-.36-.11-.45.15-.45.4z"/>
+          </svg>
+        </div>
+
+        <!-- Thumbs Up Icon - Bottom -->
+        <div class="team-icon icon-thumbs reveal-stagger" style="--stagger: 3;">
+          <div class="icon-circle">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+              <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.82-.44-1.06L9.83 1 3.59 7.24C3.21 7.62 3 8.11 3 8.7v10c0 1.1.9 2 2 2h12c.83 0 1.54-.5 1.84-1.22l5.15-10.58c.08-.16.13-.34.13-.52z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center CTA Button -->
+      <div class="team-center-cta reveal-form">
+        <button class="team-center-btn">
+          <span class="btn-cursor-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+              <path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86 2.86 6.94c.05.13.21.19.34.13l3.6-1.5c.13-.05.19-.21.13-.34l-2.86-6.94 6.65-1.45c.43-.09.45-.69.04-.81L5.95 2.81c-.36-.11-.45.15-.45.4z"/>
+            </svg>
+          </span>
+          <span>Get started for free</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ============== TESTIMONIALS ============== -->
 <section id="reviews" class="section overflow-hidden">
   <div class="container">
@@ -4953,7 +5519,7 @@
     entries.forEach(e => {
       if (e.isIntersecting && e.target && e.target.classList) {
         e.target.classList.add('in');
-        e.target.classList.add('active'); // For Why cards compatibility
+        e.target.classList.add('active'); // For compatibility with both old and new CSS
         io.unobserve(e.target);
       }
     });
