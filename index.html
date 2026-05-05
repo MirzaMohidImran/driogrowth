@@ -4,12 +4,22 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="DrioGrowth — Performance marketing agency scaling brands with Meta Ads, Google Ads, TikTok Ads & high-converting creatives." />
+<link rel="canonical" href="https://driogrowth.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="DrioGrowth — Paid Ads That Print ROI" />
+<meta property="og:description" content="Performance marketing agency scaling brands with Meta Ads, Google Ads, TikTok Ads and high-converting creatives." />
+<meta property="og:url" content="https://driogrowth.com/" />
+<meta property="og:image" content="https://driogrowth.com/og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="DrioGrowth — Paid Ads That Print ROI" />
+<meta name="twitter:description" content="Scale your brand with high-impact paid ad campaigns." />
+<meta name="twitter:image" content="https://driogrowth.com/og-image.jpg" />
 <title>DrioGrowth — Paid Ads That Print ROI</title>
 
 <!-- Google Fonts - Urbanist -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
 <style>
   :root {
@@ -4299,7 +4309,239 @@
     background-image: radial-gradient(circle, rgba(43,43,43,0.12) 1px, transparent 1px);
     background-size: 18px 18px;
   }
+
+  /* ===== QA FIXES / SAFE PRODUCTION OVERRIDES ===== */
+  section[id] { scroll-margin-top: 110px; }
+
+  .sr-only-section {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .logo-text {
+    font-size: 1.375rem;
+    letter-spacing: -0.01em;
+  }
+
+  .mobile-menu-toggle {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(43,43,43,0.15);
+    border-radius: 999px;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .mobile-menu-toggle:hover { background: var(--sage); transform: translateY(-1px); }
+
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 88px;
+    left: 1rem;
+    right: 1rem;
+    z-index: 49;
+    background: rgba(250,247,240,0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(43,43,43,0.1);
+    border-radius: 1.25rem;
+    padding: 1rem;
+    box-shadow: 0 18px 48px rgba(43,43,43,0.14);
+  }
+
+  .mobile-nav.open { display: grid; gap: 0.75rem; }
+
+  .mobile-nav a {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.8rem 1rem;
+    border-radius: 0.85rem;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .mobile-nav a:hover,
+  .mobile-nav a:focus-visible {
+    background: var(--sage);
+    outline: none;
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-menu-toggle,
+    .mobile-nav { display: none !important; }
+  }
+
+  @media (max-width: 420px) {
+    .header-inner { gap: 0.75rem; }
+    .header .btn-primary { padding: 0.75rem 1rem; font-size: 0.875rem; }
+    .logo-text { font-size: 1.15rem; }
+  }
+
+  .service-card-glass .card-number {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    display: block;
+    position: absolute;
+    top: 2rem;
+    right: 2.5rem;
+    opacity: 1;
+    transform: none;
+    line-height: 1.2;
+  }
+
+  .service-card-glass .card-title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.01em;
+    text-align: left;
+  }
+
+  .discover-card .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.375rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .video-slider-track > .video-card {
+    background: transparent;
+    border: 0;
+    display: block;
+    flex-direction: initial;
+  }
+
+  .testimonial-card-3d.video-card {
+    background: linear-gradient(135deg, rgba(245, 247, 235, 0.98) 0%, rgba(250, 247, 240, 0.95) 100%);
+    border: 1px solid rgba(154, 205, 50, 0.15);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card-glass:focus-visible,
+  .discover-card:focus-visible,
+  .why-card-3d:focus-visible,
+  .play-button-overlay:focus-visible,
+  .team-center-btn:focus-visible,
+  .team-cta-btn:focus-visible,
+  .carousel-nav:focus-visible,
+  .slider-nav-btn:focus-visible,
+  .btn:focus-visible,
+  .btn-dashed:focus-visible,
+  .footer-cta-btn:focus-visible,
+  .footer-social-link:focus-visible,
+  .back-to-top-link:focus-visible {
+    outline: 3px solid var(--brand);
+    outline-offset: 4px;
+  }
+
+  .why-card-3d.is-open {
+    width: 350px;
+    transform: translateY(-8px);
+  }
+
+  .why-card-3d.is-open .card-inner-3d {
+    border-color: rgba(154, 205, 50, 0.6);
+    background: linear-gradient(135deg, rgba(250, 247, 240, 0.12) 0%, rgba(250, 247, 240, 0.08) 100%);
+    box-shadow: 0 32px 64px rgba(0, 0, 0, 0.4), 0 0 60px rgba(154, 205, 50, 0.25), inset 0 1px 0 rgba(255,255,255,0.1);
+    justify-content: flex-start;
+    padding-top: 3rem;
+  }
+
+  .why-card-3d.is-open .card-number,
+  .why-card-3d.is-open .card-title-3d,
+  .why-card-3d.is-open .card-desc-3d,
+  .why-card-3d.is-open .card-badge {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    max-height: 300px;
+  }
+
+  .why-card-3d.is-open .card-icon {
+    background: rgba(154, 205, 50, 0.25);
+    border-color: rgba(154, 205, 50, 0.7);
+    transform: scale(1.15) rotate(-5deg);
+    box-shadow: 0 16px 48px rgba(154, 205, 50, 0.5);
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .why-card-3d.is-open { width: 100%; height: 380px; }
+    .why-card-3d.is-open .card-inner-3d {
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 2rem;
+    }
+    .why-card-3d.is-open .card-icon {
+      margin-right: 0;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  @supports not ((backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px))) {
+    .header,
+    .mobile-nav,
+    .services-badge,
+    .service-card-glass,
+    .tag-glass,
+    .tag-glass-light,
+    .slider-nav-btn,
+    .card-rating,
+    .card-type,
+    .video-badge {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+    .header { background: rgba(250, 247, 240, 0.94); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "DrioGrowth",
+  "url": "https://driogrowth.com/",
+  "description": "Performance marketing agency specializing in Meta Ads, Google Ads, TikTok Ads, and creative strategy.",
+  "email": "hello@driogrowth.com",
+  "areaServed": "Worldwide",
+  "serviceType": ["Meta Ads", "Google Ads", "TikTok Ads", "Creative Strategy"]
+}
+</script>
+
 </head>
 
 <body>
@@ -4311,10 +4553,10 @@
   <div class="header-inner">
     <a href="#home" class="logo">
       <span class="logo-icon"></span>
-      <span class="h-display" style="font-size: 1.375rem; letter-spacing: -0.01em;">DrioGrowth</span>
+      <span class="h-display logo-text">DrioGrowth</span>
     </a>
 
-    <nav class="nav">
+    <nav class="nav" aria-label="Primary navigation">
       <a href="#home" class="nav-link">Home</a>
       <a href="#services" class="nav-link">Services</a>
       <a href="#case-studies" class="nav-link">Case Studies</a>
@@ -4328,9 +4570,19 @@
         Start a Project
         <span class="arrow">↗</span>
       </a>
+      <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">☰</button>
     </div>
   </div>
 </header>
+
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+  <a href="#home">Home</a>
+  <a href="#services">Services</a>
+  <a href="#case-studies">Case Studies</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#why-us">Why Us</a>
+  <a href="#contact">Contact</a>
+</nav>
 
 <!-- ============== HERO WITH VIDEO SLIDER ============== -->
 <section id="home" class="hero-slider-section">
@@ -4367,7 +4619,7 @@
 
     <!-- Hand-drawn Left Annotation -->
     <div class="annotation-left">
-      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" style="margin-bottom: 0.25rem;">
+      <svg aria-hidden="true" focusable="false" width="50" height="50" viewBox="0 0 50 50" fill="none" style="margin-bottom: 0.25rem;">
         <path d="M10 10 Q 25 25, 40 40" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
         <path d="M35 38 L 42 42 L 38 35" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -4376,7 +4628,7 @@
     <!-- Hand-drawn Right Annotation -->
     <div class="annotation-right">
       <span style="display: block; margin-bottom: 0.25rem;">Elevate<br/>your brand</span>
-      <svg width="60" height="80" viewBox="0 0 60 80" fill="none">
+      <svg aria-hidden="true" focusable="false" width="60" height="80" viewBox="0 0 60 80" fill="none">
         <path d="M30 5 Q 50 30, 30 55 Q 15 65, 25 75" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
         <path d="M20 70 L 25 78 L 32 73" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -4469,7 +4721,7 @@
     <!-- Bottom CTA with dashed border -->
     <div class="hero-bottom-cta">
       <span class="cta-note">
-        <svg width="50" height="40" viewBox="0 0 50 40" fill="none" style="vertical-align: middle; margin-right: 0.25rem;">
+        <svg aria-hidden="true" focusable="false" width="50" height="40" viewBox="0 0 50 40" fill="none" style="vertical-align: middle; margin-right: 0.25rem;">
           <path d="M5 20 Q 25 5, 45 25" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
           <path d="M40 20 L 47 26 L 42 32" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -4582,7 +4834,7 @@
     <div class="what-we-do-right">
       
       <!-- Card 01 - Meta Ads (Default Expanded) -->
-      <div class="service-card-glass service-card-dark reveal delay-1 card-expanded" data-service="01">
+      <div class="service-card-glass service-card-dark reveal delay-1 card-expanded" data-service="01" role="button" tabindex="0" aria-expanded="true">
         <div class="card-number">(01)</div>
         <h3 class="card-title">Meta Ads</h3>
         <div class="card-content-wrapper">
@@ -4600,7 +4852,7 @@
       </div>
 
       <!-- Card 02 - Google Ads (Collapsed) -->
-      <div class="service-card-glass service-card-light reveal delay-2" data-service="02">
+      <div class="service-card-glass service-card-light reveal delay-2" data-service="02" role="button" tabindex="0" aria-expanded="false">
         <div class="card-number">(02)</div>
         <h3 class="card-title">Google Ads</h3>
         <div class="card-content-wrapper">
@@ -4619,7 +4871,7 @@
       </div>
 
       <!-- Card 03 - TikTok Ads (Collapsed) -->
-      <div class="service-card-glass service-card-light reveal delay-3" data-service="03">
+      <div class="service-card-glass service-card-light reveal delay-3" data-service="03" role="button" tabindex="0" aria-expanded="false">
         <div class="card-number">(03)</div>
         <h3 class="card-title">TikTok Ads</h3>
         <div class="card-content-wrapper">
@@ -4637,7 +4889,7 @@
       </div>
 
       <!-- Card 04 - Creative Strategy (Collapsed) -->
-      <div class="service-card-glass service-card-light reveal delay-4" data-service="04">
+      <div class="service-card-glass service-card-light reveal delay-4" data-service="04" role="button" tabindex="0" aria-expanded="false">
         <div class="card-number">(04)</div>
         <h3 class="card-title">Creative Strategy</h3>
         <div class="card-content-wrapper">
@@ -4726,10 +4978,10 @@
       
       <!-- Tab Navigation -->
       <div class="discover-tabs reveal delay-1">
-        <button class="discover-tab active" data-tab="popular">Popular</button>
-        <button class="discover-tab" data-tab="latest">Latest</button>
-        <button class="discover-tab" data-tab="top-rated">Top Rated</button>
-        <button class="discover-tab" data-tab="recommended">Recommended</button>
+        <button type="button" class="discover-tab active" data-tab="popular">Popular</button>
+        <button type="button" class="discover-tab" data-tab="latest">Latest</button>
+        <button type="button" class="discover-tab" data-tab="top-rated">Top Rated</button>
+        <button type="button" class="discover-tab" data-tab="recommended">Recommended</button>
       </div>
     </div>
 
@@ -4738,7 +4990,7 @@
       <div class="discover-carousel" id="discoverCarousel">
         
         <!-- Card 1 - Northwave (Far Left position) -->
-        <div class="discover-card" data-card="0" data-position="far-left">
+        <div class="discover-card" data-card="0" data-position="far-left" role="button" tabindex="0">
           <div class="card-content">
             <div class="card-badge-top">
               <span class="card-rating">⭐ 12×</span>
@@ -4755,7 +5007,7 @@
         </div>
 
         <!-- Card 2 - Solace Wellness (Left position) -->
-        <div class="discover-card" data-card="1" data-position="left">
+        <div class="discover-card" data-card="1" data-position="left" role="button" tabindex="0">
           <div class="card-content">
             <div class="card-badge-top">
               <span class="card-rating">⭐ 4×</span>
@@ -4772,7 +5024,7 @@
         </div>
 
         <!-- Card 3 - Paloma Home (CENTER - Featured) -->
-        <div class="discover-card active" data-card="2" data-position="center">
+        <div class="discover-card active" data-card="2" data-position="center" role="button" tabindex="0">
           <div class="card-content">
             <div class="card-badge-top">
               <span class="card-rating">⭐ 775%</span>
@@ -4789,7 +5041,7 @@
         </div>
 
         <!-- Card 4 - Apex Fitness (Right position) -->
-        <div class="discover-card" data-card="3" data-position="right">
+        <div class="discover-card" data-card="3" data-position="right" role="button" tabindex="0">
           <div class="card-content">
             <div class="card-badge-top">
               <span class="card-rating">⭐ 300%</span>
@@ -4806,7 +5058,7 @@
         </div>
 
         <!-- Card 5 - TechFlow SaaS (Far Right position) -->
-        <div class="discover-card" data-card="4" data-position="far-right">
+        <div class="discover-card" data-card="4" data-position="far-right" role="button" tabindex="0">
           <div class="card-content">
             <div class="card-badge-top">
               <span class="card-rating">⭐ 8×</span>
@@ -4825,12 +5077,12 @@
       </div>
 
       <!-- Navigation Arrows -->
-      <button class="carousel-nav prev" id="carouselPrev" aria-label="Previous">
+      <button type="button" class="carousel-nav prev" id="carouselPrev" aria-label="Previous">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="carousel-nav next" id="carouselNext" aria-label="Next">
+      <button type="button" class="carousel-nav next" id="carouselNext" aria-label="Next">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -4861,7 +5113,7 @@
         Team collaboration for<br>
         new startups that scale
       </h2>
-      <button class="team-cta-btn">Book a demo</button>
+      <button type="button" class="team-cta-btn">Book a demo</button>
     </div>
 
     <!-- Network Visualization with Stadium Tracks -->
@@ -4878,37 +5130,37 @@
       <div class="team-profiles">
         <div class="team-profile profile-large profile-pos-1 reveal-stagger" style="--stagger: 0;">
           <div class="profile-image">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=faces" alt="Team member" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=faces" alt="Portrait of a DrioGrowth media buyer" width="200" height="200" loading="lazy" />
           </div>
         </div>
 
         <div class="team-profile profile-large profile-pos-2 reveal-stagger" style="--stagger: 1;">
           <div class="profile-image">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=faces" alt="Team member" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=faces" alt="Portrait of a DrioGrowth creative strategist" width="200" height="200" loading="lazy" />
           </div>
         </div>
 
         <div class="team-profile profile-medium profile-pos-3 reveal-stagger" style="--stagger: 2;">
           <div class="profile-image">
-            <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=200&h=200&fit=crop&crop=faces" alt="Team member" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=200&h=200&fit=crop&crop=faces" alt="Portrait of a DrioGrowth growth analyst" width="200" height="200" loading="lazy" />
           </div>
         </div>
 
         <div class="team-profile profile-large profile-pos-4 reveal-stagger" style="--stagger: 3;">
           <div class="profile-image">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces" alt="Team member" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces" alt="Portrait of a DrioGrowth campaign strategist" width="200" height="200" loading="lazy" />
           </div>
         </div>
 
         <div class="team-profile profile-small profile-pos-5 reveal-stagger" style="--stagger: 4;">
           <div class="profile-image">
-            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&h=200&fit=crop&crop=faces" alt="Team member" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&h=200&fit=crop&crop=faces" alt="Portrait of a DrioGrowth performance marketer" width="200" height="200" loading="lazy" />
           </div>
         </div>
 
         <div class="team-profile profile-large profile-pos-6 reveal-stagger" style="--stagger: 5;">
           <div class="profile-image">
-            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces" alt="Team member" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces" alt="Portrait of a DrioGrowth client success specialist" width="200" height="200" loading="lazy" />
           </div>
         </div>
       </div>
@@ -4952,7 +5204,7 @@
 
       <!-- Center CTA Button -->
       <div class="team-center-cta reveal-form">
-        <button class="team-center-btn">
+        <button type="button" class="team-center-btn">
           <span class="btn-cursor-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
               <path d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86 2.86 6.94c.05.13.21.19.34.13l3.6-1.5c.13-.05.19-.21.13-.34l-2.86-6.94 6.65-1.45c.43-.09.45-.69.04-.81L5.95 2.81c-.36-.11-.45.15-.45.4z"/>
@@ -4978,7 +5230,7 @@
 
     <!-- 3D Testimonial Slider -->
     <div class="testimonial-3d-slider">
-      <button class="slider-nav-btn prev-btn" id="prevTestimonial" aria-label="Previous">
+      <button type="button" class="slider-nav-btn prev-btn" id="prevTestimonial" aria-label="Previous">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
       
@@ -5248,7 +5500,7 @@
         </div>
       </div>
 
-      <button class="slider-nav-btn next-btn" id="nextTestimonial" aria-label="Next">
+      <button type="button" class="slider-nav-btn next-btn" id="nextTestimonial" aria-label="Next">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
     </div>
@@ -5428,42 +5680,42 @@
         <form id="leadForm" class="contact-form-3d">
           <!-- Name -->
           <div class="form-group-3d">
-            <input type="text" class="form-input-3d" placeholder="Full Name" required />
-            <label class="form-label-3d">Full Name</label>
+            <input id="fullName" name="full_name" type="text" class="form-input-3d" placeholder="Full Name" autocomplete="name" required />
+            <label for="fullName" class="form-label-3d">Full Name</label>
             <div class="form-input-underline"></div>
           </div>
 
           <!-- Email -->
           <div class="form-group-3d">
-            <input type="email" class="form-input-3d" placeholder="Work Email" required />
-            <label class="form-label-3d">Work Email</label>
+            <input id="workEmail" name="email" type="email" class="form-input-3d" placeholder="Work Email" autocomplete="email" required />
+            <label for="workEmail" class="form-label-3d">Work Email</label>
             <div class="form-input-underline"></div>
           </div>
 
           <!-- Business -->
           <div class="form-group-3d">
-            <input type="text" class="form-input-3d" placeholder="Your Brand" required />
-            <label class="form-label-3d">Brand / Business</label>
+            <input id="brandName" name="brand" type="text" class="form-input-3d" placeholder="Your Brand" autocomplete="organization" required />
+            <label for="brandName" class="form-label-3d">Brand / Business</label>
             <div class="form-input-underline"></div>
           </div>
 
           <!-- Ad Spend -->
           <div class="form-group-3d">
-            <select class="form-input-3d form-select-3d" required>
+            <select id="adSpend" name="monthly_ad_spend" class="form-input-3d form-select-3d" required>
               <option value="">Select your range...</option>
               <option value="under10k">Under $10k / month</option>
               <option value="10k-50k">$10k – $50k / month</option>
               <option value="50k-200k">$50k – $200k / month</option>
               <option value="200k+">$200k+ / month</option>
             </select>
-            <label class="form-label-3d">Monthly Ad Spend</label>
+            <label for="adSpend" class="form-label-3d">Monthly Ad Spend</label>
             <div class="form-input-underline"></div>
           </div>
 
           <!-- Message -->
           <div class="form-group-3d">
-            <textarea class="form-input-3d form-textarea-3d" rows="4" placeholder="Your goals..." required></textarea>
-            <label class="form-label-3d">Tell Us Your Goals</label>
+            <textarea id="goals" name="goals" class="form-input-3d form-textarea-3d" rows="4" placeholder="Your goals..." required></textarea>
+            <label for="goals" class="form-label-3d">Tell Us Your Goals</label>
             <div class="form-input-underline"></div>
           </div>
 
@@ -5500,6 +5752,17 @@
   </div>
 </section>
 
+
+<!-- ============== LEGAL ANCHOR TARGETS ============== -->
+<section id="terms" class="sr-only-section" aria-label="Terms of Service">
+  <h2>Terms of Service</h2>
+  <p>Contact DrioGrowth for full terms of service.</p>
+</section>
+<section id="privacy" class="sr-only-section" aria-label="Privacy Policy">
+  <h2>Privacy Policy</h2>
+  <p>Contact DrioGrowth for full privacy policy details.</p>
+</section>
+
 <!-- ============== FOOTER ============== -->
 <footer class="footer-simple">
   <div class="container">
@@ -5526,12 +5789,12 @@
           <a href="#contact">Contact Us</a>
         </div>
         <div class="footer-social">
-          <a href="#" aria-label="X (Twitter)" class="footer-social-link">
+          <a href="https://x.com/driogrowth" aria-label="X (Twitter)" class="footer-social-link" target="_blank" rel="noopener noreferrer">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
               <path d="M18.244 2H21l-6.54 7.47L22.5 22h-6.797l-5.32-6.954L4.32 22H1.563l7.01-8.01L1.5 2h6.91l4.804 6.36L18.244 2zm-1.193 18.31h1.527L7.07 3.59H5.43l11.62 16.72z"/>
             </svg>
           </a>
-          <a href="#" aria-label="LinkedIn" class="footer-social-link">
+          <a href="https://www.linkedin.com/company/driogrowth" aria-label="LinkedIn" class="footer-social-link" target="_blank" rel="noopener noreferrer">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="3" y="3" width="18" height="18" rx="3"/>
               <path d="M8 10v8M8 7v.5M12 18v-4a2 2 0 014 0v4M12 18v-8" stroke-linecap="round"/>
@@ -5553,813 +5816,527 @@
 </footer>
 
 <script>
-  // Cursor dot
+(() => {
+  'use strict';
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const smoothBehavior = prefersReducedMotion ? 'auto' : 'smooth';
+
+  // Mobile menu
+  const menuToggle = document.querySelector('.mobile-menu-toggle');
+  const mobileNav = document.getElementById('mobileNav');
+  if (menuToggle && mobileNav) {
+    const closeMenu = () => {
+      mobileNav.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+      menuToggle.setAttribute('aria-label', 'Open menu');
+    };
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.textContent = isOpen ? '×' : '☰';
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+  }
+
+  // Custom cursor, throttled for performance
   const dot = document.getElementById('cursor');
   if (dot && window.matchMedia('(pointer: fine)').matches) {
-    document.addEventListener('mousemove', e => {
-      dot.style.left = e.clientX + 'px';
-      dot.style.top = e.clientY + 'px';
-    });
-    document.querySelectorAll('a, button, .service-card, .stat-card').forEach(el => {
+    let cursorX = 0;
+    let cursorY = 0;
+    let cursorTicking = false;
+
+    document.addEventListener('mousemove', (event) => {
+      cursorX = event.clientX;
+      cursorY = event.clientY;
+      if (cursorTicking) return;
+      cursorTicking = true;
+      requestAnimationFrame(() => {
+        dot.style.left = `${cursorX}px`;
+        dot.style.top = `${cursorY}px`;
+        cursorTicking = false;
+      });
+    }, { passive: true });
+
+    document.querySelectorAll('a, button, .service-card, .service-card-glass, .discover-card, .why-card-3d, .stat-card, .play-button-overlay').forEach(el => {
       el.addEventListener('mouseenter', () => dot.classList.add('hover'));
       el.addEventListener('mouseleave', () => dot.classList.remove('hover'));
     });
   }
 
-  // Scroll reveal
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting && e.target && e.target.classList) {
-        e.target.classList.add('in');
-        e.target.classList.add('active'); // For compatibility with both old and new CSS
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-
-  const revealElements = document.querySelectorAll('.reveal');
-  if (revealElements && revealElements.length > 0) {
-    revealElements.forEach(el => {
-      if (el) io.observe(el);
-    });
+  // Header scroll animation
+  const header = document.getElementById('header');
+  if (header) {
+    const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 100);
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
   }
 
-  // Hero reveal
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      const heroReveal = document.querySelector('.hero-reveal');
-      if (heroReveal && heroReveal.classList) {
-        heroReveal.classList.add('in');
-      }
-    }, 100);
-  });
+  // Scroll reveal
+  const revealElements = document.querySelectorAll('.reveal, .reveal-form');
+  if ('IntersectionObserver' in window && revealElements.length) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('in', 'active');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 
-  // Counters
+    revealElements.forEach(el => revealObserver.observe(el));
+  } else {
+    revealElements.forEach(el => el.classList.add('in', 'active'));
+  }
+
+  // Counter animation
   const counters = document.querySelectorAll('.counter');
-  const counterObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && entry.target) {
+  if ('IntersectionObserver' in window && counters.length) {
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
         const el = entry.target;
-        const target = parseFloat(el.dataset.target);
+        const target = Number.parseFloat(el.dataset.target || '0');
         const prefix = el.dataset.prefix || '';
         const suffix = el.dataset.suffix || '';
-        const duration = 1800;
+        const duration = prefersReducedMotion ? 1 : 1800;
         const start = performance.now();
-        function tick(now) {
-          const p = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - p, 3);
-          const value = Math.round(eased * target);
-          el.textContent = prefix + value + suffix;
-          if (p < 1) requestAnimationFrame(tick);
-        }
+
+        const tick = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = `${prefix}${Math.round(eased * target)}${suffix}`;
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+
         requestAnimationFrame(tick);
-        counterObs.unobserve(el);
-      }
-    });
-  }, { threshold: 0.4 });
-  
-  if (counters && counters.length > 0) {
-    counters.forEach(c => {
-      if (c) counterObs.observe(c);
-    });
-  }
-
-  // Service card mouse glow
-  document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-    });
-  });
-
-  // Service Card Accordion - Ultra Luxurious Premium Quality
-  const serviceCards = document.querySelectorAll('.service-card-glass');
-  
-  if (serviceCards && serviceCards.length > 0) {
-    let isAnimating = false;
-    
-    serviceCards.forEach(card => {
-      if (!card) return; // Safety check
-      
-      card.addEventListener('click', function(e) {
-        // Prevent clicks during animation
-        if (isAnimating) return;
-        
-        const isExpanded = this.classList.contains('card-expanded');
-        
-        // If clicking already expanded card, do nothing
-        if (isExpanded) return;
-        
-        // Lock animations
-        isAnimating = true;
-        
-        // Find currently expanded card
-        const currentlyExpanded = document.querySelector('.service-card-glass.card-expanded');
-        
-        // Collapse current smoothly (with null check)
-        if (currentlyExpanded && currentlyExpanded.classList) {
-          currentlyExpanded.classList.remove('card-expanded');
-        }
-        
-        // Slight delay for elegant stagger
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            // Expand clicked card
-            if (this && this.classList) {
-              this.classList.add('card-expanded');
-            }
-            
-            // Unlock after animation completes (1600ms transition + buffer)
-            setTimeout(() => {
-              isAnimating = false;
-            }, 1650);
-          });
-        });
+        observer.unobserve(el);
       });
-      
-      // Add pointer cursor hint
-      if (card.style) {
-        card.style.cursor = 'pointer';
-      }
-    });
+    }, { threshold: 0.4 });
+
+    counters.forEach(counter => counterObserver.observe(counter));
   }
 
-  // Form
-  document.getElementById('leadForm')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const success = document.getElementById('formSuccess');
-    success.classList.remove('hidden');
-    e.target.reset();
-    setTimeout(() => success.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+  // Service card accordion
+  const serviceCards = document.querySelectorAll('.service-card-glass');
+  let serviceAnimating = false;
+
+  const activateServiceCard = (card) => {
+    if (!card || serviceAnimating || card.classList.contains('card-expanded')) return;
+    serviceAnimating = true;
+
+    serviceCards.forEach(item => {
+      const expanded = item === card;
+      item.classList.toggle('card-expanded', expanded);
+      item.setAttribute('aria-expanded', String(expanded));
+    });
+
+    window.setTimeout(() => { serviceAnimating = false; }, prefersReducedMotion ? 50 : 1650);
+  };
+
+  serviceCards.forEach(card => {
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-expanded', String(card.classList.contains('card-expanded')));
+    card.addEventListener('click', () => activateServiceCard(card));
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        activateServiceCard(card);
+      }
+    });
   });
 
-  // 3D Testimonial Slider - Enhanced Smooth Version
-  const slider3D = document.getElementById('testimonialSlider3D');
-  const prevBtn = document.getElementById('prevTestimonial');
-  const nextBtn = document.getElementById('nextTestimonial');
-  const progressBar = document.getElementById('sliderProgress');
-  
-  if (slider3D && prevBtn && nextBtn && progressBar) {
-    let currentIndex = 0;
-    const totalCards = slider3D.children.length;
-    const cardsToShow = 4; // Show 4 cards at a time
-    const maxIndex = totalCards - cardsToShow;
-    let autoSlideInterval;
-    let isAnimating = false;
-    
-    function updateSlider() {
-      if (isAnimating) return;
-      isAnimating = true;
-      
-      // Calculate transform based on card width + gap
-      const cardWidth = slider3D.children[0].offsetWidth;
-      const gap = 32; // 2rem gap
-      const offset = currentIndex * (cardWidth + gap);
-      
-      slider3D.style.transform = `translateX(-${offset}px)`;
-      
-      // Update progress bar with smooth animation
-      const progress = (currentIndex / maxIndex) * 100;
-      progressBar.style.width = `${progress}%`;
-      
-      // Unlock after animation completes (1.4s transition + buffer)
-      setTimeout(() => {
-        isAnimating = false;
-      }, 1450);
-    }
-    
-    function goToSlide(index) {
-      if (isAnimating) return;
-      currentIndex = Math.max(0, Math.min(index, maxIndex));
-      updateSlider();
-    }
-    
-    function nextSlide() {
-      if (isAnimating) return;
-      if (currentIndex < maxIndex) {
-        currentIndex++;
-      } else {
-        currentIndex = 0; // Loop back to start
-      }
-      updateSlider();
-    }
-    
-    function prevSlide() {
-      if (isAnimating) return;
-      if (currentIndex > 0) {
-        currentIndex--;
-      } else {
-        currentIndex = maxIndex; // Loop to end
-      }
-      updateSlider();
-    }
-    
-    // Button event listeners
-    nextBtn.addEventListener('click', () => {
-      nextSlide();
-      resetAutoSlide();
-    });
-    
-    prevBtn.addEventListener('click', () => {
-      prevSlide();
-      resetAutoSlide();
-    });
-    
-    // Auto-slide every 6 seconds
-    function startAutoSlide() {
-      autoSlideInterval = setInterval(() => {
-        nextSlide();
-      }, 6000);
-    }
-    
-    function resetAutoSlide() {
-      clearInterval(autoSlideInterval);
-      startAutoSlide();
-    }
-    
-    // Pause auto-slide on hover
-    slider3D.parentElement.addEventListener('mouseenter', () => {
-      clearInterval(autoSlideInterval);
-    });
-    
-    slider3D.parentElement.addEventListener('mouseleave', () => {
-      startAutoSlide();
-    });
-    
-    // Enhanced touch/swipe support
-    let touchStartX = 0;
-    let touchEndX = 0;
-    let touchStartY = 0;
-    let touchEndY = 0;
-    
-    slider3D.addEventListener('touchstart', (e) => {
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
-    }, { passive: true });
-    
-    slider3D.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].clientX;
-      touchEndY = e.changedTouches[0].clientY;
-      handleSwipe();
-    });
-    
-    function handleSwipe() {
-      const swipeThreshold = 75;
-      const diffX = touchStartX - touchEndX;
-      const diffY = Math.abs(touchStartY - touchEndY);
-      
-      // Only trigger if horizontal swipe is stronger than vertical
-      if (Math.abs(diffX) > swipeThreshold && Math.abs(diffX) > diffY) {
-        if (diffX > 0) {
-          nextSlide();
-        } else {
-          prevSlide();
-        }
-        resetAutoSlide();
-      }
-    }
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') {
-        prevSlide();
-        resetAutoSlide();
-      } else if (e.key === 'ArrowRight') {
-        nextSlide();
-        resetAutoSlide();
-      }
-    });
-    
-    // Update on window resize with debounce
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        updateSlider();
-      }, 200);
-    });
-    
-    // Initialize
-    updateSlider();
-    startAutoSlide();
-  }
-
-  // ===== DISCOVER UNLIMITED CONTENT - FANNED CARDS =====
-  
+  // Discover carousel
   const discoverCarousel = document.getElementById('discoverCarousel');
-  const discoverCards = document.querySelectorAll('.discover-card');
-  const discoverTabs = document.querySelectorAll('.discover-tab');
+  const discoverCards = Array.from(document.querySelectorAll('.discover-card'));
+  const discoverTabs = Array.from(document.querySelectorAll('.discover-tab'));
   const carouselPrev = document.getElementById('carouselPrev');
   const carouselNext = document.getElementById('carouselNext');
 
-  if (discoverCarousel && discoverCards.length > 0) {
-    let currentCenterIndex = 2; // Start with center card (Paloma Home)
-    let isAnimating = false;
-    const totalCards = discoverCards.length;
+  if (discoverCarousel && discoverCards.length) {
+    let centerIndex = Math.min(2, discoverCards.length - 1);
+    let discoverAnimating = false;
+    let autoRotate;
     const positions = ['far-left', 'left', 'center', 'right', 'far-right'];
 
-    // Update card positions based on current center
-    function updatePositions(centerIndex, animate = true) {
-      if (isAnimating && animate) return;
-      
-      if (animate) {
-        isAnimating = true;
-        setTimeout(() => {
-          isAnimating = false;
-        }, 700);
+    const tabData = {
+      popular: [
+        ['Northwave', '2024 • E-commerce • $500K+'],
+        ['Solace Wellness', '2024 • Health • 58% CPA'],
+        ['Paloma Home', '2024 • Lifestyle • $620K Revenue'],
+        ['Apex Fitness', '2024 • Fitness • 300% Leads'],
+        ['TechFlow SaaS', '2024 • B2B SaaS • 8× ROAS']
+      ],
+      latest: [
+        ['Nova Skin', '2026 • Beauty • 4.8× ROAS'],
+        ['Urban Pantry', '2026 • Food • 42% CPA Cut'],
+        ['FitCraft', '2026 • Fitness • 290% Leads'],
+        ['Luxe Nest', '2026 • Home • $310K Revenue'],
+        ['ScaleGrid', '2026 • SaaS • 6.2× Pipeline']
+      ],
+      'top-rated': [
+        ['Paloma Home', 'Top Rated • 775% Growth'],
+        ['TechFlow SaaS', 'Top Rated • 8× ROAS'],
+        ['Northwave', 'Top Rated • $500K+'],
+        ['Apex Fitness', 'Top Rated • 300% Leads'],
+        ['Solace Wellness', 'Top Rated • 58% CPA Cut']
+      ],
+      recommended: [
+        ['Creative Sprint', 'Recommended • UGC Testing'],
+        ['Search Scale', 'Recommended • Google Ads'],
+        ['Meta Growth', 'Recommended • CBO Scaling'],
+        ['TikTok Engine', 'Recommended • Spark Ads'],
+        ['Full Funnel', 'Recommended • Paid Media']
+      ]
+    };
+
+    const updatePositions = (newCenter = centerIndex, animate = true) => {
+      if (discoverAnimating && animate) return;
+      centerIndex = (newCenter + discoverCards.length) % discoverCards.length;
+      if (animate && !prefersReducedMotion) {
+        discoverAnimating = true;
+        window.setTimeout(() => { discoverAnimating = false; }, 720);
       }
 
-      discoverCards.forEach((card, i) => {
-        // Calculate offset from center
-        let offset = i - centerIndex;
-        
-        // Wrap around for circular effect
-        if (offset < -2) offset += totalCards;
-        if (offset > 2) offset -= totalCards;
-        
-        // Map offset to position
-        const positionIndex = offset + 2; // -2 → 0 (far-left), 0 → 2 (center), 2 → 4 (far-right)
-        const position = positions[positionIndex];
-        
-        // Update card attributes
-        card.setAttribute('data-position', position);
-        
-        // Update active class
-        if (position === 'center') {
-          card.classList.add('active');
-          // Update featured class for image
-          const imagePlaceholder = card.querySelector('.card-image-placeholder');
-          if (imagePlaceholder) {
-            imagePlaceholder.classList.add('featured');
-          }
-        } else {
-          card.classList.remove('active');
-          const imagePlaceholder = card.querySelector('.card-image-placeholder');
-          if (imagePlaceholder) {
-            imagePlaceholder.classList.remove('featured');
-          }
-        }
+      discoverCards.forEach((card, index) => {
+        let offset = index - centerIndex;
+        if (offset < -2) offset += discoverCards.length;
+        if (offset > 2) offset -= discoverCards.length;
+        const positionIndex = offset + 2;
+        const position = positions[positionIndex] || 'center';
+        card.dataset.position = position;
+        card.classList.toggle('active', position === 'center');
+        card.setAttribute('aria-current', position === 'center' ? 'true' : 'false');
       });
+    };
 
-      currentCenterIndex = centerIndex;
-    }
+    const nextDiscover = () => updatePositions(centerIndex + 1);
+    const prevDiscover = () => updatePositions(centerIndex - 1);
 
-    // Navigate to next card (rotate left)
-    function nextCard() {
-      const nextIndex = (currentCenterIndex + 1) % totalCards;
-      updatePositions(nextIndex);
-      resetAutoRotate();
-    }
+    const startAutoRotate = () => {
+      if (prefersReducedMotion) return;
+      clearInterval(autoRotate);
+      autoRotate = setInterval(nextDiscover, 5000);
+    };
 
-    // Navigate to previous card (rotate right)
-    function prevCard() {
-      const prevIndex = (currentCenterIndex - 1 + totalCards) % totalCards;
-      updatePositions(prevIndex);
-      resetAutoRotate();
-    }
+    const resetAutoRotate = () => {
+      clearInterval(autoRotate);
+      startAutoRotate();
+    };
 
-    // Navigation Button Handlers
-    if (carouselPrev) {
-      carouselPrev.addEventListener('click', (e) => {
-        e.stopPropagation();
-        prevCard();
-      });
-    }
+    carouselNext?.addEventListener('click', () => { nextDiscover(); resetAutoRotate(); });
+    carouselPrev?.addEventListener('click', () => { prevDiscover(); resetAutoRotate(); });
 
-    if (carouselNext) {
-      carouselNext.addEventListener('click', (e) => {
-        e.stopPropagation();
-        nextCard();
-      });
-    }
-
-    // Click card to bring to center
     discoverCards.forEach((card, index) => {
-      card.addEventListener('click', () => {
-        if (index !== currentCenterIndex) {
+      card.addEventListener('click', () => { updatePositions(index); resetAutoRotate(); });
+      card.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
           updatePositions(index);
           resetAutoRotate();
         }
       });
     });
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (!discoverCarousel) return;
-      
-      const rect = discoverCarousel.getBoundingClientRect();
-      const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-      
-      if (isInView) {
-        if (e.key === 'ArrowLeft') {
-          prevCard();
-        } else if (e.key === 'ArrowRight') {
-          nextCard();
-        }
-      }
-    });
-
-    // Touch/Swipe Support
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    if (discoverCarousel) {
-      discoverCarousel.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-      }, { passive: true });
-      
-      discoverCarousel.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-      }, { passive: true });
-      
-      function handleSwipe() {
-        const swipeThreshold = 75;
-        const diff = touchStartX - touchEndX;
-        
-        if (Math.abs(diff) > swipeThreshold) {
-          if (diff > 0) {
-            nextCard();
-          } else {
-            prevCard();
-          }
-        }
-      }
-    }
-
-    // Auto-rotate carousel
-    let autoRotateInterval = null;
-    
-    function startAutoRotate() {
-      autoRotateInterval = setInterval(() => {
-        nextCard();
-      }, 4000); // Rotate every 4 seconds
-    }
-
-    function stopAutoRotate() {
-      if (autoRotateInterval) {
-        clearInterval(autoRotateInterval);
-        autoRotateInterval = null;
-      }
-    }
-
-    function resetAutoRotate() {
-      stopAutoRotate();
-      startAutoRotate();
-    }
-
-    // Tab switching functionality
     discoverTabs.forEach(tab => {
       tab.addEventListener('click', () => {
-        // Remove active from all tabs
-        discoverTabs.forEach(t => t.classList.remove('active'));
-        
-        // Add active to clicked tab
+        discoverTabs.forEach(item => item.classList.remove('active'));
         tab.classList.add('active');
-
-        // Reset to center card when switching tabs
-        updatePositions(2);
+        const data = tabData[tab.dataset.tab] || tabData.popular;
+        discoverCards.forEach((card, index) => {
+          const title = card.querySelector('.card-title');
+          const meta = card.querySelector('.card-meta');
+          const logo = card.querySelector('.brand-logo');
+          if (title && data[index]) title.textContent = data[index][0];
+          if (meta && data[index]) meta.textContent = data[index][1];
+          if (logo && data[index]) logo.textContent = data[index][0].split(' ').map(word => word[0]).join('').slice(0, 2).toUpperCase();
+        });
+        updatePositions(2, false);
         resetAutoRotate();
       });
     });
 
-    // Pause auto-rotate on hover (carousel area)
-    if (discoverCarousel) {
-      const wrapper = discoverCarousel.parentElement;
-      if (wrapper) {
-        wrapper.addEventListener('mouseenter', stopAutoRotate);
-        wrapper.addEventListener('mouseleave', startAutoRotate);
-      }
-    }
+    discoverCarousel.setAttribute('tabindex', '0');
+    discoverCarousel.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft') { event.preventDefault(); prevDiscover(); resetAutoRotate(); }
+      if (event.key === 'ArrowRight') { event.preventDefault(); nextDiscover(); resetAutoRotate(); }
+    });
 
-    // Initialize and start auto-rotation
-    updatePositions(currentCenterIndex, false);
+    discoverCarousel.addEventListener('mouseenter', () => clearInterval(autoRotate));
+    discoverCarousel.addEventListener('mouseleave', startAutoRotate);
+    updatePositions(centerIndex, false);
     startAutoRotate();
-
   }
 
-  // ===== CONTACT SECTION - SCROLL REVEAL ANIMATIONS =====
+  // Testimonial slider
+  const slider3D = document.getElementById('testimonialSlider3D');
+  const prevBtn = document.getElementById('prevTestimonial');
+  const nextBtn = document.getElementById('nextTestimonial');
+  const progressBar = document.getElementById('sliderProgress');
 
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-  };
+  if (slider3D && prevBtn && nextBtn && progressBar) {
+    let currentIndex = 0;
+    let autoSlideInterval;
+    let testimonialAnimating = false;
 
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Reveal main header
-        if (entry.target.classList.contains('contact-header')) {
-          entry.target.classList.add('active');
-        }
+    const getCardsToShow = () => {
+      if (window.innerWidth <= 640) return 1;
+      if (window.innerWidth <= 768) return 2;
+      if (window.innerWidth <= 1200) return 3;
+      return 4;
+    };
 
-        // Reveal cards with stagger
-        if (entry.target.classList.contains('contact-card-3d')) {
-          entry.target.classList.add('active');
-        }
+    const getMaxIndex = () => Math.max(0, slider3D.children.length - getCardsToShow());
+    const getGap = () => Number.parseFloat(getComputedStyle(slider3D).gap) || 32;
 
-        // Reveal form
-        if (entry.target.classList.contains('contact-form-wrapper-3d')) {
-          entry.target.classList.add('active');
-          
-          // Reveal form inputs inside
-          const inputs = entry.target.querySelectorAll('.form-group-3d');
-          inputs.forEach((input, index) => {
-            setTimeout(() => {
-              input.style.opacity = '1';
-            }, (index + 1) * 100);
-          });
-        }
+    const updateSlider = () => {
+      if (!slider3D.children.length) return;
+      const maxIndex = getMaxIndex();
+      currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
+      const cardWidth = slider3D.children[0].offsetWidth;
+      const offset = currentIndex * (cardWidth + getGap());
+      slider3D.style.transform = `translateX(-${offset}px)`;
+      progressBar.style.width = `${maxIndex === 0 ? 100 : (currentIndex / maxIndex) * 100}%`;
+    };
 
-        revealObserver.unobserve(entry.target);
+    const goNext = () => {
+      if (testimonialAnimating) return;
+      testimonialAnimating = true;
+      const maxIndex = getMaxIndex();
+      currentIndex = currentIndex < maxIndex ? currentIndex + 1 : 0;
+      updateSlider();
+      window.setTimeout(() => { testimonialAnimating = false; }, prefersReducedMotion ? 50 : 1450);
+    };
+
+    const goPrev = () => {
+      if (testimonialAnimating) return;
+      testimonialAnimating = true;
+      const maxIndex = getMaxIndex();
+      currentIndex = currentIndex > 0 ? currentIndex - 1 : maxIndex;
+      updateSlider();
+      window.setTimeout(() => { testimonialAnimating = false; }, prefersReducedMotion ? 50 : 1450);
+    };
+
+    const startAutoSlide = () => {
+      if (prefersReducedMotion) return;
+      clearInterval(autoSlideInterval);
+      autoSlideInterval = setInterval(goNext, 6000);
+    };
+
+    const resetAutoSlide = () => {
+      clearInterval(autoSlideInterval);
+      startAutoSlide();
+    };
+
+    nextBtn.addEventListener('click', () => { goNext(); resetAutoSlide(); });
+    prevBtn.addEventListener('click', () => { goPrev(); resetAutoSlide(); });
+
+    const sliderWrapper = slider3D.closest('.testimonial-3d-slider') || slider3D.parentElement;
+    sliderWrapper.setAttribute('tabindex', '0');
+    sliderWrapper.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft') { event.preventDefault(); goPrev(); resetAutoSlide(); }
+      if (event.key === 'ArrowRight') { event.preventDefault(); goNext(); resetAutoSlide(); }
+    });
+
+    slider3D.parentElement.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+    slider3D.parentElement.addEventListener('mouseleave', startAutoSlide);
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+    slider3D.addEventListener('touchstart', event => {
+      touchStartX = event.touches[0].clientX;
+      touchStartY = event.touches[0].clientY;
+    }, { passive: true });
+
+    slider3D.addEventListener('touchend', event => {
+      const diffX = touchStartX - event.changedTouches[0].clientX;
+      const diffY = Math.abs(touchStartY - event.changedTouches[0].clientY);
+      if (Math.abs(diffX) > 75 && Math.abs(diffX) > diffY) {
+        diffX > 0 ? goNext() : goPrev();
+        resetAutoSlide();
+      }
+    }, { passive: true });
+
+    let testimonialResizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(testimonialResizeTimeout);
+      testimonialResizeTimeout = setTimeout(updateSlider, 180);
+    });
+
+    updateSlider();
+    startAutoSlide();
+  }
+
+  // Play overlays: keep design, make interaction explicit and non-broken
+  document.querySelectorAll('.play-button-overlay, .video-card-inner').forEach(playTarget => {
+    playTarget.setAttribute('role', 'button');
+    playTarget.setAttribute('tabindex', '0');
+    playTarget.addEventListener('click', () => {
+      const contact = document.getElementById('contact');
+      contact?.scrollIntoView({ behavior: smoothBehavior, block: 'start' });
+    });
+    playTarget.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        playTarget.click();
       }
     });
-  }, observerOptions);
-
-  // Observe contact section elements
-  document.addEventListener('DOMContentLoaded', () => {
-    const contactHeader = document.querySelector('.contact-header');
-    const contactCards = document.querySelectorAll('.contact-card-3d');
-    const contactFormWrapper = document.querySelector('.contact-form-wrapper-3d');
-
-    if (contactHeader) revealObserver.observe(contactHeader);
-    if (contactCards) contactCards.forEach(card => revealObserver.observe(card));
-    if (contactFormWrapper) revealObserver.observe(contactFormWrapper);
   });
 
-  // Smooth scroll to contact form on button clicks
-  document.addEventListener('click', (e) => {
-    if (e.target.closest('.btn-primary') && e.target.textContent.includes('Contact')) {
-      const contactSection = document.querySelector('#contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
+  // CTA buttons that previously had no action
+  document.querySelectorAll('.team-cta-btn, .team-center-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      document.getElementById('contact')?.scrollIntoView({ behavior: smoothBehavior, block: 'start' });
+    });
   });
 
-  // Form submission with 3D animation
+  // Contact form submission: single reliable handler
   const leadForm = document.getElementById('leadForm');
   if (leadForm) {
-    leadForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const formWrapper = document.querySelector('.contact-form-wrapper-3d');
-      const formElement = document.querySelector('.contact-form-3d');
+    leadForm.addEventListener('submit', event => {
+      event.preventDefault();
+      const formElement = leadForm.querySelector('.contact-form-3d') || leadForm;
       const successElement = document.getElementById('formSuccess');
+      if (!successElement) return;
 
-      // Hide form, show success
-      formElement.style.opacity = '0';
-      formElement.style.transform = 'scale(0.95)';
-      
-      setTimeout(() => {
-        formElement.classList.add('hidden');
-        successElement.classList.remove('hidden');
-      }, 300);
-
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        formElement.classList.remove('hidden');
-        formElement.style.opacity = '1';
-        formElement.style.transform = 'scale(1)';
-        successElement.classList.add('hidden');
-        this.reset();
-      }, 3500);
+      formElement.classList.add('hidden');
+      successElement.classList.remove('hidden');
+      successElement.setAttribute('aria-live', 'polite');
+      leadForm.reset();
+      successElement.scrollIntoView({ behavior: smoothBehavior, block: 'center' });
     });
   }
 
-  // 3D Tilt Effect on Form Hover (very minimal)
+  // Contact form 3D tilt, throttled and scoped
   const contactFormWrapper3D = document.querySelector('.contact-form-wrapper-3d');
-  if (contactFormWrapper3D) {
-    document.addEventListener('mousemove', (e) => {
-      const rect = contactFormWrapper3D.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = (y - centerY) / 60;
-      const rotateY = (centerX - x) / 60;
+  if (contactFormWrapper3D && !prefersReducedMotion && window.matchMedia('(pointer: fine)').matches) {
+    const form = contactFormWrapper3D.querySelector('.contact-form-3d');
+    let tiltTicking = false;
+    let lastEvent;
 
-      if (x > 0 && x < rect.width && y > 0 && y < rect.height) {
-        const form = contactFormWrapper3D.querySelector('.contact-form-3d');
-        if (form) {
-          form.style.transform = `perspective(2000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(2px)`;
-        }
-      }
-    });
+    contactFormWrapper3D.addEventListener('mousemove', event => {
+      lastEvent = event;
+      if (tiltTicking) return;
+      tiltTicking = true;
+      requestAnimationFrame(() => {
+        const rect = contactFormWrapper3D.getBoundingClientRect();
+        const x = lastEvent.clientX - rect.left;
+        const y = lastEvent.clientY - rect.top;
+        const rotateX = (y - rect.height / 2) / 60;
+        const rotateY = (rect.width / 2 - x) / 60;
+        if (form) form.style.transform = `perspective(2000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(2px)`;
+        tiltTicking = false;
+      });
+    }, { passive: true });
 
-    document.addEventListener('mouseleave', () => {
-      const form = contactFormWrapper3D.querySelector('.contact-form-3d');
-      if (form) {
-        form.style.transform = 'perspective(2000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
-      }
+    contactFormWrapper3D.addEventListener('mouseleave', () => {
+      if (form) form.style.transform = 'perspective(2000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
     });
   }
 
-  // Vertical Expandable Why DrioGrowth Cards
+  // Why cards: hover remains, click/tap added for mobile and keyboard users
   const whyCards = document.querySelectorAll('.why-card-3d');
-  
   whyCards.forEach(card => {
-    // Add smooth transition on hover
-    card.addEventListener('mouseenter', () => {
-      card.style.zIndex = '10';
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-expanded', 'false');
+
+    const toggleCard = () => {
+      const willOpen = !card.classList.contains('is-open');
+      whyCards.forEach(item => {
+        item.classList.remove('is-open');
+        item.setAttribute('aria-expanded', 'false');
+      });
+      if (willOpen) {
+        card.classList.add('is-open');
+        card.setAttribute('aria-expanded', 'true');
+      }
+    };
+
+    card.addEventListener('click', toggleCard);
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleCard();
+      }
     });
-    
+    card.addEventListener('mouseenter', () => { card.style.zIndex = '10'; });
     card.addEventListener('mouseleave', () => {
-      setTimeout(() => {
-        card.style.zIndex = '1';
-      }, 1000); // Wait for transition to complete
+      window.setTimeout(() => { if (!card.classList.contains('is-open')) card.style.zIndex = '1'; }, 800);
     });
   });
 
-  // Header scroll animation
-  const header = document.getElementById('header');
-  let scrolling = false;
-
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    
-    if (scrollY > 100 && !scrolling) {
-      scrolling = true;
-      header.classList.add('scrolled');
-    } else if (scrollY <= 100 && scrolling) {
-      scrolling = false;
-      header.classList.remove('scrolled');
-    }
-  });
-
-  // Improved Video Slider Scroll Control - Works Anywhere
+  // Hero video slider: no body scroll lock, safe wheel enhancement only
   const videoSliderContainer = document.getElementById('videoSliderContainer');
   const videoSliderTrack = document.getElementById('videoSliderTrack');
   const heroSection = document.querySelector('.hero-slider-section');
-  
-  if (videoSliderContainer && videoSliderTrack && heroSection && window.innerWidth > 768) {
-    let scrollPhase = 0; // 0 = scroll left, 1 = scroll left again, 2 = normal scroll
+
+  if (videoSliderContainer && videoSliderTrack && heroSection && window.innerWidth > 768 && !prefersReducedMotion) {
     let sliderPosition = 0;
-    let isProcessing = false;
-    
-    // Calculate max scroll distance
+    let wheelTicking = false;
+
     const getMaxScroll = () => {
       const containerWidth = videoSliderContainer.clientWidth;
       const trackWidth = videoSliderTrack.scrollWidth;
-      return -(trackWidth - containerWidth + 200); // +200px buffer
+      return Math.min(0, -(trackWidth - containerWidth + 120));
     };
 
-    // Check if hero section is in view
-    const isHeroInView = () => {
+    const isHeroMostlyInView = () => {
       const rect = heroSection.getBoundingClientRect();
-      return rect.top < window.innerHeight && rect.bottom > 0;
+      return rect.top < window.innerHeight * 0.6 && rect.bottom > window.innerHeight * 0.25;
     };
 
-    // Smooth slider movement
-    const updateSliderPosition = (newPosition) => {
+    const updateSliderPosition = (delta) => {
       const maxScroll = getMaxScroll();
-      sliderPosition = Math.max(maxScroll, Math.min(0, newPosition));
+      sliderPosition = Math.max(maxScroll, Math.min(0, sliderPosition - delta));
       videoSliderTrack.style.transform = `translateX(${sliderPosition}px)`;
     };
 
-    // Main wheel handler - attached to window
-    const handleWheel = (e) => {
-      // Only work if hero is in view and we're in control phases
-      if (!isHeroInView() || scrollPhase >= 2) {
-        return;
-      }
+    videoSliderTrack.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
 
-      // Intercept scroll
-      e.preventDefault();
-      e.stopPropagation();
+    window.addEventListener('wheel', event => {
+      if (!isHeroMostlyInView() || event.deltaY <= 0) return;
+      if (wheelTicking) return;
+      wheelTicking = true;
+      requestAnimationFrame(() => {
+        updateSliderPosition(Math.min(Math.abs(event.deltaY) * 0.85, 280));
+        wheelTicking = false;
+      });
+    }, { passive: true });
 
-      // Prevent rapid fire scrolls
-      if (isProcessing) return;
-      
-      const scrollingDown = e.deltaY > 0;
-      
-      if (!scrollingDown) return; // Only respond to downward scrolls
-
-      isProcessing = true;
-
-      if (scrollPhase === 0) {
-        // Phase 1: Scroll right to left (first movement)
-        const moveAmount = 500;
-        updateSliderPosition(sliderPosition - moveAmount);
-        scrollPhase = 1;
-        
-        // Visual feedback
-        videoSliderContainer.style.opacity = '0.98';
-        setTimeout(() => {
-          videoSliderContainer.style.opacity = '1';
-          isProcessing = false;
-        }, 400);
-
-      } else if (scrollPhase === 1) {
-        // Phase 2: Scroll right to left again (continue same direction)
-        const moveAmount = 500;
-        updateSliderPosition(sliderPosition - moveAmount);
-        scrollPhase = 2;
-        
-        // Visual feedback
-        videoSliderContainer.style.opacity = '0.98';
-        setTimeout(() => {
-          videoSliderContainer.style.opacity = '1';
-          // Release control
-          document.body.style.overflow = 'auto';
-          isProcessing = false;
-          
-          // Scroll page down slightly to continue user's momentum
-          setTimeout(() => {
-            window.scrollBy({ top: 200, behavior: 'smooth' });
-          }, 100);
-        }, 400);
-      }
-    };
-
-    // Initialize
-    videoSliderTrack.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease';
-    videoSliderContainer.style.transition = 'opacity 0.3s ease';
-    
-    // Lock body scroll initially if user is at top
-    if (window.scrollY === 0) {
-      document.body.style.overflow = 'hidden';
-    }
-
-    // Add wheel listener to WINDOW (not just slider container)
-    window.addEventListener('wheel', handleWheel, { passive: false });
-
-    // Scroll indicator
     const indicator = document.createElement('div');
-    indicator.style.cssText = `
-      position: absolute;
-      bottom: 1.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.8125rem;
-      font-weight: 500;
-      color: var(--mute);
-      background: rgba(250, 247, 240, 0.9);
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(43, 43, 43, 0.1);
-      animation: pulse-indicator 2s ease-in-out infinite;
-      pointer-events: none;
-      z-index: 10;
-    `;
-    indicator.innerHTML = 'Scroll to explore <span style="display:inline-block;animation:bounce-arrow 1s ease-in-out infinite;">↓</span>';
+    indicator.style.cssText = 'position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);font-size:0.8125rem;font-weight:500;color:var(--mute);background:rgba(250,247,240,0.9);padding:0.5rem 1rem;border-radius:999px;backdrop-filter:blur(10px);border:1px solid rgba(43,43,43,0.1);pointer-events:none;z-index:10;transition:opacity .3s ease,transform .3s ease;';
+    indicator.innerHTML = 'Scroll to explore <span aria-hidden="true">↓</span>';
     videoSliderContainer.style.position = 'relative';
     videoSliderContainer.appendChild(indicator);
 
-    // Remove indicator after first scroll
-    const removeIndicator = () => {
+    let indicatorRemoved = false;
+    window.addEventListener('wheel', () => {
+      if (indicatorRemoved || !isHeroMostlyInView()) return;
+      indicatorRemoved = true;
       indicator.style.opacity = '0';
       indicator.style.transform = 'translateX(-50%) translateY(10px)';
-      setTimeout(() => indicator.remove(), 300);
-    };
-    
-    let indicatorRemoved = false;
-    const indicatorRemovalHandler = () => {
-      if (!indicatorRemoved && scrollPhase > 0) {
-        removeIndicator();
-        indicatorRemoved = true;
-      }
-    };
-    window.addEventListener('wheel', indicatorRemovalHandler);
-
-    // Cleanup on window resize
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        if (window.innerWidth <= 768 && scrollPhase < 2) {
-          document.body.style.overflow = 'auto';
-          window.removeEventListener('wheel', handleWheel);
-        }
-      }, 250);
-    });
-
-    // Allow escape hatch - if user scrolls up while in phases 0-1, unlock
-    window.addEventListener('wheel', (e) => {
-      if (scrollPhase < 2 && e.deltaY < 0 && window.scrollY === 0) {
-        document.body.style.overflow = 'auto';
-        scrollPhase = 2;
-      }
+      window.setTimeout(() => indicator.remove(), 350);
     }, { passive: true });
   }
 
-  // Enhanced animations
-  const enhancedStyle = document.createElement('style');
-  enhancedStyle.textContent = `
-    @keyframes pulse-indicator {
-      0%, 100% { opacity: 0.8; }
-      50% { opacity: 1; }
-    }
-    @keyframes bounce-arrow {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(4px); }
-    }
-  `;
-  document.head.appendChild(enhancedStyle);
+  // Back-to-top fallback
+  document.querySelectorAll('.back-to-top-link').forEach(link => {
+    link.addEventListener('click', event => {
+      if (link.getAttribute('href') === '#home') {
+        event.preventDefault();
+        document.getElementById('home')?.scrollIntoView({ behavior: smoothBehavior, block: 'start' });
+      }
+    });
+  });
+})();
 </script>
 
 </body>
