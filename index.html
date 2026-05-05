@@ -453,7 +453,7 @@
 
   /* Animated Hero Title */
   .hero-main-title {
-    font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+    font-size: clamp(2.1rem, 6.5vw, 5.5rem);
     margin-bottom: 1.5rem;
     line-height: 1.05;
     font-weight: 800;
@@ -832,8 +832,8 @@
     }
 
     .video-card:nth-child(n) {
-      width: 160px !important;
-      height: 280px !important;
+      width: 300px !important;
+      height: 480px !important;
       margin: 0 !important;
     }
 
@@ -1680,6 +1680,8 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.2),
                 inset 0 0 80px rgba(154, 205, 50, 0.08);
     border-color: rgba(154, 205, 50, 0.5);
+    
+    height: 330px;
   }
 
   .service-card-dark:not(.card-expanded):hover {
@@ -1712,7 +1714,7 @@
     }
 
     .service-card-dark {
-      min-height: 240px;
+      min-height: 330px;
     }
 
     .card-number {
@@ -2195,12 +2197,12 @@
     }
 
     .discover-card {
-      width: 200px;
-      height: 300px;
+      width: 300px;
+      height: 480px;
     }
 
     .card-image-placeholder {
-      height: 220px;
+      height: 370px;
     }
 
     .brand-logo {
@@ -4497,6 +4499,9 @@
       margin-right: 0;
       margin-bottom: 1.5rem;
     }
+    a.btn.btn-primary {
+    display: none;
+    }
   }
 
   @supports not ((backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px))) {
@@ -4741,8 +4746,8 @@
     <!-- Headline -->
     <h2 class="h-display text-center mb-16 reveal" style="font-size: clamp(2rem, 4vw, 3.5rem); max-width: 1100px; margin-left: auto; margin-right: auto;">
       We've helped brands generate over 
-      <span class="text-brand">$500M</span> in sales across 
-      <span class="text-brand">7 countries.</span>
+      <span class="text-brand">$500M</span> in sales across <span class="text-brand">7 countries.</span>
+      
     </h2>
 
     <!-- Logo Grid -->
