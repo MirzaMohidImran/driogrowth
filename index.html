@@ -6737,7 +6737,7 @@
     }, { passive: true });
   }
 
-  // UPDATED: Premium mobile carousel - smooth, momentum-based with professional animation
+  // UPDATED: Premium smooth mobile carousel - fixed jumping issue with improved drag tracking
   if (videoSliderContainer && videoSliderTrack && window.innerWidth <= 768) {
     let currentX = 0;
     let startX = 0;
@@ -6746,49 +6746,41 @@
     let isDragging = false;
     let velocityX = 0;
     let momentumAnimationId = null;
+    let translateX = 0;
 
     // Responsive card dimensions
     let CARD_WIDTH = window.innerWidth <= 480 ? 240 : 260;
-    let CARD_HEIGHT = window.innerWidth <= 480 ? 380 : 420;
     const GAP = 14; // 0.875rem in pixels
     let CARD_WITH_GAP = CARD_WIDTH + GAP;
-    const FRICTION = 0.92; // Deceleration rate (0-1)
-    const MIN_VELOCITY = 0.1; // Stop momentum at this velocity
-    const MAX_DISTANCE = 150; // Max drag distance per movement
-    const SNAP_THRESHOLD = 0.2; // Snap if moved more than 20% of card width
+    const FRICTION = 0.95; // Deceleration rate
+    const MIN_VELOCITY = 0.5; // Minimum velocity for momentum
+    const DECEL_RATE = 0.98; // Smoother deceleration
 
     const cardCount = videoSliderTrack.children.length;
-    let maxX = -(cardCount * CARD_WITH_GAP - window.innerWidth + 40);
+    let maxScroll = -(cardCount * CARD_WITH_GAP - window.innerWidth + 40);
 
-    const constrainPosition = (x) => {
-      return Math.max(maxX, Math.min(0, x));
-    };
-
-    const updateTrackPosition = (x, useTransition = false) => {
-      currentX = x;
-      
-      if (useTransition) {
-        videoSliderTrack.classList.add('snapping');
-        videoSliderTrack.classList.remove('dragging');
-      } else {
-        videoSliderTrack.classList.remove('snapping');
-      }
-      
+    const updatePosition = (x) => {
+      translateX = x;
       videoSliderTrack.style.transform = `translate3d(${x}px, 0, 0)`;
     };
 
-    const getCurrentCardIndex = () => {
-      return Math.round(Math.abs(currentX) / CARD_WITH_GAP);
+    const constrainX = (x) => {
+      return Math.max(maxScroll, Math.min(0, x));
     };
 
     const snapToCard = (index) => {
       const constrainedIndex = Math.max(0, Math.min(index, cardCount - 1));
       const targetX = -(constrainedIndex * CARD_WITH_GAP);
-      updateTrackPosition(targetX, true);
+      const finalX = constrainX(targetX);
+      
+      videoSliderTrack.classList.add('snapping');
+      videoSliderTrack.classList.remove('dragging');
+      videoSliderTrack.style.transition = 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+      updatePosition(finalX);
     };
 
     const snapToNearest = () => {
-      const nearestIndex = Math.round(Math.abs(currentX) / CARD_WITH_GAP);
+      const nearestIndex = Math.round(Math.abs(translateX) / CARD_WITH_GAP);
       snapToCard(nearestIndex);
     };
 
@@ -6797,25 +6789,28 @@
         cancelAnimationFrame(momentumAnimationId);
       }
 
-      let currentVelocity = velocityX;
-      
+      let velocity = velocityX;
+      let lastUpdateX = translateX;
+
       const animate = () => {
-        if (Math.abs(currentVelocity) < MIN_VELOCITY) {
+        // Gradually decrease velocity
+        velocity *= DECEL_RATE;
+
+        // Stop if velocity is too low
+        if (Math.abs(velocity) < 0.1) {
           snapToNearest();
           return;
         }
 
-        // Apply friction to velocity
-        currentVelocity *= FRICTION;
-        
-        // Update position based on velocity
-        const newX = currentX + currentVelocity * 60;
-        const constrainedX = constrainPosition(newX);
+        // Calculate new position
+        const newX = lastUpdateX + velocity;
+        const constrainedX = constrainX(newX);
 
-        updateTrackPosition(constrainedX, false);
+        updatePosition(constrainedX);
+        lastUpdateX = constrainedX;
 
-        // Stop if at edge
-        if (constrainedX === newX) {
+        // Continue animation if not at edge
+        if (constrainedX > maxScroll && constrainedX < 0) {
           momentumAnimationId = requestAnimationFrame(animate);
         } else {
           snapToNearest();
@@ -6825,8 +6820,9 @@
       momentumAnimationId = requestAnimationFrame(animate);
     };
 
-    // Touch Start
+    // TOUCH START
     videoSliderContainer.addEventListener('touchstart', (e) => {
+      // Cancel momentum animation if running
       if (momentumAnimationId) {
         cancelAnimationFrame(momentumAnimationId);
       }
@@ -6836,47 +6832,45 @@
       lastX = startX;
       lastTime = Date.now();
       velocityX = 0;
+      currentX = translateX;
 
       videoSliderTrack.classList.add('dragging');
       videoSliderTrack.classList.remove('snapping');
       videoSliderTrack.style.transition = 'none';
     }, { passive: true });
 
-    // Touch Move - Smooth real-time tracking
+    // TOUCH MOVE - Direct smooth tracking without jumps
     videoSliderContainer.addEventListener('touchmove', (e) => {
       if (!isDragging) return;
 
       const currentTouch = e.touches[0].clientX;
+      const diffFromStart = currentTouch - startX;
+      
+      // Calculate velocity for momentum
       const deltaX = currentTouch - lastX;
-      
-      // Limit drag speed for smoothness
-      const constrainedDelta = Math.max(-MAX_DISTANCE, Math.min(MAX_DISTANCE, deltaX));
-
-      // Calculate velocity
       const now = Date.now();
-      const timeDelta = now - lastTime;
-      
-      if (timeDelta > 0) {
-        velocityX = (constrainedDelta / timeDelta) * 16; // Normalize to 60fps
-      }
+      const timeDelta = Math.max(1, now - lastTime);
+
+      // Smooth velocity calculation
+      velocityX = deltaX / timeDelta * 16; // Normalize to ~60fps
+
+      // Update position directly based on drag
+      const newX = constrainX(currentX + diffFromStart);
+      updatePosition(newX);
 
       lastX = currentTouch;
       lastTime = now;
-
-      // Update position
-      const newX = currentX + constrainedDelta;
-      updateTrackPosition(constrainPosition(newX), false);
     }, { passive: true });
 
-    // Touch End - Apply momentum
+    // TOUCH END - Apply momentum or snap
     videoSliderContainer.addEventListener('touchend', (e) => {
       if (!isDragging) return;
 
       isDragging = false;
       videoSliderTrack.classList.remove('dragging');
 
-      // Apply momentum if velocity is high enough
-      if (Math.abs(velocityX) > 0.5) {
+      // Apply momentum only if velocity is significant
+      if (Math.abs(velocityX) > MIN_VELOCITY) {
         applyMomentum();
       } else {
         snapToNearest();
@@ -6886,11 +6880,10 @@
     // Handle window resize
     window.addEventListener('resize', () => {
       if (window.innerWidth <= 768) {
-        const currentIndex = getCurrentCardIndex();
+        const currentIndex = Math.round(Math.abs(translateX) / CARD_WITH_GAP);
         CARD_WIDTH = window.innerWidth <= 480 ? 240 : 260;
-        CARD_HEIGHT = window.innerWidth <= 480 ? 380 : 420;
         CARD_WITH_GAP = CARD_WIDTH + GAP;
-        maxX = -(cardCount * CARD_WITH_GAP - window.innerWidth + 40);
+        maxScroll = -(cardCount * CARD_WITH_GAP - window.innerWidth + 40);
         snapToCard(currentIndex);
       }
     });
