@@ -72,6 +72,12 @@
         color: var(--ink);
       }
 
+      h2 {
+        font-size: clamp(2.4rem, 4vw, 4.5rem) !important;
+        font-weight: 700 !important;
+        line-height: 1.1 !important;
+      }
+
       /* ===== LAYOUT UTILITIES ===== */
       .container {
         max-width: var(--max-width);
@@ -542,7 +548,7 @@
         .cursor-dot.hover {
           width: 44px;
           height: 44px;
-          background: var(--brand);
+          background: var(--brand-deep);
         }
       }
 
@@ -930,7 +936,14 @@
       }
 
       /* Card sizes and rotations to match reference */
-      .video-card:nth-child(1) {
+      .hero-slider-section .video-card {
+        flex-shrink: 0;
+        transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+        opacity: 0;
+        animation: card-rise 0.8s ease forwards;
+      }
+
+      .hero-slider-section .video-card:nth-child(1) {
         width: 200px;
         height: 380px;
         transform: rotate(-4deg);
@@ -938,42 +951,42 @@
         margin-left: -80px;
       }
 
-      .video-card:nth-child(2) {
+      .hero-slider-section .video-card:nth-child(2) {
         width: 240px;
         height: 420px;
         transform: rotate(3deg);
         animation-delay: 0.9s;
       }
 
-      .video-card:nth-child(3) {
+      .hero-slider-section .video-card:nth-child(3) {
         width: 220px;
         height: 400px;
         transform: rotate(-2deg);
         animation-delay: 1s;
       }
 
-      .video-card:nth-child(4) {
+      .hero-slider-section .video-card:nth-child(4) {
         width: 230px;
         height: 410px;
         transform: rotate(4deg);
         animation-delay: 1.1s;
       }
 
-      .video-card:nth-child(5) {
+      .hero-slider-section .video-card:nth-child(5) {
         width: 240px;
         height: 420px;
         transform: rotate(-3deg);
         animation-delay: 1.2s;
       }
 
-      .video-card:nth-child(6) {
+      .hero-slider-section .video-card:nth-child(6) {
         width: 250px;
         height: 430px;
         transform: rotate(2deg);
         animation-delay: 1.3s;
       }
 
-      .video-card:nth-child(7) {
+      .hero-slider-section .video-card:nth-child(7) {
         width: 220px;
         height: 400px;
         transform: rotate(-3deg);
@@ -1052,7 +1065,7 @@
         pointer-events: none;
       }
 
-      .video-card:hover {
+      .hero-slider-section .video-card:hover {
         transform: rotate(0deg) translateY(-12px) !important;
         z-index: 10;
       }
@@ -3399,7 +3412,12 @@
         justify-content: center;
         cursor: pointer;
         z-index: 10;
-        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        transition:
+          transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+          background 0.3s ease,
+          border-color 0.3s ease,
+          box-shadow 0.3s ease,
+          color 0.3s ease;
         color: var(--ink);
         box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
         backdrop-filter: blur(12px);
@@ -3409,7 +3427,7 @@
         background: var(--brand);
         border-color: var(--brand);
         color: white;
-        transform: translateY(-50%) scale(1.15);
+        transform: translateY(-50%) scale(1.08);
         box-shadow: 0 12px 32px rgba(154, 205, 50, 0.4);
       }
 
@@ -3429,16 +3447,18 @@
       .slider-3d-track {
         display: flex;
         gap: 2rem;
-        transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform;
+        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        touch-action: pan-y;
       }
 
-      /* Modern Portrait Card Base */
       .testimonial-card-3d {
-        min-width: calc((100% - -4rem) / 4);
-        aspect-ratio: 3/4;
+        flex: 0 0 calc((100% - 6rem) / 4);
+        min-width: 0;
+        aspect-ratio: 3 / 4;
         border-radius: 2rem;
         overflow: hidden;
-        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         position: relative;
         box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
       }
@@ -3448,7 +3468,6 @@
         box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
       }
 
-      /* Modern Video Card */
       .video-card {
         background: linear-gradient(
           135deg,
@@ -3471,40 +3490,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-      }
-
-      .play-button-overlay {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        transition: background 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      .video-card:hover .play-button-overlay {
-        background: rgba(0, 0, 0, 0.35);
-      }
-
-      .play-btn {
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        background: rgba(154, 205, 50, 0.98);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--ink);
-        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        box-shadow: 0 8px 32px rgba(154, 205, 50, 0.3);
-      }
-
-      .video-card:hover .play-btn {
-        transform: scale(1.2);
-        background: var(--brand);
-        box-shadow: 0 16px 48px rgba(154, 205, 50, 0.5);
       }
 
       .video-badge {
@@ -3600,7 +3585,6 @@
         border-color: rgba(154, 205, 50, 0.4);
       }
 
-      /* Modern Text Card */
       .text-card {
         background: linear-gradient(
           135deg,
@@ -3649,7 +3633,7 @@
 
       .stats-compact {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         gap: 1rem;
       }
 
@@ -3684,7 +3668,6 @@
         font-weight: 600;
       }
 
-      /* Modern Slider Progress */
       .slider-progress {
         width: 100%;
         max-width: 400px;
@@ -3698,26 +3681,69 @@
 
       .progress-bar {
         height: 100%;
+        width: 0%;
         background: linear-gradient(90deg, var(--brand) 0%, #f4c430 100%);
         border-radius: 999px;
         transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         box-shadow: 0 0 12px rgba(154, 205, 50, 0.4);
       }
 
-      /* Responsive */
+      .testimonial-card-3d.video-card .video-card-media {
+        pointer-events: none;
+      }
+
+      .testimonial-card-3d .video-card-media {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .testimonial-card-3d .video-badge {
+        z-index: 2;
+      }
+
+      .testimonial-card-3d .stats-compact {
+        margin-top: auto;
+      }
+
+      .testimonial-card-3d.text-card .quote-compact {
+        text-wrap: pretty;
+      }
+
+      .testimonial-card-3d.text-card .author-compact {
+        align-items: center;
+      }
+
+      .testimonial-card-3d.text-card .client-name {
+        color: var(--cream);
+      }
+
+      .testimonial-card-3d.text-card .client-company {
+        color: rgba(250, 247, 240, 0.7);
+      }
+
+      .testimonial-card-3d[data-visible="false"] {
+        opacity: 0.45;
+      }
+
       @media (max-width: 1200px) {
         .testimonial-card-3d {
-          min-width: calc((100% - 4rem) / 3);
+          flex-basis: calc((100% - 3rem) / 3);
         }
 
         .slider-3d-track {
           gap: 1.5rem;
         }
+
+        .testimonial-3d-slider {
+          padding: 0 4rem;
+        }
       }
 
       @media (max-width: 768px) {
         .testimonial-card-3d {
-          min-width: calc((100% - 2rem) / 2);
+          flex-basis: calc((100% - 1.25rem) / 2);
         }
 
         .testimonial-3d-slider {
@@ -3736,7 +3762,9 @@
 
       @media (max-width: 640px) {
         .testimonial-card-3d {
-          min-width: calc(100% - 1rem);
+          flex-basis: 100%;
+          aspect-ratio: auto;
+          min-height: 420px;
         }
 
         .testimonial-3d-slider {
@@ -5424,10 +5452,10 @@
           line-height: 0.5;
         }
         .mb-10 {
-    margin-bottom: 1.25rem;
-}
+          margin-bottom: 1.25rem;
+        }
       }
-    
+
       /* ===== SERVICES SECTION - PRODUCTION REWRITE / SCOPED ===== */
       .drio-services-section,
       .drio-services-section * {
@@ -5438,15 +5466,24 @@
         --services-radius-lg: clamp(1.35rem, 2vw, 2rem);
         --services-radius-md: 1.15rem;
         --services-shadow-soft: 0 24px 70px rgba(43, 43, 43, 0.12);
-        --services-shadow-active: 0 28px 80px rgba(43, 43, 43, 0.28), 0 0 45px rgba(154, 205, 50, 0.16);
+        --services-shadow-active:
+          0 28px 80px rgba(43, 43, 43, 0.28), 0 0 45px rgba(154, 205, 50, 0.16);
         position: relative;
         isolation: isolate;
         width: 100%;
         overflow: clip;
         padding: clamp(3.5rem, 7vw, 7rem) 0;
         background:
-          radial-gradient(circle at 8% 18%, rgba(154, 205, 50, 0.16), transparent 30%),
-          radial-gradient(circle at 92% 74%, rgba(244, 196, 48, 0.1), transparent 32%),
+          radial-gradient(
+            circle at 8% 18%,
+            rgba(154, 205, 50, 0.16),
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at 92% 74%,
+            rgba(244, 196, 48, 0.1),
+            transparent 32%
+          ),
           var(--cream);
         scroll-margin-top: 110px;
       }
@@ -5490,7 +5527,9 @@
         height: 0.55rem;
         border-radius: 999px;
         background: var(--brand);
-        box-shadow: 0 0 0 6px rgba(154, 205, 50, 0.16), 0 0 18px rgba(154, 205, 50, 0.7);
+        box-shadow:
+          0 0 0 6px rgba(154, 205, 50, 0.16),
+          0 0 18px rgba(154, 205, 50, 0.7);
         flex: 0 0 auto;
       }
 
@@ -5523,7 +5562,11 @@
         border-radius: var(--services-radius-lg);
         border: 1px solid rgba(154, 205, 50, 0.24);
         background:
-          linear-gradient(135deg, rgba(154, 205, 50, 0.24), rgba(250, 247, 240, 0.38)),
+          linear-gradient(
+            135deg,
+            rgba(154, 205, 50, 0.24),
+            rgba(250, 247, 240, 0.38)
+          ),
           linear-gradient(145deg, rgba(43, 43, 43, 0.08), rgba(43, 43, 43, 0));
         box-shadow: var(--services-shadow-soft);
         transform: translateZ(0);
@@ -5533,7 +5576,14 @@
         content: "";
         position: absolute;
         inset: -45%;
-        background: conic-gradient(from 140deg, transparent, rgba(154, 205, 50, 0.35), transparent, rgba(244, 196, 48, 0.24), transparent);
+        background: conic-gradient(
+          from 140deg,
+          transparent,
+          rgba(154, 205, 50, 0.35),
+          transparent,
+          rgba(244, 196, 48, 0.24),
+          transparent
+        );
         opacity: 0.75;
         animation: drio-services-spin 18s linear infinite;
         will-change: transform;
@@ -5563,7 +5613,11 @@
       .drio-services-visual-grid span {
         min-height: 42px;
         border-radius: 1rem;
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(154, 205, 50, 0.12));
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.72),
+          rgba(154, 205, 50, 0.12)
+        );
         border: 1px solid rgba(255, 255, 255, 0.65);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
       }
@@ -5571,7 +5625,11 @@
       .drio-services-visual-grid span:nth-child(2),
       .drio-services-visual-grid span:nth-child(7),
       .drio-services-visual-grid span:nth-child(9) {
-        background: linear-gradient(145deg, rgba(154, 205, 50, 0.42), rgba(244, 196, 48, 0.16));
+        background: linear-gradient(
+          145deg,
+          rgba(154, 205, 50, 0.42),
+          rgba(244, 196, 48, 0.16)
+        );
       }
 
       .drio-services-visual figcaption {
@@ -5611,8 +5669,14 @@
         overflow: hidden;
         border-radius: var(--services-radius-lg);
         border: 1px solid rgba(154, 205, 50, 0.24);
-        background: linear-gradient(135deg, rgba(245, 247, 235, 0.72), rgba(250, 247, 240, 0.56));
-        box-shadow: 0 10px 35px rgba(154, 205, 50, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.64);
+        background: linear-gradient(
+          135deg,
+          rgba(245, 247, 235, 0.72),
+          rgba(250, 247, 240, 0.56)
+        );
+        box-shadow:
+          0 10px 35px rgba(154, 205, 50, 0.08),
+          inset 0 1px 0 rgba(255, 255, 255, 0.64);
         color: var(--ink);
         transform: translateZ(0);
         transition:
@@ -5628,7 +5692,11 @@
         position: absolute;
         inset: -1px;
         border-radius: inherit;
-        background: radial-gradient(420px circle at var(--service-x, 50%) var(--service-y, 50%), rgba(154, 205, 50, 0.22), transparent 45%);
+        background: radial-gradient(
+          420px circle at var(--service-x, 50%) var(--service-y, 50%),
+          rgba(154, 205, 50, 0.22),
+          transparent 45%
+        );
         opacity: 0;
         pointer-events: none;
         transition: opacity 280ms ease;
@@ -5637,7 +5705,9 @@
       .drio-service-card:hover {
         transform: translateY(-4px);
         border-color: rgba(154, 205, 50, 0.42);
-        box-shadow: 0 18px 50px rgba(154, 205, 50, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+        box-shadow:
+          0 18px 50px rgba(154, 205, 50, 0.14),
+          inset 0 1px 0 rgba(255, 255, 255, 0.75);
       }
 
       .drio-service-card:hover::before,
@@ -5646,9 +5716,15 @@
       }
 
       .drio-service-card.is-active {
-        background: linear-gradient(135deg, rgba(43, 43, 43, 0.94), rgba(43, 43, 43, 0.82));
+        background: linear-gradient(
+          135deg,
+          rgba(43, 43, 43, 0.94),
+          rgba(43, 43, 43, 0.82)
+        );
         border-color: rgba(154, 205, 50, 0.4);
-        box-shadow: var(--services-shadow-active), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        box-shadow:
+          var(--services-shadow-active),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
       }
 
       .drio-service-trigger {
@@ -5686,7 +5762,10 @@
         font-weight: 900;
         letter-spacing: 0.06em;
         font-variant-numeric: tabular-nums;
-        transition: color 320ms ease, background 320ms ease, border-color 320ms ease;
+        transition:
+          color 320ms ease,
+          background 320ms ease,
+          border-color 320ms ease;
       }
 
       .drio-service-heading {
@@ -5696,7 +5775,9 @@
         line-height: 1.05;
         font-weight: 850;
         letter-spacing: -0.035em;
-        transition: color 320ms ease, opacity 320ms ease;
+        transition:
+          color 320ms ease,
+          opacity 320ms ease;
       }
 
       .drio-service-icon {
@@ -5707,7 +5788,10 @@
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.44);
         border: 1px solid rgba(43, 43, 43, 0.08);
-        transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1), background 320ms ease, border-color 320ms ease;
+        transition:
+          transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+          background 320ms ease,
+          border-color 320ms ease;
       }
 
       .drio-service-icon::before,
@@ -5721,7 +5805,9 @@
         border-radius: 99px;
         background: currentColor;
         transform: translate(-50%, -50%);
-        transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1), opacity 320ms ease;
+        transition:
+          transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+          opacity 320ms ease;
       }
 
       .drio-service-icon::after {
@@ -5777,7 +5863,8 @@
       .drio-service-panel-inner {
         min-height: 0;
         overflow: hidden;
-        padding: 0 clamp(1rem, 3vw, 2rem) clamp(1.25rem, 2.8vw, 2rem) clamp(4.35rem, 7vw, 6.35rem);
+        padding: 0 clamp(1rem, 3vw, 2rem) clamp(1.25rem, 2.8vw, 2rem)
+          clamp(4.35rem, 7vw, 6.35rem);
       }
 
       .drio-service-panel p {
@@ -5813,7 +5900,9 @@
       }
 
       @keyframes drio-services-spin {
-        to { transform: rotate(360deg); }
+        to {
+          transform: rotate(360deg);
+        }
       }
 
       @media (max-width: 1100px) {
@@ -5952,10 +6041,14 @@
       }
 
       @supports not (overflow: clip) {
-        .drio-services-section { overflow: hidden; }
+        .drio-services-section {
+          overflow: hidden;
+        }
       }
 
-      @supports not ((backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px))) {
+      @supports not (
+        (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px))
+      ) {
         .drio-services-kicker,
         .drio-services-visual::after,
         .drio-services-visual figcaption {
@@ -5974,7 +6067,7 @@
           scroll-behavior: auto !important;
         }
       }
-</style>
+    </style>
 
     <script type="application/ld+json">
       {
@@ -6264,7 +6357,7 @@
                   aria-label="Creative strategy video"
                 >
                   <source
-                    src="asstes/ads/WhatsApp Video 2026-05-07 at 9.39.41 PM.mp4"
+                    src="asstes/WhatsApp Video 2026-05-11 at 7.06.18 PM.mp4"
                     type="video/mp4"
                   />
                 </video>
@@ -6310,7 +6403,7 @@
                   aria-label="Team collaboration video reel"
                 >
                   <source
-                    src="asstes/ads/WhatsApp Video 2026-05-07 at 9.38.32 PM.mp4"
+                    src="asstes/WhatsApp Video 2026-05-11 at 6.59.28 PM.mp4"
                     type="video/mp4"
                   />
                 </video>
@@ -6468,110 +6561,208 @@
     </section>
 
     <!-- ============== SERVICES - WHAT WE DO ============== -->
-<section id="services" class="drio-services-section" aria-labelledby="drio-services-title">
-  <div class="drio-services-shell">
-    <div class="drio-services-copy reveal">
-      <span class="drio-services-kicker">
-        <span aria-hidden="true"></span>
-        Performance growth stack
-      </span>
-      <h2 id="drio-services-title" class="drio-services-title">What We Do</h2>
-      <p class="drio-services-intro">
-        Paid media, creative testing, and conversion strategy built as one system — so every click, campaign, and creative asset has a measurable job.
-      </p>
+    <section
+      id="services"
+      class="drio-services-section"
+      aria-labelledby="drio-services-title"
+    >
+      <div class="drio-services-shell">
+        <div class="drio-services-copy reveal">
+          <span class="drio-services-kicker">
+            <span aria-hidden="true"></span>
+            Performance growth stack
+          </span>
+          <h2 id="drio-services-title" class="drio-services-title">
+            What We Do
+          </h2>
+          <p class="drio-services-intro">
+            Paid media, creative testing, and conversion strategy built as one
+            system — so every click, campaign, and creative asset has a
+            measurable job.
+          </p>
 
-      <figure class="drio-services-visual reveal delay-1" aria-label="Abstract campaign performance dashboard preview">
-        <div class="drio-services-visual-grid" aria-hidden="true">
-          <span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span>
+          <figure
+            class="drio-services-visual reveal delay-1"
+            aria-label="Abstract campaign performance dashboard preview"
+          >
+            <div class="drio-services-visual-grid" aria-hidden="true">
+              <span></span><span></span><span></span><span></span> <span></span
+              ><span></span><span></span><span></span> <span></span><span></span
+              ><span></span><span></span>
+            </div>
+            <figcaption>
+              <strong>Built for scaling brands</strong>
+              <span
+                >Strategy, media buying, creative testing, and optimization in
+                one execution loop.</span
+              >
+            </figcaption>
+          </figure>
         </div>
-        <figcaption>
-          <strong>Built for scaling brands</strong>
-          <span>Strategy, media buying, creative testing, and optimization in one execution loop.</span>
-        </figcaption>
-      </figure>
-    </div>
 
-    <div class="drio-services-accordion reveal delay-2" role="list">
-      <article class="drio-service-card is-active" role="listitem" data-service-card>
-        <button class="drio-service-trigger" type="button" id="service-trigger-meta" aria-expanded="true" aria-controls="service-panel-meta" data-service-trigger>
-          <span class="drio-service-number">01</span>
-          <span class="drio-service-heading">Meta Ads</span>
-          <span class="drio-service-icon" aria-hidden="true"></span>
-        </button>
-        <div class="drio-service-panel" id="service-panel-meta" role="region" aria-labelledby="service-trigger-meta" data-service-panel>
-          <div class="drio-service-panel-inner">
-            <p>Fast, profitable, data-driven Facebook and Instagram campaigns with structured testing, audience segmentation, creative rotation, and clear scaling rules.</p>
-            <ul class="drio-service-tags" aria-label="Meta Ads capabilities">
-              <li>Advantage+</li>
-              <li>CBO Scaling</li>
-              <li>Retargeting</li>
-            </ul>
-          </div>
+        <div class="drio-services-accordion reveal delay-2" role="list">
+          <article
+            class="drio-service-card is-active"
+            role="listitem"
+            data-service-card
+          >
+            <button
+              class="drio-service-trigger"
+              type="button"
+              id="service-trigger-meta"
+              aria-expanded="true"
+              aria-controls="service-panel-meta"
+              data-service-trigger
+            >
+              <span class="drio-service-number">01</span>
+              <span class="drio-service-heading">Meta Ads</span>
+              <span class="drio-service-icon" aria-hidden="true"></span>
+            </button>
+            <div
+              class="drio-service-panel"
+              id="service-panel-meta"
+              role="region"
+              aria-labelledby="service-trigger-meta"
+              data-service-panel
+            >
+              <div class="drio-service-panel-inner">
+                <p>
+                  Fast, profitable, data-driven Facebook and Instagram campaigns
+                  with structured testing, audience segmentation, creative
+                  rotation, and clear scaling rules.
+                </p>
+                <ul
+                  class="drio-service-tags"
+                  aria-label="Meta Ads capabilities"
+                >
+                  <li>Advantage+</li>
+                  <li>CBO Scaling</li>
+                  <li>Retargeting</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="drio-service-card" role="listitem" data-service-card>
+            <button
+              class="drio-service-trigger"
+              type="button"
+              id="service-trigger-google"
+              aria-expanded="false"
+              aria-controls="service-panel-google"
+              data-service-trigger
+            >
+              <span class="drio-service-number">02</span>
+              <span class="drio-service-heading">Google Ads</span>
+              <span class="drio-service-icon" aria-hidden="true"></span>
+            </button>
+            <div
+              class="drio-service-panel"
+              id="service-panel-google"
+              role="region"
+              aria-labelledby="service-trigger-google"
+              data-service-panel
+            >
+              <div class="drio-service-panel-inner">
+                <p>
+                  Search, Performance Max, Shopping, and YouTube campaigns
+                  engineered to capture high-intent demand and convert it into
+                  qualified revenue.
+                </p>
+                <ul
+                  class="drio-service-tags"
+                  aria-label="Google Ads capabilities"
+                >
+                  <li>Search</li>
+                  <li>PMax</li>
+                  <li>Shopping</li>
+                  <li>YouTube</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="drio-service-card" role="listitem" data-service-card>
+            <button
+              class="drio-service-trigger"
+              type="button"
+              id="service-trigger-tiktok"
+              aria-expanded="false"
+              aria-controls="service-panel-tiktok"
+              data-service-trigger
+            >
+              <span class="drio-service-number">03</span>
+              <span class="drio-service-heading">TikTok Ads</span>
+              <span class="drio-service-icon" aria-hidden="true"></span>
+            </button>
+            <div
+              class="drio-service-panel"
+              id="service-panel-tiktok"
+              role="region"
+              aria-labelledby="service-trigger-tiktok"
+              data-service-panel
+            >
+              <div class="drio-service-panel-inner">
+                <p>
+                  Viral-native paid acquisition using Spark Ads, UGC angles,
+                  creator testing, and rapid learning cycles built for TikTok’s
+                  short-form buying behavior.
+                </p>
+                <ul
+                  class="drio-service-tags"
+                  aria-label="TikTok Ads capabilities"
+                >
+                  <li>Spark Ads</li>
+                  <li>UGC</li>
+                  <li>Creator Network</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="drio-service-card" role="listitem" data-service-card>
+            <button
+              class="drio-service-trigger"
+              type="button"
+              id="service-trigger-creative"
+              aria-expanded="false"
+              aria-controls="service-panel-creative"
+              data-service-trigger
+            >
+              <span class="drio-service-number">04</span>
+              <span class="drio-service-heading">Creative Strategy</span>
+              <span class="drio-service-icon" aria-hidden="true"></span>
+            </button>
+            <div
+              class="drio-service-panel"
+              id="service-panel-creative"
+              role="region"
+              aria-labelledby="service-trigger-creative"
+              data-service-panel
+            >
+              <div class="drio-service-panel-inner">
+                <p>
+                  Hooks, scripts, statics, and motion assets produced in volume,
+                  tested ruthlessly, and optimized against real paid-media
+                  performance data.
+                </p>
+                <ul
+                  class="drio-service-tags"
+                  aria-label="Creative Strategy capabilities"
+                >
+                  <li>Statics</li>
+                  <li>Motion</li>
+                  <li>UGC Scripts</li>
+                  <li>Strategy</li>
+                </ul>
+              </div>
+            </div>
+          </article>
         </div>
-      </article>
+      </div>
+    </section>
 
-      <article class="drio-service-card" role="listitem" data-service-card>
-        <button class="drio-service-trigger" type="button" id="service-trigger-google" aria-expanded="false" aria-controls="service-panel-google" data-service-trigger>
-          <span class="drio-service-number">02</span>
-          <span class="drio-service-heading">Google Ads</span>
-          <span class="drio-service-icon" aria-hidden="true"></span>
-        </button>
-        <div class="drio-service-panel" id="service-panel-google" role="region" aria-labelledby="service-trigger-google" data-service-panel>
-          <div class="drio-service-panel-inner">
-            <p>Search, Performance Max, Shopping, and YouTube campaigns engineered to capture high-intent demand and convert it into qualified revenue.</p>
-            <ul class="drio-service-tags" aria-label="Google Ads capabilities">
-              <li>Search</li>
-              <li>PMax</li>
-              <li>Shopping</li>
-              <li>YouTube</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <article class="drio-service-card" role="listitem" data-service-card>
-        <button class="drio-service-trigger" type="button" id="service-trigger-tiktok" aria-expanded="false" aria-controls="service-panel-tiktok" data-service-trigger>
-          <span class="drio-service-number">03</span>
-          <span class="drio-service-heading">TikTok Ads</span>
-          <span class="drio-service-icon" aria-hidden="true"></span>
-        </button>
-        <div class="drio-service-panel" id="service-panel-tiktok" role="region" aria-labelledby="service-trigger-tiktok" data-service-panel>
-          <div class="drio-service-panel-inner">
-            <p>Viral-native paid acquisition using Spark Ads, UGC angles, creator testing, and rapid learning cycles built for TikTok’s short-form buying behavior.</p>
-            <ul class="drio-service-tags" aria-label="TikTok Ads capabilities">
-              <li>Spark Ads</li>
-              <li>UGC</li>
-              <li>Creator Network</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <article class="drio-service-card" role="listitem" data-service-card>
-        <button class="drio-service-trigger" type="button" id="service-trigger-creative" aria-expanded="false" aria-controls="service-panel-creative" data-service-trigger>
-          <span class="drio-service-number">04</span>
-          <span class="drio-service-heading">Creative Strategy</span>
-          <span class="drio-service-icon" aria-hidden="true"></span>
-        </button>
-        <div class="drio-service-panel" id="service-panel-creative" role="region" aria-labelledby="service-trigger-creative" data-service-panel>
-          <div class="drio-service-panel-inner">
-            <p>Hooks, scripts, statics, and motion assets produced in volume, tested ruthlessly, and optimized against real paid-media performance data.</p>
-            <ul class="drio-service-tags" aria-label="Creative Strategy capabilities">
-              <li>Statics</li>
-              <li>Motion</li>
-              <li>UGC Scripts</li>
-              <li>Strategy</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============== RESULTS ============== -->
+    <!-- ============== RESULTS ============== -->
     <section id="case-studies" class="section bg-sage">
       <div class="container">
         <div
@@ -7527,10 +7718,6 @@
         border-radius: 999px;
         background: var(--tc-brand);
         color: var(--tc-ink);
-        border: 3px solid #101010;
-        box-shadow:
-          7px 7px 0 #101010,
-          0 18px 35px rgba(154, 205, 50, 0.28);
         text-decoration: none;
         font-size: clamp(14px, 1.1vw, 17px);
         line-height: 1;
@@ -7639,7 +7826,11 @@
     </style>
 
     <!-- ============== TESTIMONIALS ============== -->
-    <section id="reviews" class="section overflow-hidden">
+    <section
+      id="reviews"
+      class="section overflow-hidden"
+      aria-labelledby="testimonials-title"
+    >
       <div class="container">
         <!-- Section Header - Centered -->
         <div
@@ -7653,6 +7844,7 @@
         >
           <h2
             class="section-title reveal"
+            id="testimonials-title"
             style="font-size: clamp(2rem, 3.5vw, 3rem); margin: 0 auto 3rem"
           >
             Client Testimonials
@@ -7660,12 +7852,17 @@
         </div>
 
         <!-- 3D Testimonial Slider -->
-        <div class="testimonial-3d-slider">
+        <div
+          class="testimonial-3d-slider"
+          aria-roledescription="carousel"
+          aria-label="Client testimonials"
+        >
           <button
             type="button"
             class="slider-nav-btn prev-btn"
             id="prevTestimonial"
-            aria-label="Previous"
+            aria-label="Previous testimonial"
+            aria-controls="testimonialSlider3D"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
@@ -7679,9 +7876,19 @@
           </button>
 
           <div class="slider-3d-wrapper">
-            <div class="slider-3d-track" id="testimonialSlider3D">
+            <div
+              class="slider-3d-track"
+              id="testimonialSlider3D"
+              role="list"
+              aria-live="polite"
+              aria-atomic="false"
+            >
               <!-- Card 1: Video Testimonial -->
-              <div class="testimonial-card-3d video-card">
+              <div
+                class="testimonial-card-3d video-card"
+                role="listitem"
+                aria-label="Video testimonial"
+              >
                 <div class="video-thumbnail-portrait">
                   <video
                     class="video-card-media"
@@ -7689,9 +7896,10 @@
                     muted
                     loop
                     playsinline
-                    preload="auto"
+                    preload="metadata"
                     disablepictureinpicture
                     controlslist="nodownload noplaybackrate noremoteplayback"
+                    aria-label="Client story video testimonial"
                   >
                     <source
                       src="asstes/WhatsApp Video 2026-05-07 at 9.49.55 PM.mp4"
@@ -7704,32 +7912,25 @@
                     <span>Client Story</span>
                   </div>
                 </div>
-                <div class="card-content-3d">
-                  <div class="client-info-compact">
-                    <div class="avatar-sm" style="background: var(--brand)">
-                      MK
-                    </div>
-                    <div>
-                      <div class="client-name">Maya Kapoor</div>
-                      <div class="client-company">Northwave Apparel</div>
-                    </div>
-                  </div>
-                  <div class="metric-badge">3× ROAS in 60 days</div>
-                </div>
               </div>
 
               <!-- Card 2: Text Testimonial -->
-              <div class="testimonial-card-3d text-card">
-                <div class="stars-compact">★★★★★</div>
+              <div
+                class="testimonial-card-3d text-card"
+                role="listitem"
+                aria-label="Text testimonial"
+              >
+                <div class="stars-compact" aria-hidden="true">★★★★★</div>
                 <blockquote class="quote-compact">
-                  "After working with
+                  <span aria-hidden="true">“</span>After working with
                   <mark class="highlight-brand">Drio Growth</mark>, our online
                   orders became far more consistent and our
                   <mark class="highlight-brand"
                     >cost per conversion dropped by nearly 30%.</mark
                   >
                   They genuinely understand both branding and performance
-                  marketing."
+                  marketing.
+                  <span aria-hidden="true">”</span>
                 </blockquote>
                 <div class="author-compact">
                   <div
@@ -7737,6 +7938,7 @@
                     style="
                       background: linear-gradient(135deg, #9acd32, #f4c430);
                     "
+                    aria-hidden="true"
                   >
                     DR
                   </div>
@@ -7750,15 +7952,15 @@
                     <span class="stat-num">30%</span>
                     <span class="stat-lbl">CPC</span>
                   </div>
-                  <!-- <div class="stat-compact">
-                <span class="stat-num">4×</span>
-                <span class="stat-lbl">Output</span>
-              </div> -->
                 </div>
               </div>
 
               <!-- Card 3: Video Testimonial -->
-              <div class="testimonial-card-3d video-card">
+              <div
+                class="testimonial-card-3d video-card"
+                role="listitem"
+                aria-label="Video testimonial"
+              >
                 <div class="video-thumbnail-portrait">
                   <video
                     class="video-card-media"
@@ -7766,9 +7968,10 @@
                     muted
                     loop
                     playsinline
-                    preload="auto"
+                    preload="metadata"
                     disablepictureinpicture
                     controlslist="nodownload noplaybackrate noremoteplayback"
+                    aria-label="Client story video testimonial"
                   >
                     <source
                       src="asstes/WhatsApp Video 2026-05-07 at 9.53.10 PM.mp4"
@@ -7781,34 +7984,29 @@
                     <span>Client Story</span>
                   </div>
                 </div>
-                <div class="card-content-3d">
-                  <div class="client-info-compact">
-                    <div class="avatar-sm" style="background: var(--brand)">
-                      MK
-                    </div>
-                    <div>
-                      <div class="client-name">Maya Kapoor</div>
-                      <div class="client-company">Northwave Apparel</div>
-                    </div>
-                  </div>
-                  <div class="metric-badge">3× ROAS in 60 days</div>
-                </div>
               </div>
 
               <!-- Card 4: Text Testimonial -->
-              <div class="testimonial-card-3d text-card">
-                <div class="stars-compact">★★★★★</div>
+              <div
+                class="testimonial-card-3d text-card"
+                role="listitem"
+                aria-label="Text testimonial"
+              >
+                <div class="stars-compact" aria-hidden="true">★★★★★</div>
                 <blockquote class="quote-compact">
-                  <mark class="highlight-brand">Drio Growth</mark> helped us
+                  <span aria-hidden="true">“</span
+                  ><mark class="highlight-brand">Drio Growth</mark> helped us
                   scale from inconsistent results to a
                   <mark class="highlight-brand">stable 4x+ ROAS</mark>. Our cost
                   per purchase dropped significantly and the campaigns finally
-                  started performing profitably.”
+                  started performing profitably.
+                  <span aria-hidden="true">”</span>
                 </blockquote>
                 <div class="author-compact">
                   <div
                     class="avatar-sm"
                     style="background: var(--ink); color: var(--cream)"
+                    aria-hidden="true"
                   >
                     JL
                   </div>
@@ -7819,14 +8017,18 @@
                 </div>
                 <div class="stats-compact">
                   <div class="stat-compact">
-                    <span class="stat-num">4X +</span>
+                    <span class="stat-num">4x+</span>
                     <span class="stat-lbl">ROAS</span>
                   </div>
                 </div>
               </div>
 
               <!-- Card 5: Video Testimonial -->
-              <div class="testimonial-card-3d video-card">
+              <div
+                class="testimonial-card-3d video-card"
+                role="listitem"
+                aria-label="Video testimonial"
+              >
                 <div class="video-thumbnail-portrait">
                   <video
                     class="video-card-media"
@@ -7834,9 +8036,10 @@
                     muted
                     loop
                     playsinline
-                    preload="auto"
+                    preload="metadata"
                     disablepictureinpicture
                     controlslist="nodownload noplaybackrate noremoteplayback"
+                    aria-label="Client story video testimonial"
                   >
                     <source
                       src="asstes/WhatsApp Video 2026-05-07 at 9.56.42 PM.mp4"
@@ -7849,30 +8052,24 @@
                     <span>Client Story</span>
                   </div>
                 </div>
-                <div class="card-content-3d">
-                  <div class="client-info-compact">
-                    <div class="avatar-sm" style="background: var(--brand)">
-                      MK
-                    </div>
-                    <div>
-                      <div class="client-name">Maya Kapoor</div>
-                      <div class="client-company">Northwave Apparel</div>
-                    </div>
-                  </div>
-                  <div class="metric-badge">3× ROAS in 60 days</div>
-                </div>
               </div>
 
               <!-- Card 6: Text Testimonial -->
-              <div class="testimonial-card-3d text-card">
-                <div class="stars-compact">★★★★★</div>
+              <div
+                class="testimonial-card-3d text-card"
+                role="listitem"
+                aria-label="Text testimonial"
+              >
+                <div class="stars-compact" aria-hidden="true">★★★★★</div>
                 <blockquote class="quote-compact">
-                  “Working with
+                  <span aria-hidden="true">“</span>Working with
                   <mark class="highlight-brand">Drio Growth</mark> increased our
                   <mark class="highlight-brand"
                     >conversion rate by 38% within 2 months.</mark
-                  >. They completely optimized our funnel and Meta ads strategy.
-                  Easily one of the best growth teams we’ve worked with.”
+                  >
+                  They completely optimized our funnel and Meta ads strategy.
+                  Easily one of the best growth teams we’ve worked with.
+                  <span aria-hidden="true">”</span>
                 </blockquote>
                 <div class="author-compact">
                   <div
@@ -7881,11 +8078,12 @@
                       background: linear-gradient(135deg, #2b2b2b, #6b7280);
                       color: var(--cream);
                     "
+                    aria-hidden="true"
                   >
                     TW
                   </div>
                   <div>
-                    <div class="client-name">incent, Owner of</div>
+                    <div class="client-name">Vincent, Owner of</div>
                     <div class="client-company">Vencente.com.au</div>
                   </div>
                 </div>
@@ -7898,56 +8096,59 @@
               </div>
 
               <!-- Card 7: Video Testimonial -->
-              <div class="testimonial-card-3d video-card">
+              <div
+                class="testimonial-card-3d video-card"
+                role="listitem"
+                aria-label="Video testimonial"
+              >
                 <div class="video-thumbnail-portrait">
-                  <div class="play-button-overlay">
-                    <div class="play-btn">
-                      <svg
-                        width="28"
-                        height="28"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path d="M8 5v14l11-7z" fill="currentColor" />
-                      </svg>
-                    </div>
-                  </div>
+                  <video
+                    class="video-card-media"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                    disablepictureinpicture
+                    controlslist="nodownload noplaybackrate noremoteplayback"
+                    aria-label="Client story video testimonial"
+                  >
+                    <source
+                      src="asstes/WhatsApp Video 2026-05-11 at 6.56.19 PM.mp4"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
                   <div class="video-badge">
                     <span class="pulse-dot"></span>
-                    <span>Success Story</span>
+                    <span>Client Story</span>
                   </div>
-                </div>
-                <div class="card-content-3d">
-                  <div class="client-info-compact">
-                    <div class="avatar-sm" style="background: var(--brand)">
-                      NP
-                    </div>
-                    <div>
-                      <div class="client-name">Nina Patel</div>
-                      <div class="client-company">Luxe Beauty</div>
-                    </div>
-                  </div>
-                  <div class="metric-badge">$2M revenue in 6mo</div>
                 </div>
               </div>
 
               <!-- Card 8: Text Testimonial -->
-              <div class="testimonial-card-3d text-card">
-                <div class="stars-compact">★★★★★</div>
+              <div
+                class="testimonial-card-3d text-card"
+                role="listitem"
+                aria-label="Text testimonial"
+              >
+                <div class="stars-compact" aria-hidden="true">★★★★★</div>
                 <blockquote class="quote-compact">
-                  “Within weeks of working with
+                  <span aria-hidden="true">“</span>Within weeks of working with
                   <mark class="highlight-brand">Drio Growth</mark>, our sales
                   increased by over
                   <mark class="highlight-brand"
                     >42% while maintaining profitable acquisition costs.</mark
                   >
                   Their creative strategy and campaign structure made a huge
-                  difference.”
+                  difference.
+                  <span aria-hidden="true">”</span>
                 </blockquote>
                 <div class="author-compact">
                   <div
                     class="avatar-sm"
                     style="background: var(--gold); color: var(--ink)"
+                    aria-hidden="true"
                   >
                     RK
                   </div>
@@ -7970,7 +8171,8 @@
             type="button"
             class="slider-nav-btn next-btn"
             id="nextTestimonial"
-            aria-label="Next"
+            aria-label="Next testimonial"
+            aria-controls="testimonialSlider3D"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
@@ -7985,9 +8187,16 @@
         </div>
 
         <!-- Slider Progress -->
-        <div class="slider-progress">
+        <div class="slider-progress" aria-hidden="true">
           <div class="progress-bar" id="sliderProgress"></div>
         </div>
+        <p
+          class="sr-only-section testimonial-slider-status"
+          id="testimonialSliderStatus"
+          aria-live="polite"
+        >
+          Showing testimonials 1 through 4 of 8.
+        </p>
       </div>
     </section>
 
@@ -8676,8 +8885,14 @@
             card.addEventListener("pointermove", (event) => {
               if (event.pointerType !== "mouse") return;
               const rect = card.getBoundingClientRect();
-              card.style.setProperty("--service-x", `${event.clientX - rect.left}px`);
-              card.style.setProperty("--service-y", `${event.clientY - rect.top}px`);
+              card.style.setProperty(
+                "--service-x",
+                `${event.clientX - rect.left}px`,
+              );
+              card.style.setProperty(
+                "--service-y",
+                `${event.clientY - rect.top}px`,
+              );
             });
           });
         }
@@ -8850,11 +9065,18 @@
         const prevBtn = document.getElementById("prevTestimonial");
         const nextBtn = document.getElementById("nextTestimonial");
         const progressBar = document.getElementById("sliderProgress");
+        const testimonialStatus = document.getElementById(
+          "testimonialSliderStatus",
+        );
+        const testimonialSection = document.getElementById("reviews");
 
         if (slider3D && prevBtn && nextBtn && progressBar) {
           let currentIndex = 0;
-          let autoSlideInterval;
+          let autoSlideInterval = null;
           let testimonialAnimating = false;
+          let testimonialResizeTimeout = null;
+
+          const cards = Array.from(slider3D.children);
 
           const getCardsToShow = () => {
             if (window.innerWidth <= 640) return 1;
@@ -8864,52 +9086,94 @@
           };
 
           const getMaxIndex = () =>
-            Math.max(0, slider3D.children.length - getCardsToShow());
-          const getGap = () =>
-            Number.parseFloat(getComputedStyle(slider3D).gap) || 32;
+            Math.max(0, cards.length - getCardsToShow());
+
+          const getVisibleRange = () => {
+            const visibleCount = getCardsToShow();
+            const start = Math.max(0, Math.min(currentIndex, getMaxIndex()));
+            const end = Math.min(cards.length, start + visibleCount);
+            return { start, end, visibleCount };
+          };
+
+          const syncVideoPlayback = () => {
+            const { start, end } = getVisibleRange();
+            cards.forEach((card, index) => {
+              const video = card.querySelector("video");
+              if (!video) return;
+              const shouldPlay = index >= start && index < end;
+              card.dataset.visible = String(shouldPlay);
+              if (shouldPlay) {
+                const playPromise = video.play();
+                if (playPromise && typeof playPromise.catch === "function") {
+                  playPromise.catch(() => {});
+                }
+              } else {
+                video.pause();
+              }
+            });
+          };
+
+          const updateStatus = () => {
+            if (!testimonialStatus) return;
+            const { start, end } = getVisibleRange();
+            testimonialStatus.textContent = `Showing testimonials ${start + 1} through ${end} of ${cards.length}.`;
+          };
 
           const updateSlider = () => {
-            if (!slider3D.children.length) return;
+            if (!cards.length) return;
+
             const maxIndex = getMaxIndex();
             currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
-            const cardWidth = slider3D.children[0].offsetWidth;
-            const offset = currentIndex * (cardWidth + getGap());
-            slider3D.style.transform = `translateX(-${offset}px)`;
-            progressBar.style.width = `${maxIndex === 0 ? 100 : (currentIndex / maxIndex) * 100}%`;
+
+            const targetCard = cards[currentIndex];
+            const offset = targetCard ? targetCard.offsetLeft : 0;
+            slider3D.style.transform = `translate3d(-${offset}px, 0, 0)`;
+
+            const progressValue = cards.length
+              ? ((currentIndex + getCardsToShow()) / cards.length) * 100
+              : 0;
+            progressBar.style.width = `${Math.min(100, progressValue)}%`;
+
+            syncVideoPlayback();
+            updateStatus();
           };
 
           const goNext = () => {
             if (testimonialAnimating) return;
             testimonialAnimating = true;
+
             const maxIndex = getMaxIndex();
             currentIndex = currentIndex < maxIndex ? currentIndex + 1 : 0;
             updateSlider();
+
             window.setTimeout(
               () => {
                 testimonialAnimating = false;
               },
-              prefersReducedMotion ? 50 : 1450,
+              prefersReducedMotion ? 50 : 800,
             );
           };
 
           const goPrev = () => {
             if (testimonialAnimating) return;
             testimonialAnimating = true;
+
             const maxIndex = getMaxIndex();
             currentIndex = currentIndex > 0 ? currentIndex - 1 : maxIndex;
             updateSlider();
+
             window.setTimeout(
               () => {
                 testimonialAnimating = false;
               },
-              prefersReducedMotion ? 50 : 1450,
+              prefersReducedMotion ? 50 : 800,
             );
           };
 
           const startAutoSlide = () => {
             if (prefersReducedMotion) return;
             clearInterval(autoSlideInterval);
-            autoSlideInterval = setInterval(goNext, 6000);
+            autoSlideInterval = window.setInterval(goNext, 6000);
           };
 
           const resetAutoSlide = () => {
@@ -8921,6 +9185,7 @@
             goNext();
             resetAutoSlide();
           });
+
           prevBtn.addEventListener("click", () => {
             goPrev();
             resetAutoSlide();
@@ -8930,6 +9195,7 @@
             slider3D.closest(".testimonial-3d-slider") ||
             slider3D.parentElement;
           sliderWrapper.setAttribute("tabindex", "0");
+
           sliderWrapper.addEventListener("keydown", (event) => {
             if (event.key === "ArrowLeft") {
               event.preventDefault();
@@ -8943,13 +9209,15 @@
             }
           });
 
-          slider3D.parentElement.addEventListener("mouseenter", () =>
-            clearInterval(autoSlideInterval),
-          );
-          slider3D.parentElement.addEventListener("mouseleave", startAutoSlide);
+          sliderWrapper.addEventListener("mouseenter", () => {
+            clearInterval(autoSlideInterval);
+          });
+
+          sliderWrapper.addEventListener("mouseleave", startAutoSlide);
 
           let touchStartX = 0;
           let touchStartY = 0;
+
           slider3D.addEventListener(
             "touchstart",
             (event) => {
@@ -8966,6 +9234,7 @@
               const diffY = Math.abs(
                 touchStartY - event.changedTouches[0].clientY,
               );
+
               if (Math.abs(diffX) > 75 && Math.abs(diffX) > diffY) {
                 diffX > 0 ? goNext() : goPrev();
                 resetAutoSlide();
@@ -8974,10 +9243,27 @@
             { passive: true },
           );
 
-          let testimonialResizeTimeout;
+          if (testimonialSection && "IntersectionObserver" in window) {
+            const observer = new IntersectionObserver(
+              (entries) => {
+                const isVisible = entries.some((entry) => entry.isIntersecting);
+                if (!isVisible) {
+                  cards.forEach((card) => {
+                    const video = card.querySelector("video");
+                    if (video) video.pause();
+                  });
+                } else {
+                  syncVideoPlayback();
+                }
+              },
+              { threshold: 0.2 },
+            );
+            observer.observe(testimonialSection);
+          }
+
           window.addEventListener("resize", () => {
             clearTimeout(testimonialResizeTimeout);
-            testimonialResizeTimeout = setTimeout(updateSlider, 180);
+            testimonialResizeTimeout = window.setTimeout(updateSlider, 150);
           });
 
           updateSlider();
