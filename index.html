@@ -1694,7 +1694,7 @@
       }
 
       .brand-image {
-        max-width: 100%;
+        max-width: 85%;
         height: 100%;
         object-fit: contain; /* Ensures images cover the full area of the card */
         border-radius: 1rem; /* Optional: gives rounded corners to the images */
@@ -3507,6 +3507,58 @@
         font-size: 0.8125rem;
         font-weight: 600;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        z-index: 2;
+      }
+
+      .testimonial-video-toggle {
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+        width: 3.25rem;
+        height: 3.25rem;
+        border: 0;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(250, 247, 240, 0.94);
+        color: var(--ink);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+        cursor: pointer;
+        z-index: 3;
+        transition:
+          transform 0.25s ease,
+          background 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .testimonial-video-toggle:hover {
+        transform: scale(1.06);
+        background: var(--brand);
+        box-shadow: 0 16px 34px rgba(154, 205, 50, 0.35);
+      }
+
+      .testimonial-video-toggle:focus-visible {
+        outline: 3px solid var(--brand);
+        outline-offset: 4px;
+      }
+
+      .testimonial-video-toggle svg {
+        width: 1.15rem;
+        height: 1.15rem;
+        pointer-events: none;
+      }
+
+      .testimonial-video-toggle .icon-pause {
+        display: none;
+      }
+
+      .testimonial-card-3d.video-card.is-playing .testimonial-video-toggle .icon-play {
+        display: none;
+      }
+
+      .testimonial-card-3d.video-card.is-playing .testimonial-video-toggle .icon-pause {
+        display: block;
       }
 
       .pulse-dot {
@@ -6470,91 +6522,169 @@
         <div class="brands-grid reveal delay-1">
           <!-- Row 1 -->
           <div class="brand-card">
-            <a href="https://www.luxhomesgroup.co.uk/"><img src="asstes/logo.png" alt="Brand 1" class="brand-image" /></a>
+            <a
+              href="https://www.luxhomesgroup.co.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="asstes/logo.png" alt="Brand 1" class="brand-image" />
+            </a>
           </div>
+
           <div class="brand-card">
-            <a href="https://arbeitshandschuhe.pro"><img
-              src="asstes/logo_1_big.webp"
-              alt="Brand 1"
-              class="brand-image"
-            /></a> 
+            <a
+              href="https://arbeitshandschuhe.pro"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="asstes/logo_1_big.webp"
+                alt="Brand 1"
+                class="brand-image"
+              />
+            </a>
           </div>
+
           <div class="brand-card">
-            <a href="studleyduds.com/"><img
-              src="asstes/logosmall.webp"
-              alt="Brand 1"
-              class="brand-image"
-            /></a>
+            <a
+              href="https://studleyduds.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="asstes/logosmall.webp"
+                alt="Brand 1"
+                class="brand-image"
+              />
+            </a>
           </div>
+
           <div class="brand-card brand-card-filled">
             <!-- Empty accent card -->
           </div>
+
           <div class="brand-card">
-            <a href="https://malilou.com.au/"><img
-              src="asstes/MaliLou-LogoPrimary-Black.png"
-              alt="Brand 1"
-              class="brand-image"
-            /></a>
+            <a
+              href="https://malilou.com.au/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="asstes/MaliLou-LogoPrimary-Black.png"
+                alt="Brand 1"
+                class="brand-image"
+              />
+            </a>
           </div>
 
           <!-- Row 2 -->
           <div class="brand-card">
-            <a href="https://telese.uk"><img src="asstes/telese.png" alt="Brand 1" class="brand-image" /></a>
+            <a
+              href="https://telese.uk"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="asstes/telese.png" alt="Brand 1" class="brand-image" />
+            </a>
           </div>
+
           <div class="brand-card brand-card-filled">
             <!-- Empty accent card -->
           </div>
+
           <div class="brand-card">
-            <a href="https://curioblvd.com/"><img
-              src="asstes/CB_Primary_Logo_2_1.avif"
-              alt="Brand 1"
-              class="brand-image"
-            /></a>
+            <a
+              href="https://curioblvd.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="asstes/CB_Primary_Logo_2_1.avif"
+                alt="Brand 1"
+                class="brand-image"
+              />
+            </a>
           </div>
+
           <div class="brand-card">
-            <a href="https://lmklandscaping.com.au"><img
-              src="asstes/WhatsApp-Image-2023-03-14-at-7.58.04-PM-1200x600.png"
-              alt="Brand 1"
-              class="brand-image"
-            /></a>
+            <a
+              href="https://lmklandscaping.com.au"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="asstes/WhatsApp-Image-2023-03-14-at-7.58.04-PM-1200x600.png"
+                alt="Brand 1"
+                class="brand-image"
+              />
+            </a>
           </div>
+
           <div class="brand-card">
-            <a href="https://www.honeycosmetictattoo.com.au/"><img
-              src="asstes/Logo Honey Cosmetic Tattoo 2024 (1).png"
-              alt="Brand 1"
-              class="brand-image"
-            /></a>
+            <a
+              href="https://www.honeycosmetictattoo.com.au/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="asstes/Logo Honey Cosmetic Tattoo 2024 (1).png"
+                alt="Brand 1"
+                class="brand-image"
+              />
+            </a>
           </div>
 
           <!-- Row 3 -->
           <div class="brand-card">
-            <a href="https://vitallifestylez.com/"><img
-              src="asstes/unnamed_2.avif"
-              alt="Brand 1"
-              class="brand-image"
-            /></a>
+            <a
+              href="https://vitallifestylez.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="asstes/unnamed_2.avif"
+                alt="Brand 1"
+                class="brand-image"
+              />
+            </a>
           </div>
+
           <div class="brand-card">
-            <a href="https://shopvibn.com"><img
-              src="asstes/vibn_logo_55cb119d-6c2d-45e4-825f-2e3e14be1187_190x.avif"
-              alt="Brand 1"
-              class="brand-image"
-            /></a>
+            <a
+              href="https://shopvibn.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="asstes/vibn_logo_55cb119d-6c2d-45e4-825f-2e3e14be1187_190x.avif"
+                alt="Brand 1"
+                class="brand-image"
+              />
+            </a>
           </div>
+
           <div class="brand-card">
-            <a href="Vencente.com.au"><img
-              src="asstes/website_Logo.avif"
-              alt="Brand 1"
-              class="brand-image"
-            /></a>
+            <a
+              href="https://vencente.com.au"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="asstes/website_Logo.avif"
+                alt="Brand 1"
+                class="brand-image"
+              />
+            </a>
           </div>
+
           <div class="brand-card brand-card-filled">
             <!-- Empty accent card -->
           </div>
+
           <div class="brand-card">
-            <span class="h-display" style="font-size: 2rem; font-weight: 500"
-              >50+ More</span
-            >
+            <span class="h-display" style="font-size: 2rem; font-weight: 500">
+              50+ More
+            </span>
           </div>
         </div>
       </div>
@@ -7397,7 +7527,7 @@
     </section>
 
     <style>
-      .stat-compact{
+      .stat-compact {
         display: none;
       }
       .tc-collab,
@@ -7826,6 +7956,27 @@
           animation-iteration-count: 1 !important;
         }
       }
+    
+/* Enforce silent testimonial videos with no visible media controls */
+.testimonial-card-3d.video-card .video-card-media {
+  pointer-events: none !important;
+}
+
+.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls,
+.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-panel,
+.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-play-button,
+.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-timeline,
+.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-current-time-display,
+.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-time-remaining-display,
+.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-volume-slider,
+.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-mute-button,
+.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-fullscreen-button,
+.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-toggle-closed-captions-button {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
     </style>
 
     <!-- ============== TESTIMONIALS ============== -->
@@ -7895,14 +8046,7 @@
                 <div class="video-thumbnail-portrait">
                   <video
                     class="video-card-media"
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    preload="metadata"
-                    disablepictureinpicture
-                    controlslist="nodownload noplaybackrate noremoteplayback"
-                    aria-label="Client story video testimonial"
+                    loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" aria-label="Client story video testimonial"
                   >
                     <source
                       src="asstes/WhatsApp Video 2026-05-07 at 9.49.55 PM.mp4"
@@ -7910,6 +8054,31 @@
                     />
                     Your browser does not support the video tag.
                   </video>
+                  <button
+                    type="button"
+                    class="testimonial-video-toggle"
+                    aria-label="Play testimonial video"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      class="icon-play"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M8 5v14l11-7z"></path>
+                    </svg>
+                    <svg
+                      class="icon-pause"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M7 5h3v14H7zM14 5h3v14h-3z"></path>
+                    </svg>
+                  </button>
                   <div class="video-badge">
                     <span class="pulse-dot"></span>
                     <span>Client Story</span>
@@ -7918,7 +8087,7 @@
               </div>
 
               <!-- Card 2: Text Testimonial -->
-              <div
+              <!-- <div
                 class="testimonial-card-3d text-card"
                 role="listitem"
                 aria-label="Text testimonial"
@@ -7956,7 +8125,7 @@
                     <span class="stat-lbl">CPC</span>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <!-- Card 3: Video Testimonial -->
               <div
@@ -7967,14 +8136,7 @@
                 <div class="video-thumbnail-portrait">
                   <video
                     class="video-card-media"
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    preload="metadata"
-                    disablepictureinpicture
-                    controlslist="nodownload noplaybackrate noremoteplayback"
-                    aria-label="Client story video testimonial"
+                    loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" aria-label="Client story video testimonial"
                   >
                     <source
                       src="asstes/WhatsApp Video 2026-05-07 at 9.53.10 PM.mp4"
@@ -7982,6 +8144,31 @@
                     />
                     Your browser does not support the video tag.
                   </video>
+                  <button
+                    type="button"
+                    class="testimonial-video-toggle"
+                    aria-label="Play testimonial video"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      class="icon-play"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M8 5v14l11-7z"></path>
+                    </svg>
+                    <svg
+                      class="icon-pause"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M7 5h3v14H7zM14 5h3v14h-3z"></path>
+                    </svg>
+                  </button>
                   <div class="video-badge">
                     <span class="pulse-dot"></span>
                     <span>Client Story</span>
@@ -7990,7 +8177,7 @@
               </div>
 
               <!-- Card 4: Text Testimonial -->
-              <div
+              <!-- <div
                 class="testimonial-card-3d text-card"
                 role="listitem"
                 aria-label="Text testimonial"
@@ -8024,7 +8211,7 @@
                     <span class="stat-lbl">ROAS</span>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <!-- Card 5: Video Testimonial -->
               <div
@@ -8035,14 +8222,7 @@
                 <div class="video-thumbnail-portrait">
                   <video
                     class="video-card-media"
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    preload="metadata"
-                    disablepictureinpicture
-                    controlslist="nodownload noplaybackrate noremoteplayback"
-                    aria-label="Client story video testimonial"
+                    loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" aria-label="Client story video testimonial"
                   >
                     <source
                       src="asstes/WhatsApp Video 2026-05-07 at 9.56.42 PM.mp4"
@@ -8050,6 +8230,31 @@
                     />
                     Your browser does not support the video tag.
                   </video>
+                  <button
+                    type="button"
+                    class="testimonial-video-toggle"
+                    aria-label="Play testimonial video"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      class="icon-play"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M8 5v14l11-7z"></path>
+                    </svg>
+                    <svg
+                      class="icon-pause"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M7 5h3v14H7zM14 5h3v14h-3z"></path>
+                    </svg>
+                  </button>
                   <div class="video-badge">
                     <span class="pulse-dot"></span>
                     <span>Client Story</span>
@@ -8058,7 +8263,7 @@
               </div>
 
               <!-- Card 6: Text Testimonial -->
-              <div
+              <!-- <div
                 class="testimonial-card-3d text-card"
                 role="listitem"
                 aria-label="Text testimonial"
@@ -8096,7 +8301,7 @@
                     <span class="stat-lbl">CRO</span>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <!-- Card 7: Video Testimonial -->
               <div
@@ -8107,14 +8312,7 @@
                 <div class="video-thumbnail-portrait">
                   <video
                     class="video-card-media"
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    preload="metadata"
-                    disablepictureinpicture
-                    controlslist="nodownload noplaybackrate noremoteplayback"
-                    aria-label="Client story video testimonial"
+                    loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" aria-label="Client story video testimonial"
                   >
                     <source
                       src="asstes/WhatsApp Video 2026-05-11 at 6.56.19 PM.mp4"
@@ -8122,6 +8320,31 @@
                     />
                     Your browser does not support the video tag.
                   </video>
+                  <button
+                    type="button"
+                    class="testimonial-video-toggle"
+                    aria-label="Play testimonial video"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      class="icon-play"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M8 5v14l11-7z"></path>
+                    </svg>
+                    <svg
+                      class="icon-pause"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M7 5h3v14H7zM14 5h3v14h-3z"></path>
+                    </svg>
+                  </button>
                   <div class="video-badge">
                     <span class="pulse-dot"></span>
                     <span>Client Story</span>
@@ -8130,7 +8353,7 @@
               </div>
 
               <!-- Card 8: Text Testimonial -->
-              <div
+              <!-- <div
                 class="testimonial-card-3d text-card"
                 role="listitem"
                 aria-label="Text testimonial"
@@ -8166,7 +8389,7 @@
                     <span class="stat-lbl">SALE</span>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
 
@@ -9697,6 +9920,57 @@
         document.addEventListener("visibilitychange", function () {
           if (!document.hidden) startHeroVideos();
         });
+      })();
+
+      // Testimonial video cards: explicit play/pause controls with audio enabled.
+      (function () {
+        function syncButton(card, video, button) {
+          const isPlaying = !video.paused && !video.ended;
+          card.classList.toggle("is-playing", isPlaying);
+          button.setAttribute(
+            "aria-label",
+            isPlaying ? "Pause testimonial video" : "Play testimonial video",
+          );
+          button.setAttribute("aria-pressed", String(isPlaying));
+        }
+
+        document
+          .querySelectorAll(".testimonial-card-3d.video-card")
+          .forEach((card) => {
+            const video = card.querySelector(".video-card-media");
+            const button = card.querySelector(".testimonial-video-toggle");
+            if (!video || !button) return;
+
+            video.autoplay = false;
+            video.muted = false;
+            video.volume = 1;
+            video.removeAttribute("muted");
+            video.removeAttribute("controls");
+            video.setAttribute("playsinline", "");
+            video.setAttribute("preload", "metadata");
+
+            const attemptPlay = () => {
+              const playPromise = video.play();
+              if (playPromise && typeof playPromise.catch === "function") {
+                playPromise.catch(() => {});
+              }
+            };
+
+            button.addEventListener("click", () => {
+              if (video.paused || video.ended) {
+                attemptPlay();
+              } else {
+                video.pause();
+              }
+              syncButton(card, video, button);
+            });
+
+            video.addEventListener("play", () => syncButton(card, video, button));
+            video.addEventListener("pause", () => syncButton(card, video, button));
+            video.addEventListener("ended", () => syncButton(card, video, button));
+
+            syncButton(card, video, button);
+          });
       })();
     </script>
   </body>
