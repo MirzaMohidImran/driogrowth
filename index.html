@@ -9852,15 +9852,9 @@
             const { start, end } = getVisibleRange();
             cards.forEach((card, index) => {
               const video = card.querySelector("video");
-              if (!video) return;
-              const shouldPlay = index >= start && index < end;
-              card.dataset.visible = String(shouldPlay);
-              if (shouldPlay) {
-                const playPromise = video.play();
-                if (playPromise && typeof playPromise.catch === "function") {
-                  playPromise.catch(() => {});
-                }
-              } else {
+              const isVisible = index >= start && index < end;
+              card.dataset.visible = String(isVisible);
+              if (video && !isVisible) {
                 video.pause();
               }
             });

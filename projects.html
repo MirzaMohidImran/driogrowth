@@ -223,8 +223,16 @@
     .timeline-line{position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--brand),rgba(154,205,50,.20),rgba(43,43,43,.08));transform:translateX(-50%)}
     .process-card{border:1px solid rgba(43,43,43,.08);border-radius:1.5rem;background:rgba(250,247,240,.72);box-shadow:0 18px 50px rgba(43,43,43,.10);padding:1.5rem;transition:.35s}.process-card:hover{transform:translateY(-6px);border-color:rgba(154,205,50,.34)}
 
-    .testimonial-track{display:flex;transition:transform .7s cubic-bezier(.16,1,.3,1);will-change:transform}.testimonial-card{flex:0 0 33.333%;padding:0 .65rem}.testimonial-inner{height:100%;border-radius:1.75rem;border:1px solid rgba(43,43,43,.08);background:var(--cream);box-shadow:0 18px 50px rgba(43,43,43,.10);padding:1.5rem}
-    .avatar{width:58px;height:58px;border-radius:1rem;background:linear-gradient(135deg,var(--brand),var(--gold));display:grid;place-items:center;font-weight:900;color:var(--ink)}
+    .sr-only-section{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .testimonial-3d-slider{position:relative;padding:0 5rem}.slider-nav-btn{position:absolute;top:50%;transform:translateY(-50%);width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.95);border:2px solid rgba(154,205,50,.2);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:transform .3s cubic-bezier(.16,1,.3,1),background .3s ease,border-color .3s ease,box-shadow .3s ease,color .3s ease;color:var(--ink);box-shadow:0 4px 24px rgba(0,0,0,.08);backdrop-filter:blur(12px)}
+    .slider-nav-btn:hover{background:var(--brand);border-color:var(--brand);color:white;transform:translateY(-50%) scale(1.08);box-shadow:0 12px 32px rgba(154,205,50,.4)}.prev-btn{left:0}.next-btn{right:0}
+    .slider-3d-wrapper{overflow:hidden;padding:2.5rem 0}.slider-3d-track{display:flex;gap:2rem;will-change:transform;transition:transform .8s cubic-bezier(.16,1,.3,1);touch-action:pan-y}
+    .testimonial-card-3d{flex:0 0 calc((100% - 6rem)/4);min-width:0;aspect-ratio:3/4;border-radius:2rem;overflow:hidden;transition:all .35s cubic-bezier(.16,1,.3,1);position:relative;box-shadow:0 4px 24px rgba(0,0,0,.06)}.testimonial-card-3d:hover{transform:translateY(-12px);box-shadow:0 24px 48px rgba(0,0,0,.12)}
+    .video-card{background:linear-gradient(135deg,rgba(245,247,235,.98) 0%,rgba(250,247,240,.95) 100%);border:1px solid rgba(154,205,50,.15);display:flex;flex-direction:column}.video-thumbnail-portrait{flex:1;background:linear-gradient(135deg,rgba(43,43,43,.95),rgba(107,114,128,.9));position:relative;display:flex;align-items:center;justify-content:center}
+    .testimonial-card-3d .video-card-media{width:100%;height:100%;object-fit:cover;display:block}.testimonial-card-3d.video-card .video-card-media{pointer-events:none!important}.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls,.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-panel,.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-play-button,.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-timeline,.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-current-time-display,.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-time-remaining-display,.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-volume-slider,.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-mute-button,.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-fullscreen-button,.testimonial-card-3d.video-card .video-card-media::-webkit-media-controls-toggle-closed-captions-button{display:none!important;opacity:0!important;pointer-events:none!important}
+    .video-badge{position:absolute;top:1.25rem;left:1.25rem;background:rgba(0,0,0,.75);backdrop-filter:blur(16px);padding:.625rem 1rem;border-radius:999px;display:flex;align-items:center;gap:.625rem;color:var(--cream);font-size:.8125rem;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,.2);z-index:2}.pulse-dot{width:7px;height:7px;border-radius:50%;background:var(--brand);animation:pulse 2s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(154,205,50,.7)}50%{opacity:.7;transform:scale(1.2);box-shadow:0 0 0 8px rgba(154,205,50,0)}}
+    .testimonial-video-toggle{position:absolute;right:1rem;bottom:1rem;width:3.25rem;height:3.25rem;border:0;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:rgba(250,247,240,.94);color:var(--ink);box-shadow:0 12px 28px rgba(0,0,0,.22);cursor:pointer;z-index:3;transition:transform .25s ease,background .25s ease,box-shadow .25s ease}.testimonial-video-toggle:hover{transform:scale(1.06);background:var(--brand);box-shadow:0 16px 34px rgba(154,205,50,.35)}.testimonial-video-toggle:focus-visible{outline:3px solid var(--brand);outline-offset:4px}.testimonial-video-toggle svg{width:1.15rem;height:1.15rem;pointer-events:none}.testimonial-video-toggle .icon-pause{display:none}.testimonial-card-3d.video-card.is-playing .testimonial-video-toggle .icon-play{display:none}.testimonial-card-3d.video-card.is-playing .testimonial-video-toggle .icon-pause{display:block}
+    .slider-progress{width:100%;max-width:400px;margin:3rem auto 0;height:6px;background:rgba(154,205,50,.15);border-radius:999px;overflow:hidden;box-shadow:inset 0 2px 4px rgba(0,0,0,.05)}.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--brand) 0%,#f4c430 100%);border-radius:999px;transition:width .4s cubic-bezier(.16,1,.3,1);box-shadow:0 0 12px rgba(154,205,50,.4)}.testimonial-card-3d[data-visible="false"]{opacity:.45}
 
     .final-cta{min-height:72vh;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 50% 10%,rgba(154,205,50,.24),transparent 34%),radial-gradient(circle at 20% 80%,rgba(244,196,48,.12),transparent 28%),var(--deep);color:var(--cream)}
     .cta-spin{position:absolute;inset:-40%;background:conic-gradient(from 180deg,transparent,rgba(154,205,50,.18),transparent,rgba(244,196,48,.13),transparent);animation:spin 18s linear infinite;opacity:.72;filter:blur(24px)}@keyframes spin{to{transform:rotate(360deg)}}
@@ -234,8 +242,11 @@
     .reveal{opacity:0;transform:translateY(34px);transition:opacity .85s cubic-bezier(.2,.7,.2,1),transform .85s cubic-bezier(.2,.7,.2,1)}
     .reveal.in{opacity:1;transform:none}.reveal.delay-1{transition-delay:.08s}.reveal.delay-2{transition-delay:.16s}.reveal.delay-3{transition-delay:.24s}
 
-    @media(max-width:1100px){.nav{display:none}.hero-grid,.project-card{grid-template-columns:1fr}.project-card:nth-child(even) .project-media{order:0}.hero-visual{min-height:540px}.dashboard{position:relative;width:100%;transform:none}.floating-mini{display:none}.portfolio-item,.portfolio-item.wide{grid-column:span 6}.testimonial-card{flex-basis:50%}}
-    @media(max-width:720px){.header{width:calc(100% - 2rem);margin-top:1rem}.header-inner{height:64px;padding:0 1.1rem}.header .btn{display:none}.hero{min-height:auto;padding-top:7rem}.hero-title{font-size:clamp(2.75rem,14vw,4.6rem)}.hero-visual{min-height:auto}.dash-grid,.mock-grid{grid-template-columns:1fr}.section{padding:4.5rem 0}.project-media{min-height:330px}.result-grid{grid-template-columns:1fr}.portfolio-item,.portfolio-item.wide{grid-column:span 12}.testimonial-card{flex-basis:100%}.timeline-line{left:18px}.section-title{font-size:clamp(2.1rem,10vw,3.4rem)}}
+    @media(max-width:1200px){.testimonial-card-3d{flex-basis:calc((100% - 3rem)/3)}.slider-3d-track{gap:1.5rem}.testimonial-3d-slider{padding:0 4rem}}
+    @media(max-width:1100px){.nav{display:none}.hero-grid,.project-card{grid-template-columns:1fr}.project-card:nth-child(even) .project-media{order:0}.hero-visual{min-height:540px}.dashboard{position:relative;width:100%;transform:none}.floating-mini{display:none}.portfolio-item,.portfolio-item.wide{grid-column:span 6}}
+    @media(max-width:768px){.testimonial-card-3d{flex-basis:calc((100% - 1.25rem)/2)}.testimonial-3d-slider{padding:0 3.5rem}.slider-nav-btn{width:56px;height:56px}.slider-3d-track{gap:1.25rem}}
+    @media(max-width:720px){.header{width:calc(100% - 2rem);margin-top:1rem}.header-inner{height:64px;padding:0 1.1rem}.header .btn{display:none}.hero{min-height:auto;padding-top:7rem}.hero-title{font-size:clamp(2.75rem,14vw,4.6rem)}.hero-visual{min-height:auto}.dash-grid,.mock-grid{grid-template-columns:1fr}.section{padding:4.5rem 0}.project-media{min-height:330px}.result-grid{grid-template-columns:1fr}.portfolio-item,.portfolio-item.wide{grid-column:span 12}.timeline-line{left:18px}.section-title{font-size:clamp(2.1rem,10vw,3.4rem)}}
+    @media(max-width:640px){.testimonial-card-3d{flex-basis:100%;aspect-ratio:auto;min-height:420px}.testimonial-3d-slider{padding:0 3rem}.slider-nav-btn{width:48px;height:48px}.slider-3d-track{gap:1rem}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}.reveal{opacity:1;transform:none}}
   </style>
 </head>
@@ -252,8 +263,8 @@
       </a>
       <nav class="nav" aria-label="Primary navigation">
         <a class="nav-link" href="#featured">Featured</a>
-        <a class="nav-link" href="#portfolio">Portfolio</a>
-        <a class="nav-link" href="#case-study">Case Study</a>
+        <a class="nav-link" href="#reviews">Testimonials</a>
+        <a class="nav-link" href="driogrowth-case-study.html">Case Study</a>
         <a class="nav-link" href="#process">Process</a>
         <a class="nav-link" href="#contact">Contact</a>
       </nav>
@@ -342,7 +353,7 @@
               <p class="lead mt-4">A premium SaaS dashboard designed for founders to track revenue, operations, acquisition channels, and customer health from one clean interface.</p>
               <div class="tech-tags mt-6"><span>Next.js</span><span>Dashboard UI</span><span>Analytics</span><span>Automation</span></div>
               <div class="result-grid mt-6"><div class="result-box"><strong>41%</strong><span>Faster reporting</span></div><div class="result-box"><strong>3.2×</strong><span>Workflow speed</span></div><div class="result-box"><strong>24/7</strong><span>Live insights</span></div></div>
-              <a class="btn btn-primary mt-7" href="#case-study">View Case Study ↗</a>
+              <a class="btn btn-primary mt-7" href="driogrowth-case-study.html">View Case Study ↗</a>
             </div>
           </article>
 
@@ -356,7 +367,7 @@
               <p class="lead mt-4">A Shopify conversion system combining premium product storytelling, fast page sections, offer architecture, and performance creative direction.</p>
               <div class="tech-tags mt-6"><span>Shopify</span><span>CRO</span><span>Meta Ads</span><span>UGC</span></div>
               <div class="result-grid mt-6"><div class="result-box"><strong>5.8×</strong><span>Peak ROAS</span></div><div class="result-box"><strong>34%</strong><span>CVR lift</span></div><div class="result-box"><strong>-28%</strong><span>CPA drop</span></div></div>
-              <a class="btn btn-primary mt-7" href="#case-study">View Case Study ↗</a>
+              <a class="btn btn-primary mt-7" href="driogrowth-case-study.html">View Case Study ↗</a>
             </div>
           </article>
 
@@ -370,69 +381,9 @@
               <p class="lead mt-4">An internal automation suite that turns lead data, client requests, campaign updates, and reporting tasks into connected automated workflows.</p>
               <div class="tech-tags mt-6"><span>AI Agents</span><span>CRM</span><span>Zapier</span><span>Reporting</span></div>
               <div class="result-grid mt-6"><div class="result-box"><strong>18h</strong><span>Saved weekly</span></div><div class="result-box"><strong>62%</strong><span>Less manual work</span></div><div class="result-box"><strong>99%</strong><span>Task accuracy</span></div></div>
-              <a class="btn btn-primary mt-7" href="#case-study">View Case Study ↗</a>
+              <a class="btn btn-primary mt-7" href="driogrowth-case-study.html">View Case Study ↗</a>
             </div>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- INTERACTIVE PROJECT GRID -->
-    <section id="portfolio" class="section bg-sage">
-      <div class="container-dg">
-        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-          <div class="max-w-[860px]">
-            <span class="eyebrow reveal">Interactive Portfolio</span>
-            <h2 class="section-title mt-5 reveal delay-1">A flexible grid of growth-focused builds.</h2>
-          </div>
-          <div class="flex flex-wrap gap-2 reveal delay-2" role="list" aria-label="Project filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="saas">SaaS</button>
-            <button class="filter-btn" data-filter="ai">AI</button>
-            <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
-            <button class="filter-btn" data-filter="branding">Branding</button>
-            <button class="filter-btn" data-filter="crm">CRM</button>
-          </div>
-        </div>
-
-        <div class="portfolio-grid mt-12" id="portfolioGrid">
-          <article class="portfolio-item wide reveal" data-category="saas">
-            <div class="glass-card p-5 h-full interactive-card">
-              <div class="portfolio-art"></div><span class="badge mt-5">SaaS Platforms</span><h3 class="text-3xl font-extrabold tracking-tight mt-3">Northstar SaaS Website</h3><p class="lead mt-3">High-trust landing system for demos, pricing education, and enterprise lead capture.</p>
-            </div>
-          </article>
-          <article class="portfolio-item reveal" data-category="ai">
-            <div class="glass-card p-5 h-full interactive-card"><div class="portfolio-art"></div><span class="badge mt-5">AI Automation</span><h3 class="text-2xl font-extrabold mt-3">AI Sales Assistant</h3><p class="lead mt-3">Lead qualification and follow-up automation for service teams.</p></div>
-          </article>
-          <article class="portfolio-item reveal" data-category="ecommerce">
-            <div class="glass-card p-5 h-full interactive-card"><div class="portfolio-art"></div><span class="badge mt-5">E-Commerce</span><h3 class="text-2xl font-extrabold mt-3">Velocity Shopify System</h3><p class="lead mt-3">Conversion-focused product and collection pages.</p></div>
-          </article>
-          <article class="portfolio-item reveal" data-category="branding">
-            <div class="glass-card p-5 h-full interactive-card"><div class="portfolio-art"></div><span class="badge mt-5">Branding</span><h3 class="text-2xl font-extrabold mt-3">Monarch Brand Identity</h3><p class="lead mt-3">Premium visual system, messaging, and campaign assets.</p></div>
-          </article>
-          <article class="portfolio-item wide reveal" data-category="crm">
-            <div class="glass-card p-5 h-full interactive-card"><div class="portfolio-art"></div><span class="badge mt-5">CRM Dashboards</span><h3 class="text-3xl font-extrabold mt-3">Revenue CRM Dashboard</h3><p class="lead mt-3">Sales pipeline tracking, reporting views, and automated client status updates.</p></div>
-          </article>
-          <article class="portfolio-item reveal" data-category="ai">
-            <div class="glass-card p-5 h-full interactive-card"><div class="portfolio-art"></div><span class="badge mt-5">Business Automation</span><h3 class="text-2xl font-extrabold mt-3">Ops Automation Hub</h3><p class="lead mt-3">Task routing, Slack alerts, and report generation workflows.</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CASE STUDY PREVIEW -->
-    <section id="case-study" class="section section-dark">
-      <div class="container-dg relative z-10">
-        <div class="max-w-[930px]">
-          <span class="eyebrow reveal">Case Study Preview</span>
-          <h2 class="section-title mt-5 reveal delay-1">From scattered execution to a repeatable growth engine.</h2>
-          <p class="lead mt-5 reveal delay-2">A premium preview of how DrioGrowth turns messy growth problems into clear systems, disciplined execution, and measurable improvements.</p>
-        </div>
-        <div class="grid md:grid-cols-4 gap-4 mt-12">
-          <article class="dark-card p-6 reveal"><span class="text-brand font-extrabold tracking-widest text-sm">01</span><h3 class="text-2xl font-extrabold mt-4">Challenge</h3><p class="text-cream/65 mt-3">The brand had traffic, but tracking, creative testing, and conversion signals were disconnected.</p></article>
-          <article class="dark-card p-6 reveal delay-1"><span class="text-brand font-extrabold tracking-widest text-sm">02</span><h3 class="text-2xl font-extrabold mt-4">Solution</h3><p class="text-cream/65 mt-3">We rebuilt the structure around campaign logic, user journeys, landing pages, and reporting clarity.</p></article>
-          <article class="dark-card p-6 reveal delay-2"><span class="text-brand font-extrabold tracking-widest text-sm">03</span><h3 class="text-2xl font-extrabold mt-4">Process</h3><p class="text-cream/65 mt-3">Weekly sprints shipped testing angles, product messaging, CRO fixes, and campaign optimizations.</p></article>
-          <article class="dark-card p-6 reveal delay-3"><span class="text-brand font-extrabold tracking-widest text-sm">04</span><h3 class="text-2xl font-extrabold mt-4">Results</h3><p class="text-cream/65 mt-3">The system created cleaner decisions, lower waste, stronger conversion, and scalable revenue.</p></article>
         </div>
       </div>
     </section>
@@ -452,20 +403,90 @@
     </section>
 
     <!-- TESTIMONIALS -->
-    <section id="testimonials" class="section bg-cream">
+    <section id="reviews" class="section overflow-hidden" aria-labelledby="testimonials-title">
       <div class="container-dg">
-        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-          <div class="max-w-[850px]"><span class="eyebrow reveal">Client Reviews</span><h2 class="section-title mt-5 reveal delay-1">Trusted by brands that want serious growth.</h2></div>
-          <div class="flex gap-2 reveal"><button class="filter-btn" id="prevTestimonial" aria-label="Previous testimonial">←</button><button class="filter-btn" id="nextTestimonial" aria-label="Next testimonial">→</button></div>
+        <div class="text-center mb-16" style="display:flex;flex-direction:column;align-items:center;text-align:center">
+          <h2 class="section-title reveal in active" id="testimonials-title" style="font-size:clamp(2rem,3.5vw,3rem);margin:0 auto 3rem">Client Testimonials</h2>
         </div>
-        <div class="overflow-hidden mt-12">
-          <div class="testimonial-track" id="testimonialTrack">
-            <article class="testimonial-card"><div class="testimonial-inner"><div class="flex items-center gap-4"><div class="avatar">AR</div><div><h3 class="font-extrabold text-xl">Areeb Khan</h3><p class="text-mute font-semibold">Founder, ModaWear</p></div></div><p class="lead mt-6">“DrioGrowth gave us a clear system instead of random ad changes. The new structure helped us understand what was working and scale with confidence.”</p></div></article>
-            <article class="testimonial-card"><div class="testimonial-inner"><div class="flex items-center gap-4"><div class="avatar">SM</div><div><h3 class="font-extrabold text-xl">Sarah Miles</h3><p class="text-mute font-semibold">CMO, CloudPilot</p></div></div><p class="lead mt-6">“The website felt premium from day one. Strong messaging, clean UX, and the kind of visual polish we wanted for our SaaS launch.”</p></div></article>
-            <article class="testimonial-card"><div class="testimonial-inner"><div class="flex items-center gap-4"><div class="avatar">JD</div><div><h3 class="font-extrabold text-xl">James Dalton</h3><p class="text-mute font-semibold">Director, Apex Retail</p></div></div><p class="lead mt-6">“Their team connected ads, creative, and landing pages properly. We finally had one growth system instead of disconnected work.”</p></div></article>
-            <article class="testimonial-card"><div class="testimonial-inner"><div class="flex items-center gap-4"><div class="avatar">NL</div><div><h3 class="font-extrabold text-xl">Nora Lee</h3><p class="text-mute font-semibold">Ops Lead, WorkflowPro</p></div></div><p class="lead mt-6">“The automation project saved hours every week and made our reporting much easier for internal and client-facing teams.”</p></div></article>
+
+        <div class="testimonial-3d-slider" aria-roledescription="carousel" aria-label="Client testimonials" tabindex="0">
+          <button type="button" class="slider-nav-btn prev-btn" id="prevTestimonial" aria-label="Previous testimonial" aria-controls="testimonialSlider3D">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+
+          <div class="slider-3d-wrapper">
+            <div class="slider-3d-track" id="testimonialSlider3D" role="list" aria-live="polite" aria-atomic="false" style="transform:translate3d(0,0,0)">
+              <div class="testimonial-card-3d video-card" role="listitem" aria-label="Video testimonial" data-visible="true">
+                <div class="video-thumbnail-portrait">
+                  <video class="video-card-media" loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" aria-label="Client story video testimonial">
+                    <source src="asstes/WhatsApp Video 2026-05-07 at 9.49.55 PM.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <button type="button" class="testimonial-video-toggle" aria-label="Play testimonial video" aria-pressed="false">
+                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7 5h3v14H7zM14 5h3v14h-3z"></path></svg>
+                  </button>
+                  <div class="video-badge"><span class="pulse-dot"></span><span>Client Story</span></div>
+                </div>
+              </div>
+
+              <div class="testimonial-card-3d video-card" role="listitem" aria-label="Video testimonial" data-visible="true">
+                <div class="video-thumbnail-portrait">
+                  <video class="video-card-media" loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" aria-label="Client story video testimonial">
+                    <source src="asstes/WhatsApp Video 2026-05-07 at 9.53.10 PM.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <button type="button" class="testimonial-video-toggle" aria-label="Play testimonial video" aria-pressed="false">
+                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7 5h3v14H7zM14 5h3v14h-3z"></path></svg>
+                  </button>
+                  <div class="video-badge"><span class="pulse-dot"></span><span>Client Story</span></div>
+                </div>
+              </div>
+
+              <div class="testimonial-card-3d video-card" role="listitem" aria-label="Video testimonial" data-visible="true">
+                <div class="video-thumbnail-portrait">
+                  <video class="video-card-media" loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" aria-label="Client story video testimonial">
+                    <source src="asstes/WhatsApp Video 2026-05-07 at 9.56.42 PM.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <button type="button" class="testimonial-video-toggle" aria-label="Play testimonial video" aria-pressed="false">
+                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7 5h3v14H7zM14 5h3v14h-3z"></path></svg>
+                  </button>
+                  <div class="video-badge"><span class="pulse-dot"></span><span>Client Story</span></div>
+                </div>
+              </div>
+
+              <div class="testimonial-card-3d video-card" role="listitem" aria-label="Video testimonial" data-visible="true">
+                <div class="video-thumbnail-portrait">
+                  <video class="video-card-media" loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback" aria-label="Client story video testimonial">
+                    <source src="asstes/WhatsApp Video 2026-05-11 at 6.56.19 PM.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <button type="button" class="testimonial-video-toggle" aria-label="Play testimonial video" aria-pressed="false">
+                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"></path></svg>
+                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7 5h3v14H7zM14 5h3v14h-3z"></path></svg>
+                  </button>
+                  <div class="video-badge"><span class="pulse-dot"></span><span>Client Story</span></div>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <button type="button" class="slider-nav-btn next-btn" id="nextTestimonial" aria-label="Next testimonial" aria-controls="testimonialSlider3D">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
         </div>
+
+        <div class="slider-progress" aria-hidden="true">
+          <div class="progress-bar" id="sliderProgress" style="width:100%"></div>
+        </div>
+        <p class="sr-only-section testimonial-slider-status" id="testimonialSliderStatus" aria-live="polite">Showing testimonials 1 through 4 of 4.</p>
       </div>
     </section>
 
@@ -510,7 +531,7 @@
           <p class="mt-4 text-sm max-w-[320px] mx-auto md:mx-0">Premium digital growth systems for ambitious brands.</p>
         </div>
         <nav class="flex flex-wrap justify-center gap-5 text-sm font-semibold" aria-label="Footer navigation">
-          <a class="hover:text-brand transition" href="#featured">Projects</a><a class="hover:text-brand transition" href="#portfolio">Portfolio</a><a class="hover:text-brand transition" href="#process">Process</a><a class="hover:text-brand transition" href="#contact">Contact</a>
+          <a class="hover:text-brand transition" href="#featured">Projects</a><a class="hover:text-brand transition" href="#reviews">Testimonials</a><a class="hover:text-brand transition" href="#process">Process</a><a class="hover:text-brand transition" href="#contact">Contact</a>
         </nav>
         <div class="md:text-right">
           <div class="flex justify-center md:justify-end gap-3">
@@ -580,21 +601,6 @@
       card.addEventListener('mouseleave', () => card.style.transform = '');
     });
 
-    // Portfolio filters
-    const filterButtons = document.querySelectorAll('.filter-btn[data-filter]');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-    filterButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        filterButtons.forEach((btn) => btn.classList.remove('active'));
-        button.classList.add('active');
-        const filter = button.dataset.filter;
-        portfolioItems.forEach((item) => {
-          const show = filter === 'all' || item.dataset.category === filter;
-          item.classList.toggle('hidden-card', !show);
-        });
-      });
-    });
-
     // Animated counters
     const counters = document.querySelectorAll('.counter');
     const counterObserver = new IntersectionObserver((entries) => {
@@ -617,32 +623,247 @@
     }, { threshold: 0.5 });
     counters.forEach((counter) => counterObserver.observe(counter));
 
-    // Testimonial carousel
-    const track = document.getElementById('testimonialTrack');
-    const prev = document.getElementById('prevTestimonial');
-    const next = document.getElementById('nextTestimonial');
-    let testimonialIndex = 0;
-    function visibleCards() {
-      if (window.innerWidth <= 720) return 1;
-      if (window.innerWidth <= 1100) return 2;
-      return 3;
-    }
-    function updateTestimonials() {
-      const total = track.children.length;
-      const maxIndex = Math.max(0, total - visibleCards());
-      testimonialIndex = Math.max(0, Math.min(testimonialIndex, maxIndex));
-      const cardWidth = track.children[0].getBoundingClientRect().width;
-      track.style.transform = `translateX(${-testimonialIndex * cardWidth}px)`;
-    }
-    next.addEventListener('click', () => { testimonialIndex += 1; updateTestimonials(); });
-    prev.addEventListener('click', () => { testimonialIndex -= 1; updateTestimonials(); });
-    window.addEventListener('resize', updateTestimonials, { passive: true });
-    setInterval(() => {
-      const maxIndex = Math.max(0, track.children.length - visibleCards());
-      testimonialIndex = testimonialIndex >= maxIndex ? 0 : testimonialIndex + 1;
+    // 3D testimonial slider
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const slider3D = document.getElementById('testimonialSlider3D');
+    const prevBtn = document.getElementById('prevTestimonial');
+    const nextBtn = document.getElementById('nextTestimonial');
+    const progressBar = document.getElementById('sliderProgress');
+    const testimonialStatus = document.getElementById('testimonialSliderStatus');
+    const testimonialSection = document.getElementById('reviews');
+
+    if (slider3D && prevBtn && nextBtn && progressBar) {
+      let testimonialIndex = 0;
+      let autoSlideInterval = null;
+      let testimonialAnimating = false;
+      let testimonialResizeTimeout = null;
+      let touchStartX = 0;
+      let touchStartY = 0;
+      const cards = Array.from(slider3D.children);
+      const sliderWrapper = slider3D.closest('.testimonial-3d-slider') || slider3D.parentElement;
+
+      const visibleCards = () => {
+        if (window.innerWidth <= 640) return 1;
+        if (window.innerWidth <= 768) return 2;
+        if (window.innerWidth <= 1200) return 3;
+        return 4;
+      };
+      const maxIndex = () => Math.max(0, cards.length - visibleCards());
+      const visibleRange = () => {
+        const start = Math.max(0, Math.min(testimonialIndex, maxIndex()));
+        const end = Math.min(cards.length, start + visibleCards());
+        return { start, end };
+      };
+      const pauseHiddenVideos = () => {
+        const { start, end } = visibleRange();
+        cards.forEach((card, index) => {
+          const video = card.querySelector('video');
+          const isVisible = index >= start && index < end;
+          card.dataset.visible = String(isVisible);
+          if (video && !isVisible) video.pause();
+        });
+      };
+      const updateStatus = () => {
+        if (!testimonialStatus) return;
+        const { start, end } = visibleRange();
+        testimonialStatus.textContent = `Showing testimonials ${start + 1} through ${end} of ${cards.length}.`;
+      };
+      const updateTestimonials = () => {
+        if (!cards.length) return;
+        testimonialIndex = Math.max(0, Math.min(testimonialIndex, maxIndex()));
+        slider3D.style.transform = `translate3d(-${cards[testimonialIndex].offsetLeft}px,0,0)`;
+        progressBar.style.width = `${Math.min(100, ((testimonialIndex + visibleCards()) / cards.length) * 100)}%`;
+        pauseHiddenVideos();
+        updateStatus();
+      };
+      const goNext = () => {
+        if (testimonialAnimating) return;
+        testimonialAnimating = true;
+        testimonialIndex = testimonialIndex < maxIndex() ? testimonialIndex + 1 : 0;
+        updateTestimonials();
+        window.setTimeout(() => { testimonialAnimating = false; }, prefersReducedMotion ? 50 : 800);
+      };
+      const goPrev = () => {
+        if (testimonialAnimating) return;
+        testimonialAnimating = true;
+        testimonialIndex = testimonialIndex > 0 ? testimonialIndex - 1 : maxIndex();
+        updateTestimonials();
+        window.setTimeout(() => { testimonialAnimating = false; }, prefersReducedMotion ? 50 : 800);
+      };
+      const startAutoSlide = () => {
+        if (prefersReducedMotion || maxIndex() === 0) return;
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = window.setInterval(goNext, 6000);
+      };
+      const resetAutoSlide = () => {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      };
+
+      nextBtn.addEventListener('click', () => { goNext(); resetAutoSlide(); });
+      prevBtn.addEventListener('click', () => { goPrev(); resetAutoSlide(); });
+      sliderWrapper.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          goPrev();
+          resetAutoSlide();
+        }
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          goNext();
+          resetAutoSlide();
+        }
+      });
+      sliderWrapper.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+      sliderWrapper.addEventListener('mouseleave', startAutoSlide);
+      slider3D.addEventListener('touchstart', (event) => {
+        touchStartX = event.touches[0].clientX;
+        touchStartY = event.touches[0].clientY;
+      }, { passive: true });
+      slider3D.addEventListener('touchend', (event) => {
+        const diffX = touchStartX - event.changedTouches[0].clientX;
+        const diffY = Math.abs(touchStartY - event.changedTouches[0].clientY);
+        if (Math.abs(diffX) > 75 && Math.abs(diffX) > diffY) {
+          diffX > 0 ? goNext() : goPrev();
+          resetAutoSlide();
+        }
+      }, { passive: true });
+      if (testimonialSection && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          const isVisible = entries.some((entry) => entry.isIntersecting);
+          if (!isVisible) {
+            cards.forEach((card) => {
+              const video = card.querySelector('video');
+              if (video) video.pause();
+            });
+          } else {
+            pauseHiddenVideos();
+          }
+        }, { threshold: 0.2 });
+        observer.observe(testimonialSection);
+      }
+      window.addEventListener('resize', () => {
+        clearTimeout(testimonialResizeTimeout);
+        testimonialResizeTimeout = window.setTimeout(updateTestimonials, 150);
+      }, { passive: true });
+
       updateTestimonials();
-    }, 4500);
-    updateTestimonials();
+      startAutoSlide();
+    }
+
+    // Testimonial video cards: user-controlled playback only.
+    (function () {
+      const testimonialCards = Array.from(document.querySelectorAll('.testimonial-card-3d.video-card'));
+
+      function setButtonState(card, isPlaying) {
+        const video = card.querySelector('.video-card-media');
+        const button = card.querySelector('.testimonial-video-toggle');
+        if (!video || !button) return;
+
+        card.classList.toggle('is-playing', isPlaying);
+        button.setAttribute('aria-label', isPlaying ? 'Pause testimonial video' : 'Play testimonial video');
+        button.setAttribute('aria-pressed', String(isPlaying));
+      }
+
+      function pauseCard(card, resetTime = true) {
+        const video = card.querySelector('.video-card-media');
+        if (!video) return;
+
+        video.pause();
+        if (resetTime) {
+          try {
+            video.currentTime = 0;
+          } catch (error) {
+            // Some browsers prevent seeking until metadata is ready.
+          }
+        }
+        setButtonState(card, false);
+      }
+
+      function pauseAll(resetTime = true) {
+        testimonialCards.forEach((card) => pauseCard(card, resetTime));
+      }
+
+      function playCard(card) {
+        if (!card) return;
+
+        // Only one testimonial should ever play at once.
+        testimonialCards.forEach((otherCard) => {
+          if (otherCard !== card) pauseCard(otherCard);
+        });
+
+        const video = card.querySelector('.video-card-media');
+        if (!video) return;
+
+        video.muted = false;
+        video.volume = 1;
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(() => {
+            // Playback may be blocked until a direct user gesture.
+          });
+        }
+        setButtonState(card, true);
+      }
+
+      testimonialCards.forEach((card) => {
+        const video = card.querySelector('.video-card-media');
+        const button = card.querySelector('.testimonial-video-toggle');
+        if (!video || !button) return;
+
+        // Hard stop on load - no background playback, no audio.
+        video.autoplay = false;
+        video.muted = false;
+        video.volume = 1;
+        video.removeAttribute('autoplay');
+        video.removeAttribute('muted');
+        video.removeAttribute('controls');
+        video.setAttribute('playsinline', '');
+        video.setAttribute('preload', 'metadata');
+
+        pauseCard(card, true);
+
+        button.addEventListener('click', () => {
+          const isPlaying = !video.paused && !video.ended;
+          if (isPlaying) {
+            pauseCard(card, false);
+          } else {
+            playCard(card);
+          }
+        });
+
+        video.addEventListener('play', () => setButtonState(card, true));
+        video.addEventListener('pause', () => setButtonState(card, false));
+        video.addEventListener('ended', () => pauseCard(card, true));
+      });
+
+      // Pause videos when the testimonial section leaves view or slider changes.
+      if (testimonialSection && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          const isVisible = entries.some((entry) => entry.isIntersecting);
+          if (!isVisible) {
+            pauseAll(true);
+          }
+        }, { threshold: 0.2 });
+        observer.observe(testimonialSection);
+      }
+
+      if (slider3D && 'MutationObserver' in window) {
+        const sliderObserver = new MutationObserver(() => {
+          pauseAll(true);
+        });
+        sliderObserver.observe(slider3D, {
+          attributes: true,
+          attributeFilter: ['style', 'class'],
+        });
+      }
+
+      window.addEventListener('load', () => pauseAll(true));
+      window.addEventListener('resize', () => pauseAll(false), { passive: true });
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) pauseAll(true);
+      });
+    })();
 
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
