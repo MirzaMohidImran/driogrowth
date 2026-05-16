@@ -2401,6 +2401,12 @@
         text-align: center;
       }
 
+      .discover-actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.25rem;
+      }
+
       /* Tab Navigation */
       .discover-tabs {
         display: inline-flex;
@@ -2917,6 +2923,10 @@
 
         .discover-card[data-position="right"] {
           transform: translateX(90px) translateY(0) rotate(10deg) scale(0.85);
+        }
+
+        .discover-actions {
+          margin-top: 0.75rem;
         }
       }
 
@@ -6613,7 +6623,7 @@
     <!-- ============== HEADER ============== -->
     <header class="header" id="header">
       <div class="header-inner">
-        <a href="#home" class="logo">
+        <a href="index.html" class="logo" aria-label="DrioGrowth home">
           <span class="logo-icon"></span>
           <span class="h-display logo-text">DrioGrowth</span>
         </a>
@@ -7522,25 +7532,25 @@
       <div class="container relative" style="z-index: 2">
         <!-- Section Header -->
         <div class="text-center mb-12">
-          <h2 class="discover-title reveal">Discover Unlimited Content</h2>
+          <h2 class="discover-title reveal">Our Success Stories</h2>
 
           <!-- Tab Navigation -->
           <div class="discover-tabs reveal delay-1">
             <button
               type="button"
               class="discover-tab active"
-              data-tab="popular"
+              data-tab="meta"
+              aria-pressed="true"
             >
-              Popular
+              Meta
             </button>
-            <button type="button" class="discover-tab" data-tab="latest">
-              Latest
-            </button>
-            <button type="button" class="discover-tab" data-tab="top-rated">
-              Top Rated
-            </button>
-            <button type="button" class="discover-tab" data-tab="recommended">
-              Recommended
+            <button
+              type="button"
+              class="discover-tab"
+              data-tab="google"
+              aria-pressed="false"
+            >
+              Google
             </button>
           </div>
         </div>
@@ -7589,7 +7599,7 @@
               <div class="card-content">
                 <div class="card-badge-top">
                   <span class="card-rating">⭐ 4×</span>
-                  <span class="card-type">Google Ads</span>
+                  <span class="card-type">Meta Ads</span>
                 </div>
                 <div class="card-image-placeholder">
                   <div class="brand-logo">
@@ -7618,7 +7628,7 @@
               <div class="card-content">
                 <div class="card-badge-top">
                   <span class="card-rating">⭐ 775%</span>
-                  <span class="card-type">TikTok Ads</span>
+                  <span class="card-type">Meta Ads</span>
                 </div>
                 <div class="card-image-placeholder featured">
                   <div class="brand-logo">
@@ -7736,6 +7746,12 @@
           <span class="indicator" data-index="2"></span>
           <span class="indicator" data-index="3"></span>
           <span class="indicator" data-index="4"></span>
+        </div>
+
+        <div class="discover-actions reveal delay-2">
+          <a href="projects.html" class="btn btn-primary">
+            View Projects <span class="arrow">↗</span>
+          </a>
         </div>
       </div>
     </section>
@@ -8422,7 +8438,7 @@
           <h2
             class="section-title reveal"
             id="testimonials-title"
-            style="font-size: clamp(2rem, 3.5vw, 3rem); margin: 0 auto 3rem"
+            style="font-size: clamp(2rem, 3.5vw, 3rem); margin: 0 auto"
           >
            Do not take our word for it
           </h2>
@@ -9570,34 +9586,142 @@
           ];
 
           const tabData = {
-            popular: [
-              ["Northwave", "2024 • E-commerce • $500K+"],
-              ["Solace Wellness", "2024 • Health • 58% CPA"],
-              ["Paloma Home", "2024 • Lifestyle • $620K Revenue"],
-              ["Apex Fitness", "2024 • Fitness • 300% Leads"],
-              ["TechFlow SaaS", "2024 • B2B SaaS • 8× ROAS"],
+            meta: [
+              {
+                title: "Kidswear Brand with Fu",
+                meta: [
+                  "Doubled Conversion Rate for Kidswear Brand",
+                  "50% lower CPC / 0.3% to 2.6% CTR",
+                ],
+                rating: "⭐ 12×",
+                type: "Meta Ads",
+                image: "asstes/WhatsApp Image 2026-05-12 at 6.11.03 AM.jpeg",
+                alt: "Kidswear Meta Ads case study",
+              },
+              {
+                title: "Jewelry Brand",
+                meta: [
+                  "$1.1M in Sales for Jewelry Brand",
+                  "20,000+ tracked purchases",
+                ],
+                rating: "⭐ 4×",
+                type: "Meta Ads",
+                image: "asstes/WhatsApp Image 2026-05-12 at 6.10.21 AM.jpeg",
+                alt: "Jewelry Meta Ads case study",
+              },
+              {
+                title: "Scaled Fashion Brand",
+                meta: [
+                  "Scaled Fashion Brand to 11.52 ROAS",
+                  "$671K with 11.52 ROAS",
+                ],
+                rating: "⭐ 775%",
+                type: "Meta Ads",
+                image: "asstes/WhatsApp Image 2026-05-12 at 6.09.22 AM.jpeg",
+                alt: "Fashion brand Meta Ads case study",
+              },
+              {
+                title: "UK Ecom Brand",
+                meta: ["16.47 ROAS on £6K Spend"],
+                rating: "⭐ 300%",
+                type: "Meta Ads",
+                image: "asstes/WhatsApp Image 2026-05-12 at 6.07.18 AM.jpeg",
+                alt: "UK ecommerce Meta Ads case study",
+              },
+              {
+                title: "UK Ecom Brand",
+                meta: ["ROAS averaged 16.47, with top ad hitting 45.45"],
+                rating: "⭐ 8×",
+                type: "Meta Ads",
+                image: "asstes/WhatsApp Image 2026-05-07 at 10.10.57 PM.jpeg",
+                alt: "UK ecommerce Meta Ads results",
+              },
             ],
-            latest: [
-              ["Nova Skin", "2026 • Beauty • 4.8× ROAS"],
-              ["Urban Pantry", "2026 • Food • 42% CPA Cut"],
-              ["FitCraft", "2026 • Fitness • 290% Leads"],
-              ["Luxe Nest", "2026 • Home • $310K Revenue"],
-              ["ScaleGrid", "2026 • SaaS • 6.2× Pipeline"],
+            google: [
+              {
+                title: "Search Growth Sprint",
+                meta: [
+                  "High-intent Google Ads rebuild",
+                  "Cleaner search terms and stronger ROAS",
+                ],
+                rating: "⭐ 6×",
+                type: "Google Ads",
+                image: "asstes/WhatsApp Image 2026-05-12 at 6.10.21 AM.jpeg",
+                alt: "Google Ads search campaign case study",
+              },
+              {
+                title: "Shopping Ads Scale",
+                meta: [
+                  "Product-feed structure for ecommerce",
+                  "More qualified purchases from Shopping",
+                ],
+                rating: "⭐ 4.8×",
+                type: "Google Ads",
+                image: "asstes/WhatsApp Image 2026-05-12 at 6.09.22 AM.jpeg",
+                alt: "Google Shopping Ads case study",
+              },
+              {
+                title: "Performance Max",
+                meta: [
+                  "Full-funnel Google Ads campaign",
+                  "Better audience signals and conversion flow",
+                ],
+                rating: "⭐ 5×",
+                type: "Google Ads",
+                image: "asstes/WhatsApp Image 2026-05-12 at 6.07.18 AM.jpeg",
+                alt: "Performance Max Google Ads case study",
+              },
+              {
+                title: "Lead Quality Lift",
+                meta: [
+                  "Lower wasted spend on broad queries",
+                  "Higher-intent leads from search",
+                ],
+                rating: "⭐ 3.7×",
+                type: "Google Ads",
+                image: "asstes/WhatsApp Image 2026-05-07 at 10.10.57 PM.jpeg",
+                alt: "Google Ads lead generation case study",
+              },
+              {
+                title: "Local Demand Capture",
+                meta: [
+                  "Search and retargeting campaign",
+                  "More buyers from ready-to-convert traffic",
+                ],
+                rating: "⭐ 4×",
+                type: "Google Ads",
+                image: "asstes/WhatsApp Image 2026-05-12 at 6.11.03 AM.jpeg",
+                alt: "Google Ads demand capture case study",
+              },
             ],
-            "top-rated": [
-              ["Paloma Home", "Top Rated • 775% Growth"],
-              ["TechFlow SaaS", "Top Rated • 8× ROAS"],
-              ["Northwave", "Top Rated • $500K+"],
-              ["Apex Fitness", "Top Rated • 300% Leads"],
-              ["Solace Wellness", "Top Rated • 58% CPA Cut"],
-            ],
-            recommended: [
-              ["Creative Sprint", "Recommended • UGC Testing"],
-              ["Search Scale", "Recommended • Google Ads"],
-              ["Meta Growth", "Recommended • CBO Scaling"],
-              ["TikTok Engine", "Recommended • Spark Ads"],
-              ["Full Funnel", "Recommended • Paid Media"],
-            ],
+          };
+
+          const setMetaLines = (metaElement, lines) => {
+            metaElement.replaceChildren();
+            lines.forEach((line, lineIndex) => {
+              if (lineIndex) metaElement.appendChild(document.createElement("br"));
+              metaElement.appendChild(document.createTextNode(line));
+            });
+          };
+
+          const renderDiscoverCards = (data) => {
+            discoverCards.forEach((card, index) => {
+              const item = data[index];
+              if (!item) return;
+              const title = card.querySelector(".card-title");
+              const meta = card.querySelector(".card-meta");
+              const rating = card.querySelector(".card-rating");
+              const type = card.querySelector(".card-type");
+              const image = card.querySelector(".brand-logo img");
+              if (title) title.textContent = item.title;
+              if (meta) setMetaLines(meta, item.meta);
+              if (rating) rating.textContent = item.rating;
+              if (type) type.textContent = item.type;
+              if (image) {
+                image.src = item.image;
+                image.alt = item.alt;
+              }
+            });
           };
 
           const updatePositions = (newCenter = centerIndex, animate = true) => {
@@ -9665,23 +9789,14 @@
 
           discoverTabs.forEach((tab) => {
             tab.addEventListener("click", () => {
-              discoverTabs.forEach((item) => item.classList.remove("active"));
-              tab.classList.add("active");
-              const data = tabData[tab.dataset.tab] || tabData.popular;
-              discoverCards.forEach((card, index) => {
-                const title = card.querySelector(".card-title");
-                const meta = card.querySelector(".card-meta");
-                const logo = card.querySelector(".brand-logo");
-                if (title && data[index]) title.textContent = data[index][0];
-                if (meta && data[index]) meta.textContent = data[index][1];
-                if (logo && data[index])
-                  logo.textContent = data[index][0]
-                    .split(" ")
-                    .map((word) => word[0])
-                    .join("")
-                    .slice(0, 2)
-                    .toUpperCase();
+              discoverTabs.forEach((item) => {
+                item.classList.remove("active");
+                item.setAttribute("aria-pressed", "false");
               });
+              tab.classList.add("active");
+              tab.setAttribute("aria-pressed", "true");
+              const data = tabData[tab.dataset.tab] || tabData.meta;
+              renderDiscoverCards(data);
               updatePositions(2, false);
               resetAutoRotate();
             });
