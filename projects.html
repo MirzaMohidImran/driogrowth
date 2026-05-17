@@ -2194,7 +2194,7 @@
               id="testimonials-title"
               style="font-size: clamp(2rem, 3.5vw, 3rem); margin: 0 auto 3rem"
             >
-              Client Testimonials
+              Do not take our word for it
             </h2>
           </div>
 
@@ -2329,7 +2329,7 @@
                       aria-label="Client story video testimonial"
                     >
                       <source
-                        src="asstes/WhatsApp Video 2026-05-07 at 9.53.10 PM.mp4"
+                        src="asstes/WhatsApp Video 2026-05-16 at 7.23.08 PM.mp4"
                         type="video/mp4"
                       />
                       Your browser does not support the video tag.
@@ -2395,7 +2395,7 @@
                       aria-label="Client story video testimonial"
                     >
                       <source
-                        src="asstes/WhatsApp Video 2026-05-07 at 9.56.42 PM.mp4"
+                        src="asstes/WhatsApp Video 2026-05-07 at 9.53.10 PM.mp4"
                         type="video/mp4"
                       />
                       Your browser does not support the video tag.
@@ -2501,6 +2501,72 @@
                     </div>
                   </div>
                 </div>
+
+                <div
+                  class="testimonial-card-3d video-card"
+                  role="listitem"
+                  aria-label="Video testimonial"
+                  data-visible="true"
+                >
+                  <div
+                    class="video-thumbnail-portrait"
+                    onclick="
+                      if (!event.target.closest('.testimonial-video-toggle')) {
+                        event.stopPropagation();
+                        return window.toggleTestimonialVideo(this);
+                      }
+                    "
+                  >
+                    <video
+                      class="video-card-media"
+                      loop
+                      playsinline
+                      preload="metadata"
+                      disablepictureinpicture
+                      controlslist="nodownload noplaybackrate noremoteplayback"
+                      aria-label="Client story video testimonial"
+                    >
+                      <source
+                        src="asstes/WhatsApp Video 2026-05-07 at 9.56.42 PM.mp4"
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
+                    <button
+                      type="button"
+                      class="testimonial-video-toggle"
+                      aria-label="Play testimonial video"
+                      aria-pressed="false"
+                      onclick="
+                        event.preventDefault();
+                        event.stopImmediatePropagation();
+                        return window.toggleTestimonialVideo(this);
+                      "
+                    >
+                      <svg
+                        class="icon-play"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M8 5v14l11-7z"></path>
+                      </svg>
+                      <svg
+                        class="icon-pause"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M7 5h3v14H7zM14 5h3v14h-3z"></path>
+                      </svg>
+                    </button>
+                    <div class="video-badge">
+                      <span class="pulse-dot"></span><span>Client Story</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -2534,7 +2600,7 @@
             <div
               class="progress-bar"
               id="sliderProgress"
-              style="width: 100%"
+              style="width: 80%"
             ></div>
           </div>
           <p
@@ -2542,7 +2608,7 @@
             id="testimonialSliderStatus"
             aria-live="polite"
           >
-            Showing testimonials 1 through 4 of 4.
+            Showing testimonials 1 through 4 of 5.
           </p>
         </div>
       </section>
