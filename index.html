@@ -3470,7 +3470,7 @@
       .testimonial-card-3d {
         flex: 0 0 calc((100% - 6rem) / 4);
         min-width: 0;
-        aspect-ratio: 3 / 4;
+        aspect-ratio: 9 / 14;
         border-radius: 2rem;
         overflow: hidden;
         transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -3831,7 +3831,7 @@
         .testimonial-card-3d {
           flex-basis: 100%;
           aspect-ratio: auto;
-          min-height: 420px;
+          min-height: 500px;
         }
 
         .testimonial-3d-slider {
@@ -7041,12 +7041,12 @@
 
           <div class="brand-card">
             <a
-              href="https://www.revarcine.com/"
+              href="https://www.ormazone.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
-                src="asstes/Revar_Cine_Web.png"
+                src="asstes/favicon.svg"
                 alt="Brand 1"
                 class="brand-image"
               />
@@ -7965,22 +7965,22 @@
               </article>
               <article class="tc-media tc-media--image">
                 <img
-                  src="asstes/ads/WhatsApp Image 2026-05-07 at 9.38.28 PM (1).jpeg"
-                  alt="Startup team collaboration"
+                  src="asstes/ads/WhatsApp Image 2026-05-07 at 9.46.39 PM (2).jpeg"
+                  alt="Paid social creative showcase"
                   loading="lazy"
                 />
               </article>
               <article class="tc-media tc-media--image">
                 <img
-                  src="asstes/ads/WhatsApp Image 2026-05-07 at 9.38.28 PM.jpeg"
-                  alt="Professional team meeting"
+                  src="asstes/ads/WhatsApp Image 2026-05-07 at 9.46.40 PM (1).jpeg"
+                  alt="Performance creative showcase"
                   loading="lazy"
                 />
               </article>
               <article class="tc-media tc-media--image">
                 <img
-                  src="asstes/ads/WhatsApp Image 2026-05-07 at 9.39.49 PM.jpeg"
-                  alt="Startup team collaboration"
+                  src="asstes/ads/WhatsApp Image 2026-05-07 at 9.47.01 PM (1).jpeg"
+                  alt="Campaign creative showcase"
                   loading="lazy"
                 />
               </article>
@@ -9919,7 +9919,6 @@
 
         if (slider3D && prevBtn && nextBtn && progressBar) {
           let currentIndex = 0;
-          let autoSlideInterval = null;
           let testimonialAnimating = false;
           let testimonialResizeTimeout = null;
 
@@ -10011,25 +10010,12 @@
             );
           };
 
-          const startAutoSlide = () => {
-            if (prefersReducedMotion) return;
-            clearInterval(autoSlideInterval);
-            autoSlideInterval = window.setInterval(goNext, 6000);
-          };
-
-          const resetAutoSlide = () => {
-            clearInterval(autoSlideInterval);
-            startAutoSlide();
-          };
-
           nextBtn.addEventListener("click", () => {
             goNext();
-            resetAutoSlide();
           });
 
           prevBtn.addEventListener("click", () => {
             goPrev();
-            resetAutoSlide();
           });
 
           const sliderWrapper =
@@ -10041,20 +10027,12 @@
             if (event.key === "ArrowLeft") {
               event.preventDefault();
               goPrev();
-              resetAutoSlide();
             }
             if (event.key === "ArrowRight") {
               event.preventDefault();
               goNext();
-              resetAutoSlide();
             }
           });
-
-          sliderWrapper.addEventListener("mouseenter", () => {
-            clearInterval(autoSlideInterval);
-          });
-
-          sliderWrapper.addEventListener("mouseleave", startAutoSlide);
 
           let touchStartX = 0;
           let touchStartY = 0;
@@ -10078,7 +10056,6 @@
 
               if (Math.abs(diffX) > 75 && Math.abs(diffX) > diffY) {
                 diffX > 0 ? goNext() : goPrev();
-                resetAutoSlide();
               }
             },
             { passive: true },
@@ -10108,7 +10085,6 @@
           });
 
           updateSlider();
-          startAutoSlide();
         }
 
         // Play overlays: keep design, make interaction explicit and non-broken

@@ -1126,7 +1126,7 @@
       .testimonial-card-3d {
         flex: 0 0 calc((100% - 6rem) / 4);
         min-width: 0;
-        aspect-ratio: 3/4;
+        aspect-ratio: 9/14;
         border-radius: 2rem;
         overflow: hidden;
         transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1490,7 +1490,7 @@
         .testimonial-card-3d {
           flex-basis: 100%;
           aspect-ratio: auto;
-          min-height: 420px;
+          min-height: 500px;
         }
         .testimonial-3d-slider {
           padding: 0 3rem;
@@ -2860,7 +2860,6 @@
 
       if (slider3D && prevBtn && nextBtn && progressBar) {
         let testimonialIndex = 0;
-        let autoSlideInterval = null;
         let testimonialAnimating = false;
         let testimonialResizeTimeout = null;
         let touchStartX = 0;
@@ -2932,40 +2931,22 @@
             prefersReducedMotion ? 50 : 800,
           );
         };
-        const startAutoSlide = () => {
-          if (prefersReducedMotion || maxIndex() === 0) return;
-          clearInterval(autoSlideInterval);
-          autoSlideInterval = window.setInterval(goNext, 6000);
-        };
-        const resetAutoSlide = () => {
-          clearInterval(autoSlideInterval);
-          startAutoSlide();
-        };
-
         nextBtn.addEventListener("click", () => {
           goNext();
-          resetAutoSlide();
         });
         prevBtn.addEventListener("click", () => {
           goPrev();
-          resetAutoSlide();
         });
         sliderWrapper.addEventListener("keydown", (event) => {
           if (event.key === "ArrowLeft") {
             event.preventDefault();
             goPrev();
-            resetAutoSlide();
           }
           if (event.key === "ArrowRight") {
             event.preventDefault();
             goNext();
-            resetAutoSlide();
           }
         });
-        sliderWrapper.addEventListener("mouseenter", () =>
-          clearInterval(autoSlideInterval),
-        );
-        sliderWrapper.addEventListener("mouseleave", startAutoSlide);
         slider3D.addEventListener(
           "touchstart",
           (event) => {
@@ -2983,7 +2964,6 @@
             );
             if (Math.abs(diffX) > 75 && Math.abs(diffX) > diffY) {
               diffX > 0 ? goNext() : goPrev();
-              resetAutoSlide();
             }
           },
           { passive: true },
@@ -3018,7 +2998,6 @@
         );
 
         updateTestimonials();
-        startAutoSlide();
       }
 
       // Testimonial video cards: user-controlled playback only.
