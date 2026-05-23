@@ -7609,7 +7609,7 @@
                 <div class="card-image-placeholder">
                   <div class="brand-logo">
                     <a href="driogrowth-case-study.html"><img
-                      src="asstes/WhatsApp Image 2026-05-12 at 6.11.03 AM.jpeg"
+                      src="asstes/WhatsApp Image 2026-05-16 at 9.34.21 PM.jpeg"
                       alt=""
                     /></a>
                   </div>
@@ -7696,14 +7696,14 @@
                 <div class="card-image-placeholder">
                   <div class="brand-logo">
                     <img
-                      src="asstes/WhatsApp Image 2026-05-12 at 6.07.18 AM.jpeg"
+                      src="asstes/WhatsApp Image 2026-05-16 at 9.34.20 PM (1).jpeg"
                       alt=""
                     />
                   </div>
                 </div>
                 <div class="card-info">
-                  <h3 class="card-title">UK Ecom Brand</h3>
-                  <p class="card-meta">16.47 ROAS on £6K Spend</p>
+                  <h3 class="card-title">UK Kitchen Brand</h3>
+                  <p class="card-meta">Cut Cost Per Lead by 79% </p>
                 </div>
               </div>
             </div>
@@ -7724,7 +7724,7 @@
                 <div class="card-image-placeholder">
                   <div class="brand-logo">
                     <img
-                      src="asstes/WhatsApp Image 2026-05-07 at 10.10.57 PM.jpeg"
+                      src="asstes/WhatsApp Image 2026-05-16 at 9.34.21 PM (2).jpeg"
                       alt=""
                     />
                   </div>
@@ -9660,6 +9660,7 @@
           let centerIndex = Math.min(2, discoverCards.length - 1);
           let discoverAnimating = false;
           let autoRotate;
+          let activeDiscoverCards = discoverCards;
           const positions = [
             "far-left",
             "left",
@@ -9678,7 +9679,7 @@
                 ],
                 rating: "⭐ 12×",
                 type: "Meta Ads",
-                image: "asstes/WhatsApp Image 2026-05-12 at 6.11.03 AM.jpeg",
+                image: "asstes/WhatsApp Image 2026-05-16 at 9.34.21 PM.jpeg",
                 alt: "Kidswear Meta Ads case study",
               },
               {
@@ -9722,26 +9723,48 @@
             ],
             google: [
               {
-                title: "Search Growth Sprint",
+                title: "UK Beauty Brand",
                 meta: [
-                  "High-intent Google Ads rebuild",
-                  "Cleaner search terms and stronger ROAS",
+                  "2x Growth for a UK Beauty Brand in 4 Months",
                 ],
-                rating: "⭐ 6×",
+                rating: "2x Growth",
                 type: "Google Ads",
-                image: "asstes/WhatsApp Image 2026-05-12 at 6.10.21 AM.jpeg",
-                alt: "Google Ads search campaign case study",
+                image:
+                  "asstes/WhatsApp Image 2026-05-16 at 9.34.20 PM.jpeg",
+                alt: "UK beauty brand Google Ads growth case study",
               },
               {
-                title: "Shopping Ads Scale",
+                title: "Florida SaaS Project",
                 meta: [
-                  "Product-feed structure for ecommerce",
-                  "More qualified purchases from Shopping",
+                  "Cut Cost Per Lead from $130 to $7 in Florida SAAS PROJECT",
                 ],
-                rating: "⭐ 4.8×",
+                rating: "$7 CPL",
                 type: "Google Ads",
-                image: "asstes/WhatsApp Image 2026-05-12 at 6.09.22 AM.jpeg",
-                alt: "Google Shopping Ads case study",
+                image:
+                  "asstes/WhatsApp Image 2026-05-16 at 9.34.20 PM (2).jpeg",
+                alt: "Florida SaaS Google Ads cost per lead case study",
+              },
+              {
+                title: "Clothing Brand",
+                meta: [
+                  "Generated $434K+ Revenue at a 5.56 ROAS",
+                ],
+                rating: "$434K+",
+                type: "Google Ads",
+                image:
+                  "asstes/google-ads/WhatsApp Image 2026-05-20 at 9.33.13 PM.jpeg",
+                alt: "Clothing brand Google Ads revenue case study",
+              },
+              {
+                title: "Supplement Brand",
+                meta: [
+                  "Generated \u00A3306K+ Revenue at a 4.26 ROAS",
+                ],
+                rating: "\u00A3306K+",
+                type: "Google Ads",
+                image:
+                  "asstes/google-ads/WhatsApp Image 2026-05-20 at 10.14.08 PM.jpeg",
+                alt: "Supplement brand Google Ads revenue case study",
               },
               {
                 title: "Performance Max",
@@ -9776,7 +9799,7 @@
                 image: "asstes/WhatsApp Image 2026-05-12 at 6.11.03 AM.jpeg",
                 alt: "Google Ads demand capture case study",
               },
-            ],
+            ].slice(0, 4),
           };
 
           const setMetaLines = (metaElement, lines) => {
@@ -9788,9 +9811,17 @@
           };
 
           const renderDiscoverCards = (data) => {
+            activeDiscoverCards = discoverCards.filter((_, index) =>
+              Boolean(data[index]),
+            );
             discoverCards.forEach((card, index) => {
               const item = data[index];
-              if (!item) return;
+              card.hidden = !item;
+              if (!item) {
+                card.classList.remove("active");
+                card.removeAttribute("aria-current");
+                return;
+              }
               const title = card.querySelector(".card-title");
               const meta = card.querySelector(".card-meta");
               const rating = card.querySelector(".card-rating");
@@ -9808,9 +9839,11 @@
           };
 
           const updatePositions = (newCenter = centerIndex, animate = true) => {
+            if (!activeDiscoverCards.length) return;
             if (discoverAnimating && animate) return;
             centerIndex =
-              (newCenter + discoverCards.length) % discoverCards.length;
+              (newCenter + activeDiscoverCards.length) %
+              activeDiscoverCards.length;
             if (animate && !prefersReducedMotion) {
               discoverAnimating = true;
               window.setTimeout(() => {
@@ -9818,10 +9851,12 @@
               }, 720);
             }
 
-            discoverCards.forEach((card, index) => {
+            discoverCards.forEach((card) => {
+              if (card.hidden) return;
+              const index = activeDiscoverCards.indexOf(card);
               let offset = index - centerIndex;
-              if (offset < -2) offset += discoverCards.length;
-              if (offset > 2) offset -= discoverCards.length;
+              if (offset < -2) offset += activeDiscoverCards.length;
+              if (offset > 2) offset -= activeDiscoverCards.length;
               const positionIndex = offset + 2;
               const position = positions[positionIndex] || "center";
               card.dataset.position = position;
@@ -9856,14 +9891,18 @@
             resetAutoRotate();
           });
 
-          discoverCards.forEach((card, index) => {
+          discoverCards.forEach((card) => {
             card.addEventListener("click", () => {
+              const index = activeDiscoverCards.indexOf(card);
+              if (index < 0) return;
               updatePositions(index);
               resetAutoRotate();
             });
             card.addEventListener("keydown", (event) => {
               if (event.key === "Enter" || event.key === " ") {
                 event.preventDefault();
+                const index = activeDiscoverCards.indexOf(card);
+                if (index < 0) return;
                 updatePositions(index);
                 resetAutoRotate();
               }
@@ -9880,7 +9919,7 @@
               tab.setAttribute("aria-pressed", "true");
               const data = tabData[tab.dataset.tab] || tabData.meta;
               renderDiscoverCards(data);
-              updatePositions(2, false);
+              updatePositions(Math.min(2, data.length - 1), false);
               resetAutoRotate();
             });
           });
