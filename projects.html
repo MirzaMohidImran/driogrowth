@@ -886,6 +886,28 @@
         font-weight: 700;
         color: rgba(43, 43, 43, 0.75);
       }
+      .case-highlights {
+        display: grid;
+        gap: 0.7rem;
+        margin-top: 1.35rem;
+        color: rgba(43, 43, 43, 0.74);
+        font-weight: 700;
+      }
+      .case-highlights li {
+        display: grid;
+        grid-template-columns: 0.65rem 1fr;
+        gap: 0.7rem;
+        align-items: start;
+      }
+      .case-highlights li::before {
+        content: "";
+        width: 0.48rem;
+        height: 0.48rem;
+        margin-top: 0.5rem;
+        border-radius: 999px;
+        background: var(--brand);
+        box-shadow: 0 0 0 0.25rem rgba(154, 205, 50, 0.15);
+      }
       .result-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -1727,11 +1749,6 @@
                     <strong>202</strong><span>Tracked purchases</span>
                   </div>
                 </div>
-                <a
-                  class="btn btn-primary mt-7"
-                  href="driogrowth-case-study.html"
-                  >View Case Study ↗</a
-                >
               </div>
             </article>
 
@@ -1782,11 +1799,6 @@
                     <strong>1,776</strong><span>Total purchases</span>
                   </div>
                 </div>
-                <a
-                  class="btn btn-primary mt-7"
-                  href="driogrowth-case-study.html"
-                  >View Case Study ↗</a
-                >
               </div>
             </article>
 
@@ -1837,11 +1849,137 @@
                     <strong>$13</strong><span>Average CPA</span>
                   </div>
                 </div>
-                <a
-                  class="btn btn-primary mt-7"
-                  href="driogrowth-case-study.html"
-                  >View Case Study ↗</a
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-media">
+                <div class="browser" aria-hidden="true">
+                  <div class="browser-head"><i></i><i></i><i></i></div>
+                  <div class="browser-body project-proof-body">
+                    <img
+                      class="project-proof-img"
+                      src="asstes/WhatsApp%20Image%202026-05-20%20at%209.34.27%20PM.jpeg"
+                      alt="Google Ads results showing &pound;306K conversion value, 4.26 ROAS, and 106K clicks for a supplement brand"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <span class="badge">Google Ads Supplement Brand</span>
+                <h3
+                  class="text-[clamp(2rem,4vw,4rem)] leading-[1.02] tracking-[-.035em] font-extrabold mt-5"
                 >
+                  Generated &pound;306K+ Revenue at a 4.26 ROAS for a Supplement Brand
+                </h3>
+                <p class="lead mt-4">
+                  We partnered with a growing supplement brand to scale their
+                  online sales through a performance-focused Google Ads strategy.
+                  By restructuring campaign architecture, optimizing high-intent
+                  search traffic, and continuously refining Shopping campaigns,
+                  we generated over &pound;306,000 in tracked conversion value while
+                  maintaining a strong 4.26 ROAS.
+                </p>
+                <ul class="case-highlights" aria-label="Key Results">
+                  <li>
+                    Generated over &pound;306K in conversion value through Google Ads.
+                  </li>
+                  <li>
+                    Achieved a profitable 4.26 ROAS while scaling campaigns
+                    consistently.
+                  </li>
+                  <li>
+                    Drove 106K+ clicks and high-intent traffic to the store.
+                  </li>
+                  <li>
+                    Optimized branded, non-branded, and Shopping campaigns for
+                    sustainable growth.
+                  </li>
+                </ul>
+                <div class="tech-tags mt-6">
+                  <span>Google Ads</span><span>Shopping Campaigns</span
+                  ><span>Search Traffic</span><span>Campaign Restructure</span>
+                </div>
+                <div class="result-grid mt-6">
+                  <div class="result-box">
+                    <strong>&pound;306K+</strong><span>Conversion value</span>
+                  </div>
+                  <div class="result-box">
+                    <strong>4.26</strong><span>ROAS maintained</span>
+                  </div>
+                  <div class="result-box">
+                    <strong>106K+</strong><span>Campaign clicks</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-media light">
+                <div class="browser" aria-hidden="true">
+                  <div class="browser-head"><i></i><i></i><i></i></div>
+                  <div class="browser-body project-proof-body">
+                    <img
+                      class="project-proof-img"
+                      src="asstes/WhatsApp%20Image%202026-05-20%20at%209.28.25%20PM.jpeg"
+                      alt="Google Ads results showing $434K conversion value, 5.56 ROAS, 4.6 million impressions, and 52K clicks"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <span class="badge">Google Ads Clothing Brand</span>
+                <h3
+                  class="text-[clamp(2rem,4vw,4rem)] leading-[1.02] tracking-[-.035em] font-extrabold mt-5"
+                >
+                  Generated $434K+ Revenue at a 5.56 ROAS With Google Ads
+                </h3>
+                <p class="lead mt-4">
+                  We partnered with a fast-growing clothing brand to scale their
+                  online sales through a full-funnel Google Ads strategy. By
+                  restructuring campaigns, optimizing product feeds, and focusing
+                  heavily on high-intent search traffic, we generated over
+                  $434,000 in tracked conversion value while maintaining a
+                  profitable 5.56 ROAS.
+                </p>
+                <ul class="case-highlights" aria-label="Key Results">
+                  <li>
+                    Generated $434K+ in conversion value through a
+                    high-performance Google Ads strategy.
+                  </li>
+                  <li>
+                    Achieved a strong 5.56 ROAS while scaling consistently over
+                    time.
+                  </li>
+                  <li>
+                    Drove over 4.6 million impressions and 52K+ clicks across
+                    campaigns.
+                  </li>
+                  <li>
+                    Optimized branded, non-branded, Shopping, and Performance
+                    Max campaigns for maximum profitability.
+                  </li>
+                </ul>
+                <div class="tech-tags mt-6">
+                  <span>Google Ads</span><span>Shopping Ads</span
+                  ><span>Performance Max</span><span>Feed Optimization</span>
+                </div>
+                <div class="result-grid mt-6">
+                  <div class="result-box">
+                    <strong>$434K+</strong><span>Conversion value</span>
+                  </div>
+                  <div class="result-box">
+                    <strong>5.56</strong><span>ROAS maintained</span>
+                  </div>
+                  <div class="result-box">
+                    <strong>4.6M+</strong><span>Impressions</span>
+                  </div>
+                  <div class="result-box">
+                    <strong>52K+</strong><span>Campaign clicks</span>
+                  </div>
+                </div>
               </div>
             </article>
 
@@ -1892,11 +2030,6 @@
                     <strong>2.6%</strong><span>Cold CTR</span>
                   </div>
                 </div>
-                <a
-                  class="btn btn-primary mt-7"
-                  href="driogrowth-case-study.html"
-                  >View Case Study ↗</a
-                >
               </div>
             </article>
 
@@ -1948,11 +2081,6 @@
                     <strong>Stable</strong><span>Cost per conversion</span>
                   </div>
                 </div>
-                <a
-                  class="btn btn-primary mt-7"
-                  href="driogrowth-case-study.html"
-                  >View Case Study &#8599;</a
-                >
               </div>
             </article>
 
@@ -2004,11 +2132,6 @@
                     <strong>10 mo.</strong><span>Consistent growth</span>
                   </div>
                 </div>
-                <a
-                  class="btn btn-primary mt-7"
-                  href="driogrowth-case-study.html"
-                  >View Case Study &#8599;</a
-                >
               </div>
             </article>
 
@@ -2059,11 +2182,6 @@
                     <strong>12+ mo.</strong><span>Low CPL maintained</span>
                   </div>
                 </div>
-                <a
-                  class="btn btn-primary mt-7"
-                  href="driogrowth-case-study.html"
-                  >View Case Study &#8599;</a
-                >
               </div>
             </article>
 
@@ -2114,11 +2232,6 @@
                     <strong>263</strong><span>Total leads</span>
                   </div>
                 </div>
-                <a
-                  class="btn btn-primary mt-7"
-                  href="driogrowth-case-study.html"
-                  >View Case Study &#8599;</a
-                >
               </div>
             </article>
           </div>
